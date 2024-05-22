@@ -1,5 +1,5 @@
-# Hello World! I'm Emily! 
-Welcome to my webpage 🙂
+# Hello World! 
+My name is Emily and this is my webpage. Welcome. 🙂
 
 
 
