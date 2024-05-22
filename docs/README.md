@@ -1,8 +1,6 @@
 # Under construction..
 
-[About Me](about.md) 
-
-[Contact Me](contact.md) 
+[About Me](about.md) [Contact Me](contact.md) 
 
 
 
