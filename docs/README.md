@@ -1,12 +1,8 @@
 # Under construction..
 
-[About Me](about.md)
+[About Me](about.md) [Contact Me](contact.md)
 
-[Contact Me](contact.md)
-
-[What I'm Studying](https://exd1000.tumblr.com/tagged/challenges)
-
-[My Random Thoughts](https://exd1000.tumblr.com/tagged/personal)
+[What I'm Studying](https://exd1000.tumblr.com/tagged/challenges) [My Random Thoughts](https://exd1000.tumblr.com/tagged/personal)
 
 
 
