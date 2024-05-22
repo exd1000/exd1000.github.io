@@ -1,9 +1,9 @@
 # Under construction..
 [What I'm Studying](https://exd1000.tumblr.com/)
 
-[About Me](docs/about.md)
+[About Me](/about.md)
 
-[Contact Me](docs/contact.md)
+[Contact Me](/contact.md)
 
 
 
