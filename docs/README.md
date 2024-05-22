@@ -4,7 +4,7 @@
 
 [Contact Me](contact.md)
 
-[What I'm Studying](https://exd1000.tumblr.com/)
+[What I'm Studying](https://exd1000.tumblr.com/tagged/challenges)
 
 
 
