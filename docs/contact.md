@@ -1,4 +1,4 @@
-[Questions?](https://exd1000.tumblr.com/ask).
+[Questions?](https://exd1000.tumblr.com/ask)
 
 
 
