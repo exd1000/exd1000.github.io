@@ -11,6 +11,5 @@ Check out my blog:
 [What I'm Doing/Studying](https://exd1000.tumblr.com/tagged/challenges) 
 
 
-
-
+-- 
 [Home](https://exd1000.github.io/)
