@@ -1,6 +1,6 @@
 # Hello World! 
 My name is Emily and this is my webpage. Welcome. 🙂
-
+<br>
 
 Check out my blog: 
 
@@ -10,7 +10,7 @@ Check out my blog:
 
 [What I'm Doing/Studying](https://exd1000.tumblr.com/tagged/challenges) 
 
-
+<br>
 --- 
 
 [Home](https://exd1000.github.io/)
