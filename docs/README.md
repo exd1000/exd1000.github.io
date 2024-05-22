@@ -1,10 +1,14 @@
 # Under construction..
 
 [About Me](about.md) 
+
 [Contact Me](contact.md) 
 
+
 [Currently..](https://exd1000.tumblr.com/tagged/currents)
+
 [My Random Thoughts](https://exd1000.tumblr.com/tagged/personal)
+
 [What I'm Doing/Studying](https://exd1000.tumblr.com/tagged/challenges) 
 
 
