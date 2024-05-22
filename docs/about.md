@@ -10,6 +10,6 @@ Check out my blog: <br/>
 [What I'm Doing/Studying](https://exd1000.tumblr.com/tagged/challenges) 
 
 <br/>
---- 
+<br/>
 
 [Home](https://exd1000.github.io/)
