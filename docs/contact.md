@@ -1,6 +1,6 @@
 # Connect With Me
 
-[Questions?](https://exd1000.tumblr.com/ask)
+blahblah@email.com
 
 
 <br/>
