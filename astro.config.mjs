@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  site: 'https://exd1000.github.io',  
+  base: '/exd1000.github.io',        
 });
