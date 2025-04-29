@@ -1,0 +1,97 @@
+---
+import "../styles/global.css";
+const { pageStyle } = Astro.props;
+const isCV = pageStyle === 'cv';
+const isBlank = pageStyle === 'blank'; 
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exd1000</title>
+
+<!-- Glitchy font aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<!-- Glitch + Fiber CSS if not CV -->
+    {!isCV && (
+      <style>
+        body {
+          background-color: #000;
+          background-image: 
+            repeating-linear-gradient(
+              0deg,
+              rgba(255, 255, 255, 0.015),
+              rgba(255, 255, 255, 0.015) 1px,
+              transparent 1px,
+              transparent 5px
+            ),
+            repeating-linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.015),
+              rgba(255, 255, 255, 0.015) 1px,
+              transparent 1px,
+              transparent 5px
+            );
+          animation: pulseLines 6s infinite ease-in-out;
+          font-family: 'Share Tech Mono', monospace;
+        }
+
+        @keyframes pulseLines {
+          0%, 100% { background-position: 0 0, 0 0; }
+          50% { background-position: 10px 10px, -10px -10px; }
+        }
+      </style>
+    )}
+  </head>
+
+  
+  <body class={`transition-opacity duration-300 ${isBlank ? 'bg-[#f8f5f0]' : (isCV ? 'bg-black text-neutral-200 font-sans' : 'bg-black text-white font-mono')}`}>
+    {isBlank ? (
+      // for blank elevator music page
+      <slot />
+    ) : (
+      <div class={isCV ? '' : 'bg-black/80 p-5 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto mt-10'}>
+        <slot />
+      </div>
+    )}
+  </body>
+</html>
+
+    <!-- Prevent back navigation -->
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        history.pushState(null, null, location.href);
+        window.addEventListener('popstate', function () {
+          history.pushState(null, null, location.href);
+        });
+      });
+    </script>
+
+
+    <!-- Fade out animation -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const target = e.currentTarget;
+            if (
+              target.hostname === window.location.hostname &&
+              !target.hasAttribute('target')
+            ) {
+              e.preventDefault();
+              document.body.classList.add('fade-out');
+              setTimeout(() => {
+                window.location = target.href;
+              }, 300);
+            }
+          });
+        });
+      });
+    </script>
+
+
+
+

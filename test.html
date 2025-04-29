@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Test</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: white;
+    }
+    #portalOverlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      font-size: 2rem;
+      font-family: 'Playfair Display', sans-serif;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #portalText {
+      opacity: 1;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<main style="padding: 50px; text-align: center;">
+  <h1>Hello, I'm Emily!</h1>
+  <p>This is my CV test page.</p>
+  <button id="exitButton" style="margin-top: 20px; padding: 10px 20px; font-size: 1.2rem;">Exit</button>
+</main>
+
+<div id="portalOverlay">
+  <div id="portalText">
+    <!-- This will be filled dynamically -->
+  </div>
+</div>
+
+<script>
+function sealPortal() {
+  const portalMessages = [
+    'Portal sealed.',
+    'Memory fragment lost.',
+    'Node access denied.',
+    'Archive corrupted.',
+    'Connection terminated.',
+    'Access to origin node revoked.'
+  ];
+
+  const overlay = document.getElementById('portalOverlay');
+  const portalText = document.getElementById('portalText');
+
+  // Set a random message
+  portalText.textContent = portalMessages[Math.floor(Math.random() * portalMessages.length)];
+
+  // Show the overlay
+  overlay.style.display = 'flex';
+
+  // After 5 seconds, show alert (instead of redirecting, to test)
+  setTimeout(() => {
+    alert("Now we would redirect home.");
+  }, 5000);
+}
+
+// Attach the click event properly
+document.getElementById('exitButton').addEventListener('click', (e) => {
+  e.preventDefault();
+  sealPortal();
+});
+</script>
+
+</body>
+</html>

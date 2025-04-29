@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout pageStyle="blank">
+
+<main style="background:black; color:white; font-family:monospace; position:relative; width:100vw; height:100vh; overflow:hidden;">
+  <a href="/start" style="position:absolute; top:20px; left:20px; color:gray; text-decoration:none; z-index:1000;">← Back</a>
+  
+  <div id="thoughts-container" style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden;"></div>
+</main>
+
+<style>
+  #thoughts-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    //top: 0;
+    //left: 0;
+  }
+
+  .thought {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5rem;
+    color: white;
+    pointer-events: none;
+    animation: fadeInOut 7s ease-in-out forwards, float 8s ease-in-out infinite;
+    white-space: pre-wrap;
+    max-width: 60%;
+  }
+
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.9); }
+    15% { opacity: 1; transform: scale(1); }
+    85% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
+  }
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const thoughts = [
+    "I kinda want tacos right now.",
+    "We're all ghosts haunting people's memories.",
+    "I am a ghost haunting my own memories",
+    "It is what it is.",
+    "To be or not to be?",
+    "THAT IS THE QUESTION",
+    "Et tu Brute?",
+    "Is there such thing as free will?",
+    "Yes there's such thing as free will.",
+    "No actually Indian sounds good.",
+    "At 3 AM though?",
+    "I should go to bed.",
+    "We will never understand anything greater than the 3D.", 
+    "Who closes the bus door after the bus driver gets off?",
+    "Astrology is real.", 
+    "THE MOON CONTROLS THE WAVES.",
+    "Mecury is in retrograde.",
+    "I am one with the earth.",
+    "I AM JUST A SLAVE TO THE ECONOMY"
+  ];
+
+  const container = document.getElementById('thoughts-container');
+  let index = 0;
+
+  function spawnThought() {
+    const thought = document.createElement('div');
+    thought.textContent = thoughts[index];
+    
+    thought.style.position = 'absolute';
+    thought.style.fontSize = `${Math.random() * 1 + 1.5}rem`; // random size between 1-2.5
+    thought.style.whiteSpace = 'nowrap';
+    thought.style.opacity = '0';
+    thought.style.pointerEvents = 'none';
+    thought.style.color = 'white';
+    thought.style.transform = `rotate(${(Math.random() * 10 - 5)}deg)`; // random rotation
+    thought.style.transition = `all ${Math.random() * 2 + 2}s ease-in-out`; // random fade time between 2-4s
+    thought.style.visibility = 'hidden';
+
+    container.appendChild(thought);
+
+    // Measure after adding
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const textWidth = thought.offsetWidth;
+    const textHeight = thought.offsetHeight;
+
+    const x = Math.random() * (w - textWidth - 40) + 20;
+    const y = Math.random() * (h - textHeight - 40) + 20;
+
+    thought.style.left = `${x}px`;
+    thought.style.top = `${y}px`;
+    thought.style.visibility = 'visible';
+
+    requestAnimationFrame(() => {
+      thought.style.opacity = '1';
+      thought.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite alternate`; // float between 4-10s
+    });
+
+    setTimeout(() => {
+      thought.style.opacity = '0';
+      setTimeout(() => {
+        thought.remove();
+      }, 3000);
+    }, 4000);
+
+
+    index++;
+    if (index >= thoughts.length) {
+      index = 0;
+    }
+}
+
+  spawnThought();
+  setInterval(spawnThought, 3000);
+});
+</script>
+
+</Layout>

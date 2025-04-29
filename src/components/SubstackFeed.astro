@@ -1,0 +1,30 @@
+---
+import { getSubstackFeed } from '../lib/getSubstackFeed';
+
+let posts: any[] = [];
+
+try {
+  posts = await getSubstackFeed();
+} catch (err) {
+  console.error("❌ SubstackFeed failed:", err);
+}
+---
+
+<div class="mt-16">
+  <h2 class="text-3xl text-gray-800 mb-4">Latest on Substack</h2>
+  <ul class="space-y-4">
+    {posts.map(post => (
+      <li class="border-b border-gray-200 pb-4">
+        <a href={post.link} target="_blank" class="text-lg text-gray-500 hover:underline">
+          {post.title}
+        </a>
+        <p class="text-sm text-gray-400 mt-1">
+          {new Date(post.pubDate).toLocaleDateString()}
+        </p>
+        {post.contentSnippet && (
+          <p class="text-gray-500 text-sm mt-2">{post.contentSnippet}</p>
+        )}
+      </li>
+    ))}
+  </ul>
+</div>

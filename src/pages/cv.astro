@@ -1,0 +1,448 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout pageStyle="blank"> 
+  
+<!-- still editing -->
+  <!-- PRIVATE -->
+  <div id="protectedContent" class="hidden">
+    <main class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]">
+
+
+      <h1 class="text-5xl md:text-6xl mb-4 font-bold tracking-wide animate-fade-in-slow">EMILY DINH</h1>
+
+      <!-- Contact Links -->
+      <div class="flex flex-wrap justify-center items-center gap-6 text-gray-500 text-sm mb-10 animate-fade-in-slow">
+        <a href="https://github.com/exd1000" target="_blank" class="hover:text-indigo-300 transition">GitHub</a>
+        <span>·</span>
+        <a href="https://exd1000.substack.com/" target="_blank" class="hover:text-indigo-300 transition">Substack</a>
+        <span>·</span>
+        <a href="https://linkedin.com/in/dinhemily" target="_blank" class="hover:text-indigo-300 transition">LinkedIn</a>
+        <span>·</span>
+        <a href="mailto:etdinhh@gmail.com" class="hover:text-indigo-300 transition">Email</a>
+      </div>
+
+      <!-- Main -->
+      <div class="relative w-full max-w-4xl p-6 overflow-y-auto" style="max-height: 80vh;">
+        <section class="text-left text-base leading-relaxed space-y-16">
+
+          <!-- Education -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Education</h2>
+            <ul class="space-y-6">
+              
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('edu1')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">M.S., Applied Artificial Intelligence</strong>
+                  <span class="text-gray-500 text-sm">Dec 2023</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  University of San Diego
+                </div>
+                <div id="edu1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>GPA: 4.0/4.0</li>
+                    <li>Capstone: Brain Tumor Classification & Detection GUI</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('edu2')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">B.S., Biological Sciences</strong>
+                  <span class="text-gray-500 text-sm">Jun 2020</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  University of California, Irvine
+                </div>
+                <div id="edu2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Minor in Psychological Behavior & Sciences</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('edu3')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">International Summer School, Physics</strong>
+                  <span class="text-gray-500 text-sm">Jun 2017</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  University of Sussex
+                </div>
+                <div id="edu3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Summer Program in Physics, International Collaboration</li>
+                  </ul>
+                </div>
+              </li>
+          
+            </ul>
+          </div>
+          <div class="divider"></div>
+          <!-- Research Focus -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Research Focus</h2>
+            <p class="text-sm text-gray-700">
+              Computational cognitive neuroscience researcher specializing in artificial intelligence, human memory modeling, and machine learning.
+              My work focuses on high-dimensional vector spaces and computational models that simulate and inform our understanding of memory encoding, retrieval, and inference. 
+              With expertise in deep learning architectures, associative learning, and graph-based memory representations, 
+              I explore how different methodologies and theoretical frameworks can inform the structural dynamics of memory 
+              and cognition in both humans and artificial systems, contributing to the development of interpretable AI models and understanding of human memory.
+            </p>
+          </div>
+          <div class="divider"></div>
+          <!-- Research Exp -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Research Experience</h2>
+            <ul class="space-y-6">
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details1')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">AI & Language Model Researcher</strong>
+                  <span class="text-gray-500 text-sm">Oct 2024 – Present</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  University of San Diego, Darby Vickers, Ph.D.
+                </div>
+                <div id="details1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Develop theoretical frameworks for emergence in LLMs.</li>
+                    <li>Analyze model complexity vs. human-like behaviors.</li>
+                    <li>Integrate ML, philosophy, complex systems theory, and cognitive science.</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details2')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Computational Cognitive Science Researcher</strong>
+                  <span class="text-gray-500 text-sm">Jan 2023 – Present</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  UCI Computational Cognitive Neuroscience Lab, Aaron Bornstein, Ph.D.
+                </div>
+                <div id="details2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Trained autoencoder models on associative learning tasks.</li>
+                    <li>Investigated latent space structures and sparsity measures.</li>
+                    <li>Explored vector spaces in memory encoding/retrieval in AI and neuroscience.</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details3')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Data Scientist Researcher</strong>
+                  <span class="text-gray-500 text-sm">Jun 2022 – Present</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  Johnson & Johnson MedTech – Biosense Webster Inc.
+                </div>
+                <div id="details3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Blahblah</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details4')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Medical Laboratory Researcher</strong>
+                  <span class="text-gray-500 text-sm">Jul 2021 – Apr 2022</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  IQVIA – Q2 Solutions
+                </div>
+                <div id="details4" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Blahblah</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="divider"></div>
+          <!-- Publications -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Publications & Presentations</h2>
+          
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-4 ml-4">
+              <li>
+                Zhou, D., Noh, S., <strong>Dinh, E.</strong>, Guo, J., Cooper, K., & Bornstein, A. (in press). 
+                <em>Sparse distributed memory constraints drive representational change as a function of temporal learning sequence.</em> 
+                In A. Ruggeri, D. Barner, C. Walker, & N. Bramley (Eds.), 
+                <em>Proceedings of the 47th Annual Meeting of the Cognitive Science Society</em>. 
+                Cognitive Science Society, San Francisco, CA.
+              </li>
+          
+              <li>
+                Noh, S., Zhou, D., Cooper, K., Guo, J., <strong>Dinh, E.</strong>, & Bornstein, A. (under review). 
+                <em>Sparsity and memory constraints interact with training sequence to bias learning of associative maps.</em> 
+                Manuscript submitted for publication in <em>Neuropsychologia</em>.
+              </li>
+          
+              <li>
+                <strong>Dinh, E.</strong>, Zhou, D., Guo, J., Noh, S., Cooper, K., & Bornstein, A. (2024, October 5–9). 
+                <em>Autoencoder models of human graph learning reveal that sparse and dense representations differentially support planning and recall.</em> 
+                [Poster presentation]. Society of Neuroscience Annual Conference, Chicago, IL.
+              </li>
+            </ul>
+          </div>
+          <div class="divider"></div>
+          <!-- Teaching -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Teaching & Mentorship</h2>
+            <ul class="space-y-6">
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach1')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Data Science Instructor</strong>
+                  <span class="text-gray-500 text-sm">Sep 2024 – May 2025</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  Learning Fuze
+                </div>
+                <div id="teach1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Instructing full-stack data science curriculum including Python, SQL, machine learning fundamentals, and project development.</li>
+                    <li>Mentoring students on coding best practices and industry career preparation.</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach2')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Behavior Technician</strong>
+                  <span class="text-gray-500 text-sm">2019 – 2020</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  Centria Healthcare
+                </div>
+                <div id="teach2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Supported behavior intervention programs for children with autism based on Applied Behavior Analysis (ABA) principles.</li>
+                  </ul>
+                </div>
+              </li>
+          
+              <li>
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach3')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Lead Behavior Technician</strong>
+                  <span class="text-gray-500 text-sm">2016 – 2018</span>
+                </div>
+                <div class="text-gray-600 text-sm mt-1 italic">
+                  Autism Interventions & Resources
+                </div>
+                <div id="teach3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                  <ul class="list-disc list-inside">
+                    <li>Led behavior therapy sessions, coordinated treatment plans, and mentored junior technicians in delivering therapy services.</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Skills -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Technical Skills</h2>
+            <p class="text-sm text-gray-700">
+              Python, TypeScript, Rust, Go, SQL, Git, PyTorch, TensorFlow, Scikit-Learn, Autoencoders, Transformer Models (LLMs), Hopfield Networks, Graph Theory, Entropy/Sparsity Measures, Clinical Research Techniques, English (fluent), Vietnamese (fluent), Spanish (basic).
+            </p>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Affilations -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Professional Affiliations</h2>
+          
+
+            
+              <!-- NTX -->
+              <div class="space-y-2">
+                <h3 class="text-lg italic font-normal text-gray-700 mb-4">NeuroTechX</h3>
+                <div class="ml-3 space-y-6"> 
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('affil1')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Content Lab Management Team – Writing Lead</strong>
+                  <span class="text-gray-500 text-sm">Jul 2023 – Present</span>
+                </div>
+                <div id="affil1" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
+                  <ul class="list-disc list-inside">
+                    <li>Oversee multiple teams of writers, editors, and designers.</li>
+                    <li>Manage content development from ideation to publication.</li>
+                    <li>Collaborate with industry leaders, scholars, and professionals.</li>
+                  </ul>
+                </div>
+          
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('affil2')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">News Squad Team Member</strong>
+                  <span class="text-gray-500 text-sm">Mar 2023 – Mar 2024</span>
+                </div>
+                <div id="affil2" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
+                  <ul class="list-disc list-inside">
+                    <li>Curated and distributed monthly neurotechnology news to 30+ chapters.</li>
+                  </ul>
+                </div>
+          
+                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('affil3')">
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Content Lab Associate Editor</strong>
+                  <span class="text-gray-500 text-sm">Nov 2021 – Mar 2024</span>
+                </div>
+                <div id="affil3" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
+                  <ul class="list-disc list-inside">
+                    <li>Provided editorial oversight for 6K+ global members.</li>
+                  </ul>
+                </div>
+
+          
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Exit Warning -->
+          <div class="mt-12 text-center text-xs italic text-gray-400 opacity-70 font-sans tracking-normal antialiased">
+            Warning: Page will close upon 
+            <button id="exitButton" class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition-all">exit</button>.
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Unlock Modal -->
+  <div id="unlockModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="bg-[#f8f5f0] text-[#1f2937] p-8 rounded-xl shadow-lg max-w-sm w-full text-center">
+      <h2 class="text-xl font-bold mb-4">[ACCESS CV NODE]</h2>
+      <input id="passwordInput" type="password" placeholder="Enter authorization key" 
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 mb-4 text-sm" />
+      <button id="unlockButton" 
+        class="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-black transition-all text-sm">
+        Unlock Memory
+      </button>
+      <div id="unlockError" class="text-red-400 text-xs mt-2 hidden">Uh oh. That's not right.</div>
+    </div>
+  </div>
+
+  <!-- Styles -->
+  <style>
+    .animate-fade-in-slow { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    html { scroll-behavior: smooth; }
+    .divider { border-top: 1px solid #d1d5db; margin-top: 2rem; margin-bottom: 2rem; }
+    @keyframes fogReveal {
+      0% { opacity: 0; filter: blur(8px); transform: translateY(30px); }
+      50% { opacity: 0.5; filter: blur(4px); }
+      100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+    }
+    .fade-section { opacity: 0; transform: translateY(30px); filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease; }
+    .fade-section.visible { animation: fogReveal 0.6s ease forwards; }
+  </style>
+
+
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const sections = document.querySelectorAll('.fade-section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(section => observer.observe(section));
+  
+
+      const correctPassword = "luckyyou";
+      const modal = document.getElementById('unlockModal');
+      const passwordInput = document.getElementById('passwordInput');
+      const unlockButton = document.getElementById('unlockButton');
+      const unlockError = document.getElementById('unlockError');
+      const protectedContent = document.getElementById('protectedContent');
+  
+      if (sessionStorage.getItem('cvUnlocked') === 'true') {
+        modal.classList.add('hidden');
+        protectedContent.classList.remove('hidden');
+      } else {
+        modal.classList.remove('hidden');
+      }
+  
+      unlockButton.addEventListener('click', () => {
+        if (passwordInput.value.trim().toLowerCase() === correctPassword) {
+          sessionStorage.setItem('cvUnlocked', 'true');
+          modal.classList.add('hidden');
+          protectedContent.classList.remove('hidden');
+        } else {
+          unlockError.classList.remove('hidden');
+        }
+      });
+  
+      passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') unlockButton.click();
+      });
+  
+
+      const exitButton = document.getElementById('exitButton');
+      if (exitButton) {
+        exitButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          triggerCorruption();
+        });
+      }
+  
+
+      document.querySelectorAll('[onclick^="toggleDetails"]').forEach(item => {
+        item.addEventListener('click', (e) => {
+          const id = e.currentTarget.getAttribute('onclick').match(/'([^']+)'/)[1];
+          toggleDetails(id);
+        });
+      });
+  
+    }); 
+  
+
+  
+    function toggleDetails(id) {
+      const element = document.getElementById(id);
+      if (element.classList.contains('hidden')) {
+        element.classList.remove('hidden');
+      } else {
+        element.classList.add('hidden');
+      }
+    }
+  
+    function triggerCorruption() {
+      const messages = [
+        "Memory Corrupted.",
+        "Access Revoked.",
+        "Node Disconnected.",
+        "Memory Fragment Unrecoverable.",
+        "Unauthorized Neural Reentry.",
+        "Signal Lost."
+      ];
+      const message = messages[Math.floor(Math.random() * messages.length)];
+      document.body.innerHTML = `
+        <style>
+          body { background: black; animation: flicker 1.2s infinite; }
+          @keyframes flicker { 0%, 100% { background: black; } 50% { background: #111; } }
+          .glitch-text { color: white; font-size: 2.5rem; font-family: monospace; animation: glitch 0.6s infinite; text-shadow: 1px 1px #ff00ff, -1px -1px #00ffff; }
+          .glitch-container { display: flex; align-items: center; justify-content: center; height: 100vh; }
+          @keyframes glitch { 0% { transform: translate(0); } 50% { transform: translate(-2px, 2px); } 100% { transform: translate(0); } }
+        </style>
+        <div class="glitch-container"><div class="glitch-text">${message}</div></div>
+      `;
+      setTimeout(() => {
+        window.location.replace('/');
+      }, 1000);
+    }
+  </script>
+
+
+</Layout>

@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout pageStyle="blank">
+
+<!-- MEMORY GLITCH SCREEN -->
+<div id="memory-glitch" class="hidden">
+  <div id="glitch-text">SYSTEM OVERLOAD</div>
+</div>
+
+<main class="fixed inset-0 bg-black flex items-center justify-center text-center overflow-hidden text-white font-mono">
+  <a href="/start" class="absolute top-6 left-6 text-gray-400 hover:text-gray-600 transition-all text-l font-light">
+    ← Back
+  </a>
+
+  <div class="identity-container">
+    <div id="whoami" class="special-whoami">Who am I?</div>
+    <div id="typing-container">
+      <span id="text-content"></span><span class="blinking-cursor">|</span>
+</div>
+  </div>
+
+  <div id="easter-egg" class="hidden absolute top-10 left-1/2 transform -translate-x-1/2 text-gray-500 text-sm font-mono text-center max-w-xs">
+    🤨 Chill out man.
+  </div>
+</main>
+
+<style>
+  .identity-container {
+    font-family: monospace;
+    font-size: 2rem;
+    color: gray;
+    text-align: left;
+    padding: 3rem;
+    line-height: 2.5rem;
+    max-width: 60ch;
+    margin: 20vh auto 0;
+    animation: fadeInContainer 2s ease-in forwards;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .special-whoami {
+    color: #8d5cdd;
+    font-style: italic;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .blinking-cursor {
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 2px;
+    animation: blink 1.2s steps(2, start) infinite;
+  }
+
+
+  #memory-glitch {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    background-image: repeating-linear-gradient(
+      0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px
+    ), repeating-linear-gradient(
+      90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px
+    );
+    display: none; /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+    animation: flicker 5s infinite;
+  }
+
+  #memory-glitch.show-glitch {
+    display: flex;
+  }
+
+  #glitch-text {
+    color: white;
+    font-family: monospace;
+    font-size: 2rem;
+    animation: glitch 0.5s infinite;
+    text-shadow:
+      1px 1px #ff00ff,
+      -1px -1px #00ffff;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); opacity: 1; }
+    20% { transform: translate(-2px, 2px); opacity: 0.8; }
+    40% { transform: translate(2px, -1px); opacity: 0.9; }
+    60% { transform: translate(-1px, 1px); opacity: 0.85; }
+    80% { transform: translate(1px, -2px); opacity: 0.95; }
+    100% { transform: translate(0); opacity: 1; }
+  }
+
+  @keyframes flicker {
+    0%, 100% { background-color: black; }
+    10% { background-color: #0a0a0a; }
+    20% { background-color: black; }
+    30% { background-color: #111; }
+    40%, 60% { background-color: black; }
+    70% { background-color: #1a1a1a; }
+    80% { background-color: black; }
+    90% { background-color: #0d0d0d; }
+  }
+
+  #easter-egg {
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+  }
+
+  #easter-egg.show {
+    opacity: 1;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes glitchText {
+    0% { transform: translate(0); opacity: 1; }
+    25% { transform: translate(-2px,2px); opacity: 0.8; }
+    50% { transform: translate(2px,-2px); opacity: 1; }
+    75% { transform: translate(-2px,2px); opacity: 0.8; }
+    100% { transform: translate(0); opacity: 1; }
+  }
+
+  @keyframes fadeInContainer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInSlow {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .fadeInSlow {
+    animation: fadeInSlow 3s ease-in forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  .fade-out {
+    animation: fadeOut 2s forwards;
+  }
+</style>
+
+<script>
+  const lines = [
+    "I am Emily.",
+    "I love dogs (especially my dog).",
+    "I love the beach.",
+    "I love being silly.",
+    "I love science.",
+    "I am a researcher.",
+    "A scientist.",
+    "I study memory.",
+    "In humans.",
+    "In machines.",
+    "In myself.",
+    "For fun!",
+    "I'm a writer.",
+    "A dreamer.",
+    "A lover, not a fighter.",
+    "A perfectionist (recovering).",
+    "I am curious.",
+    "I am resilient.",
+    "I don't give up.",
+    "Should I add trendy words now..?",
+    "AI.",
+    "High dimensional vector spaces.",
+    "Neural representations.",
+    "Cognition.",
+    "I'm still figuring it out...",
+    "I'm just a girl.",
+    "I'm just me.",
+    "Nice to meet you!"
+  ];
+
+  const whoami = document.getElementById('whoami');
+  const typingContainer = document.getElementById('typing-container');
+  const textContent = document.getElementById('text-content');
+  const memoryGlitch = document.getElementById('memory-glitch');
+  const easterEgg = document.getElementById('easter-egg');
+
+  const easterMessages = [
+    "👀 Yo, relax.",
+    "🤨 Chill out man.",
+    "⏳ Good things take time.",
+    "✨ Can I speak?",
+    "🛸 Did you think clicking faster would help?"
+  ];
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  let currentText = '';
+  let clickCount = 0;
+  let clickTimer = null;
+
+    function typeWriter() {
+      if (lineIndex < lines.length) {
+        const currentLine = lines[lineIndex];
+        if (charIndex < currentLine.length) {
+          currentText += currentLine.charAt(charIndex);
+          textContent.textContent = currentText;
+          charIndex++;
+          setTimeout(typeWriter, 70);
+        } else {
+          currentText += ' ';
+          textContent.textContent = currentText;
+          lineIndex++;
+          charIndex = 0;
+          let delay = 300;
+          if (lineIndex - 1 === 24 || lineIndex - 1 === 27) {
+            delay = 1000; // longer pause after emotional lines
+          }
+          setTimeout(typeWriter, delay);
+        }
+      } else {
+        setTimeout(() => {
+          typingContainer.classList.add('fade-out');
+          setTimeout(() => {
+            resetAll();
+          }, 2000);
+        }, 1000);
+      }
+    }
+
+    function resetAll() {
+      currentText = '';
+      textContent.textContent = ''; 
+      typingContainer.classList.remove('fade-out');
+
+      whoami.style.opacity = 0;
+      whoami.classList.remove('fade-out');
+      whoami.classList.add('fadeInSlow');
+
+      setTimeout(() => {
+        whoami.style.opacity = 1;
+        setTimeout(() => {
+          whoami.classList.add('fade-out');
+          setTimeout(() => {
+            whoami.style.opacity = 0;
+            lineIndex = 0;
+            charIndex = 0;
+            typeWriter();
+          }, 2000);
+        }, 3000);
+      }, 500);
+    }
+
+  whoami.style.opacity = 0;
+  setTimeout(() => {
+    whoami.style.opacity = 1;
+    setTimeout(() => {
+      whoami.classList.add('fade-out');
+      setTimeout(() => {
+        whoami.style.opacity = 0;
+        typeWriter();
+      }, 2000);
+    }, 3000);
+  }, 500);
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a') || e.target.closest('#typing-container') || e.target.closest('#whoami')) return;
+
+    clickCount++;
+
+    if (!clickTimer) {
+      clickTimer = setTimeout(() => {
+        clickCount = 0;
+        clickTimer = null;
+      }, 1200);
+    }
+
+    if (clickCount === 5) {
+      triggerMemoryCorruption();
+      clickCount = 0;
+      clearTimeout(clickTimer);
+      clickTimer = null;
+      return;
+    }
+
+    if (clickCount === 3) {
+      showEasterEgg();
+    }
+  });
+
+  function showEasterEgg() {
+    const randomMessage = easterMessages[Math.floor(Math.random() * easterMessages.length)];
+    easterEgg.innerHTML = randomMessage;
+    easterEgg.classList.remove('hidden');
+    easterEgg.classList.add('show');
+
+    setTimeout(() => {
+      easterEgg.classList.remove('show');
+      setTimeout(() => {
+        easterEgg.classList.add('hidden');
+      }, 500);
+    }, 2500);
+  }
+
+
+    function triggerMemoryCorruption() {
+      memoryGlitch.classList.add('show-glitch');
+      setTimeout(() => {
+        memoryGlitch.classList.remove('show-glitch');
+      }, 2000);
+    }
+</script>
+
+</Layout>
