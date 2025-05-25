@@ -62,7 +62,17 @@ p {
 html, body {
     height: 100%;  
     margin: 0; 
-    overflow-y: auto; 
+    overflow-y: scroll; 
+  }
+
+
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
 </style>

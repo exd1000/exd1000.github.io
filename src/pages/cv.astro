@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Main -->
-      <div class="relative w-full max-w-4xl p-6 overflow-y-auto" style="max-height: 80vh;">
+      <div class="scroll-area relative w-full max-w-4xl p-6 overflow-y-auto" style="max-height: 80vh;">
         <section class="text-left text-base leading-relaxed space-y-16">
 
           <!-- Education -->
@@ -88,11 +88,24 @@ import Layout from '../layouts/Layout.astro';
               Computational cognitive neuroscience researcher specializing in artificial intelligence, human memory modeling, and machine learning.
               My work focuses on high-dimensional vector spaces and computational models that simulate and inform our understanding of memory encoding, retrieval, and inference. 
               With expertise in deep learning architectures, associative learning, and graph-based memory representations, 
-              I explore how different methodologies and theoretical frameworks can inform the structural dynamics of memory 
+              I explore how different methodologies and theoretical frameworks can inform the dynamical structures of memory 
               and cognition in both humans and artificial systems, contributing to the development of interpretable AI models and understanding of human memory.
             </p>
           </div>
           <div class="divider"></div>
+
+
+          <!-- Personal Research -->
+          <div class="fade-section">
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Currently</h2>
+            <p class="text-sm text-gray-700">
+              I’m building <strong>EXD-Net</strong>: a computational memory framework that simulates emotional destabilization as the catalyst for identity restructuring. 
+              By integrating Hopfield networks, attractor state dynamics, and high-dimensional vector space drift, EXD-Net models how memory reconsolidation unfolds after disruption.
+              Rather than treating instability as noise, EXD-Net frames emotional perturbation as a signal for adaptive learning across both artificial and biological systems.
+            </p>
+          </div>
+          <div class="divider"></div>
+
           <!-- Research Exp -->
           <div class="fade-section">
             <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Research Experience</h2>
@@ -134,14 +147,16 @@ import Layout from '../layouts/Layout.astro';
               <li>
                 <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details3')">
                   <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Data Scientist Researcher</strong>
-                  <span class="text-gray-500 text-sm">Jun 2022 – Present</span>
+                  <span class="text-gray-500 text-sm">Jun 2022 – Jun 2025</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   Johnson & Johnson MedTech – Biosense Webster Inc.
                 </div>
                 <div id="details3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
                   <ul class="list-disc list-inside">
-                    <li>Blahblah</li>
+                      <li>Developed machine learning models on 500K+ datapoints to detect recurrence patterns in cardiac patients using unsupervised clustering and statistical inference.</li>
+                      <li>Designed real-time clinical trial dashboards and risk modeling pipelines for Pulse Field Ablation (PFA) research.</li>
+                      <li>Modeled cross-patient variation in treatment outcomes using graph-based clustering and longitudinal analysis.</li>
                   </ul>
                 </div>
               </li>
@@ -156,7 +171,9 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="details4" class="hidden mt-2 text-sm text-gray-600 space-y-2">
                   <ul class="list-disc list-inside">
-                    <li>Blahblah</li>
+                    <li>Analyzed and validated patient samples and biospecimen data within high-throughput molecular diagnostics pipelines.</li>
+                    <li>Ensured data integrity across clinical trial workflows and collaborated with lab engineers to streamline reporting accuracy.</li>
+                    <li>Gained foundational exposure to biological data preprocessing and medical lab informatics.</li>
                   </ul>
                 </div>
               </li>
@@ -168,6 +185,9 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Publications & Presentations</h2>
           
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-4 ml-4">
+              <li>
+                <strong>Dinh, E.</strong> (in development). <em>EXD-Net: Modeling Emotional Memory Destabilization as a Catalyst of Cognitive Reorganization.</em> Framework and initial simulations under development.
+              </li>
               <li>
                 Zhou, D., Noh, S., <strong>Dinh, E.</strong>, Guo, J., Cooper, K., & Bornstein, A. (in press). 
                 <em>Sparse distributed memory constraints drive representational change as a function of temporal learning sequence.</em> 
@@ -204,15 +224,15 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="teach1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
                   <ul class="list-disc list-inside">
-                    <li>Instructing full-stack data science curriculum including Python, SQL, machine learning fundamentals, and project development.</li>
-                    <li>Mentoring students on coding best practices and industry career preparation.</li>
+                    <li>Led instruction across foundational and advanced ML topics, including supervised learning, neural networks, and model evaluation techniques.</li>
+                    <li>Mentored students through the development of custom ML pipelines using Python, Pandas, and Scikit-learn.</li>
                   </ul>
                 </div>
               </li>
           
               <li>
                 <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach2')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Behavior Technician</strong>
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Cognitive Behavior Educator</strong>
                   <span class="text-gray-500 text-sm">2019 – 2020</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -220,14 +240,16 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="teach2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
                   <ul class="list-disc list-inside">
-                    <li>Supported behavior intervention programs for children with autism based on Applied Behavior Analysis (ABA) principles.</li>
-                  </ul>
+                    <li>Designed and implemented evidence-based intervention strategies rooted in applied behavior analysis (ABA).</li>
+                    <li>Tracked and quantified behavioral adaptation and cognitive learning across 5+ neurodiverse children.</li>
+                    <li>Gained early insight into memory generalization, stimulus-response mapping, and structured learning sequences.</li>
+                 </ul>
                 </div>
               </li>
           
               <li>
                 <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach3')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Lead Behavior Technician</strong>
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Lead Developmental Instructor</strong>
                   <span class="text-gray-500 text-sm">2016 – 2018</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -235,8 +257,9 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="teach3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
                   <ul class="list-disc list-inside">
-                    <li>Led behavior therapy sessions, coordinated treatment plans, and mentored junior technicians in delivering therapy services.</li>
-                  </ul>
+                    <li>Led 1:1 cognitive instruction and social skills development sessions for children with ASD and developmental conditions.</li>
+                    <li>Mentored junior instructors and designed adaptive lesson plans based on real-time behavioral metrics.</li>
+                    <li>Collaborated with families and specialists to ensure alignment between learning outcomes and neurodevelopmental goals.</li>                  </ul>
                 </div>
               </li>
             </ul>
@@ -245,12 +268,38 @@ import Layout from '../layouts/Layout.astro';
           <div class="divider"></div>
 
           <!-- Skills -->
-          <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Technical Skills</h2>
+           <div class="fade-section">
+           <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-700">
+              <div>
+                <strong class="block text-gray-600 mb-1">Programming & Tools</strong>
+                Python, TypeScript, Rust, Go, R, SQL, Git
+              </div>
+              <div>
+                <strong class="block text-gray-600 mb-1">ML Frameworks</strong>
+                PyTorch, TensorFlow, Scikit-learn
+              </div>
+              <div>
+                <strong class="block text-gray-600 mb-1">Modeling & Theory</strong>
+                Hopfield Networks, Autoencoders, Transformer Models (LLMs), Graph Theory, Dynamical Systems Theory, Fisher Information Theory, Entropy/Sparsity Measures
+              </div>
+              <div>
+                <strong class="block text-gray-600 mb-1">Cognitive Modeling</strong>
+                Memory Modeling, Vector Drift Simulation, Model Interpretability
+              </div>
+              <div>
+                <strong class="block text-gray-600 mb-1">Languages</strong>
+                English (fluent), Vietnamese (fluent), Spanish (basic)
+              </div>
+            </div>
+            </div>
+
+            <!-- 
             <p class="text-sm text-gray-700">
-              Python, TypeScript, Rust, Go, SQL, Git, PyTorch, TensorFlow, Scikit-Learn, Autoencoders, Transformer Models (LLMs), Hopfield Networks, Graph Theory, Entropy/Sparsity Measures, Clinical Research Techniques, English (fluent), Vietnamese (fluent), Spanish (basic).
+              Python, TypeScript, Rust, Go, R, SQL, Git, PyTorch, TensorFlow, Scikit-Learn, Hopfield Networks, Autoencoders, Transformer Models (LLMs), 
+              Memory Modeling, Vector Drift Simulation, Graph Theory, Entropy/Sparsity Measures, Model Interpretability, English (fluent), Vietnamese (fluent), Spanish (basic).
             </p>
-          </div>
+          </div>  -->
 
           <div class="divider"></div>
 
@@ -270,9 +319,9 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="affil1" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
                   <ul class="list-disc list-inside">
-                    <li>Oversee multiple teams of writers, editors, and designers.</li>
-                    <li>Manage content development from ideation to publication.</li>
-                    <li>Collaborate with industry leaders, scholars, and professionals.</li>
+                    <li>Directed editorial production across scientific content teams in a 6K+ member neurotechnology community.</li>
+                    <li>Oversaw concept development, accuracy review, and narrative clarity for pieces on AI, cognition, and neural tech.</li>
+                    <li>Collaborated with global researchers and professionals to deliver accessible, research-driven articles.</li>
                   </ul>
                 </div>
           
@@ -282,7 +331,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="affil2" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
                   <ul class="list-disc list-inside">
-                    <li>Curated and distributed monthly neurotechnology news to 30+ chapters.</li>
+                    <li>Curated and disseminated monthly global neurotech research and industry updates to 30+ international chapters.</li>
                   </ul>
                 </div>
           
@@ -292,7 +341,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div id="affil3" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
                   <ul class="list-disc list-inside">
-                    <li>Provided editorial oversight for 6K+ global members.</li>
+                    <li>Reviewed and edited articles on neuroscience, memory, and BCI technologies for clarity and rigor.</li>
+                    <li>Promoted scientific accessibility through engaging editorial strategy.</li>
                   </ul>
                 </div>
 
@@ -303,9 +353,13 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <!-- Exit Warning -->
-          <div class="mt-12 text-center text-xs italic text-gray-400 opacity-70 font-sans tracking-normal antialiased">
-            Warning: Page will close upon 
-            <button id="exitButton" class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition-all">exit</button>.
+          <div class="mt-12 text-center text-xs font-sans tracking-normal antialiased">
+            <span class="italic text-gray-600 font-bold">Warning:</span>
+            <span class="text-gray-500 opacity-70 italic"> Page will close upon </span>
+            <button id="exitButton" 
+                    class="text-gray-500 cursor-pointer underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-400 transition-all italic">
+              exit
+            </button>
           </div>
         </section>
       </div>
@@ -339,6 +393,30 @@ import Layout from '../layouts/Layout.astro';
     }
     .fade-section { opacity: 0; transform: translateY(30px); filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease; }
     .fade-section.visible { animation: fogReveal 0.6s ease forwards; }
+  
+  
+    html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-y: auto;   
+    overflow-x: hidden;
+  }
+
+  .scroll-area::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-area {
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+    @media (max-height: 600px) {
+    .scroll-area {
+      max-height: none;
+    }
+  }
+
   </style>
 
 

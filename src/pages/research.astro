@@ -34,8 +34,16 @@ import Layout from '../layouts/Layout.astro';
 
     html, body {
       height: 100%;  
-      overflow-y: auto;  
+      overflow-y: scroll;  
     }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
 </style>
 </Layout>

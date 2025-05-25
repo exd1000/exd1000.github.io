@@ -9,8 +9,7 @@ import Layout from '../layouts/Layout.astro';
   <div id="glitch-text">SYSTEM OVERLOAD</div>
 </div>
 
-<main class="fixed inset-0 bg-black flex items-center justify-center text-center overflow-hidden text-white font-mono">
-  <a href="/start" class="absolute top-6 left-6 text-gray-400 hover:text-gray-600 transition-all text-l font-light">
+<main class="min-h-screen bg-black flex flex-col items-center justify-center text-center overflow-y-auto text-white font-mono px-4">  <a href="/start" class="absolute top-6 left-6 text-gray-400 hover:text-gray-600 transition-all text-l font-light">
     ← Back
   </a>
 
@@ -156,9 +155,19 @@ import Layout from '../layouts/Layout.astro';
   }
 
   html, body {
-    height: 100%;  
-    margin: 0; 
-    overflow-y: auto; 
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-y: scroll;   
+    overflow-x: hidden;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   
 </style>
