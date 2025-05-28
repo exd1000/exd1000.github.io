@@ -2,6 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
+
+<!-- just another easter egg node 
+bc i clearly have nothing to do🤷‍♀️ -->
+
+
 <Layout pageStyle="blank">
 
 <main style="background:black; color:white; font-family:monospace; position:relative; width:100vw; height:100vh; overflow:hidden;">
@@ -72,13 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
     thought.textContent = thoughts[index];
     
     thought.style.position = 'absolute';
-    thought.style.fontSize = `${Math.random() * 1 + 1.5}rem`; // random size between 1-2.5
+    thought.style.fontSize = `${Math.random() * 1 + 1.5}rem`; 
     thought.style.whiteSpace = 'nowrap';
     thought.style.opacity = '0';
     thought.style.pointerEvents = 'none';
     thought.style.color = 'white';
-    thought.style.transform = `rotate(${(Math.random() * 10 - 5)}deg)`; // random rotation
-    thought.style.transition = `all ${Math.random() * 2 + 2}s ease-in-out`; // random fade time between 2-4s
+    thought.style.transform = `rotate(${(Math.random() * 10 - 5)}deg)`; 
+    thought.style.transition = `all ${Math.random() * 2 + 2}s ease-in-out`; 
     thought.style.visibility = 'hidden';
 
     container.appendChild(thought);
@@ -98,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     requestAnimationFrame(() => {
       thought.style.opacity = '1';
-      thought.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite alternate`; // float between 4-10s
+      thought.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite alternate`; 
     });
 
     setTimeout(() => {

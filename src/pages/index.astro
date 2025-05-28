@@ -1,7 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SubstackFeed from '../components/SubstackFeed.astro';
+// import SubstackFeed from '../components/SubstackFeed.astro';
 ---
+<!-- 
+
+
+
+
+    .     .                         
+,-. |-.   |-. ,-. . .               
+| | | |   | | |-' | |               
+`-' ' '   ' ' `-' `-|               
+                   /|               
+            .   . `-'          ,--. 
+. , , . . ,-|   |-. ,-. ,-. ,-.  /  
+|/|/  | | | |   | | |-' |   |-' ,.  
+' '   `-| `-'   ' ' `-' '   `-' `'  
+       /|                           
+      `-'                           
+       
+ok.. well this is awkward.. 
+-->
+
 
 
 <Layout>
@@ -41,7 +61,6 @@ import SubstackFeed from '../components/SubstackFeed.astro';
       You are in the mind of <span class="text-gray-300 italic">exd1000</span>
     </p>
 
-    <!-- Prompt -->
     <p class="text-red-400 text-sm font-semibold animate-pulse hover:animate-wiggle">
       CAUTION: Would you like to proceed?
     </p>
@@ -64,7 +83,7 @@ import SubstackFeed from '../components/SubstackFeed.astro';
 
     </div>
 
-    <!--Yes button void transition-->
+    <!--Yes button transition-->
     <style>
       .void-transition {
         position: fixed;
@@ -167,7 +186,7 @@ import SubstackFeed from '../components/SubstackFeed.astro';
         }
         animate();
 
-        // Track if mouse is inside
+        // Mouse tracker
         let mouseInside = false;
 
         canvas.parentElement.addEventListener('mousemove', (e) => {
@@ -198,7 +217,7 @@ import SubstackFeed from '../components/SubstackFeed.astro';
       });
     </script>
 
-<!-- No button glitch corruption -->
+<!-- No button glitches -->
     <script>
     const corruptedMessages = [
       "Memory Corrupted.",
@@ -262,33 +281,31 @@ import SubstackFeed from '../components/SubstackFeed.astro';
       `;
     }
 
-    // Attach no-button click
     document.addEventListener('DOMContentLoaded', () => {
       const noButton = document.getElementById('no-button');
       if (noButton) {
         noButton.addEventListener('click', () => {
           triggerCorruption();
-         // Go back to the previous page
         setTimeout(() => {
-          window.history.back(); // Go back to the previous page
-        }, 2000); // Wait for the glitch 
+          window.history.back(); 
+        }, 2000); 
         });
       }
     });
 
-    // trigger corruption if they use back button
+
     window.addEventListener('popstate', function () {
       triggerCorruption();
     });
 
-    // Setup fake history so popstate triggers
+
     document.addEventListener('DOMContentLoaded', function () {
       history.pushState(null, '', location.href);
     });
     </script>
 
 
-    <!-- particles bg -->
+
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
     <script>
@@ -327,6 +344,63 @@ import SubstackFeed from '../components/SubstackFeed.astro';
           },
           detectRetina: true
         });
+      });
+
+    (function watchDevTools() {
+      const messages = [
+        "👁 That wasn't very subtle.",
+        "🔒 Accessing inner thoughts? Cute.",
+        "🤫 Nosy much?"
+      ];
+
+      let devtoolsOpen = false;
+
+      setInterval(() => {
+        const widthThreshold = window.outerWidth - window.innerWidth > 160;
+        const heightThreshold = window.outerHeight - window.innerHeight > 160;
+        const isOpen = widthThreshold || heightThreshold;
+
+        if (isOpen && !devtoolsOpen) {
+          devtoolsOpen = true;
+          const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+          alert(randomMessage);
+        }
+
+        if (!isOpen && devtoolsOpen) {
+          devtoolsOpen = false;
+        }
+      }, 1000);
+    })();
+
+
+    console.log("%cUh hey again.. obsessed much?", 
+      "color: rgba(157, 126, 219, 0.6); font-size: 13px; font-family: monospace; font-style: italic;");
+    </script>
+
+<!-- for the void -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const referrer = document.referrer;
+
+
+        if (referrer && referrer.includes('/void')) {
+          alert("You're not supposed to be here yet.");
+          setTimeout(() => {
+            history.replaceState(null, '', '/void');
+            window.location.replace('/void');
+          }, 500);
+          return; 
+        }
+
+
+        if (localStorage.getItem("triedToEscapeViaBack") === "true") {
+          alert("You thought you escaped the void?");
+          localStorage.removeItem("triedToEscapeViaBack");
+
+          setTimeout(() => {
+            window.location.replace("/void");
+          }, 1000);
+        }
       });
     </script>
 

@@ -1,27 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+
+                                                                
+
 <Layout>
 <main class="fixed inset-0 overflow-hidden text-white font-mono">
+        
   <div class="absolute inset-0 bg-black z-0"></div>
   <canvas id="connections" class="absolute top-0 left-0 z-0 pointer-events-none"></canvas>
 
-  <!-- Memory Nodes -->
+
+
+  <!-- 
+███████ ██   ██  ██████ ██    ██ ███████ ███████     ███    ███ ███████ 
+██       ██ ██  ██      ██    ██ ██      ██          ████  ████ ██      
+█████     ███   ██      ██    ██ ███████ █████       ██ ████ ██ █████   
+██       ██ ██  ██      ██    ██      ██ ██          ██  ██  ██ ██      
+███████ ██   ██  ██████  ██████  ███████ ███████     ██      ██ ███████ 
+                                                                        
+
+
+Can I have some privacy please? 
+-->
+
   <div id="memory-space" class="fixed inset-0 z-10">
-    <a href="https://exd1000.substack.com" target="_blank" class="node">Substack</a>
-    <a href="https://github.com/exd1000" target="_blank" class="node">GitHub</a>
-    <a href="/blank" class="node">My Default Loop</a>
+    <a href="https://exd1000.substack.com" target="_blank" class="node"><em>Substack</em></a>
+    <a href="https://github.com/exd1000" target="_blank" class="node"><em>GitHub</em></a>
+    <a href="/blank" class="node">My Default Node</a>
     <a href="/benji" class="node">♥︎ Benjison ♥︎</a>
     <a href="/about" class="node">Who Am I?</a>
     <a href="javascript:cv(0);" id="secret-node" class="node">Curriculum Vitae</a>
     <a href="/thoughts" class="node">3AM Thoughts</a>
     <a href="/research" class="node">Research Focus</a> 
     <a href="/contact" class="node">Contact Me</a> 
-    <a href="/why" class="node"><em>Why This Matters</em></a>  
+    <a href="/why" class="node">Why This Matters</a>  
+    <a href="https://contra.com/emilydinh" target="_blank" class="node"><em>Contra</em></a>
   </div>
     
 
-  <!-- Main Text -->
+
   <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">  <h1 class="text-2xl md:text-4xl animate-fade-in-slow text-center text-white">
     Which Memory Node Would You Like to Access?
   </h1>
@@ -29,28 +47,31 @@ import Layout from '../layouts/Layout.astro';
 
 
 
-  <!-- Password Modal -->
+
   <div id="password-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
     <div class="bg-white text-black rounded-xl p-8 shadow-lg flex flex-col gap-4 max-w-sm w-full text-center">
       <h2 class="text-lg font-bold">Memory Access Required</h2>
-      <input id="password-input" type="password" placeholder="Enter password" class="border p-2 rounded-md w-full" />
+      <input id="password-input" type="password" placeholder="Enter authorization key" class="border p-2 rounded-md w-full" />
       <div class="flex justify-center gap-4">
-        <button id="password-submit" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500">
-          Enter
+        <button id="password-submit" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-400">
+          Unlock Memory
         </button>
-        <button id="password-cancel" class="bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-gray-300">
+        <button onclick="window.location.href='/contact'" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-400">
+          Request Access
+        </button>
+        <button id="password-cancel" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-400">
           Cancel
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Memory Failed -->
+
   <div id="memory-failed" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
     <div class="glitch-text text-2xl animate-glitch">Memory Retrieval Failed</div>
   </div>
 
-  <!-- Styles -->
+
   <style>
     .node {
       position: absolute;
@@ -67,17 +88,18 @@ import Layout from '../layouts/Layout.astro';
       text-align: center;
     }
 
-        /* Generate random delay for each node */
-    #memory-space a:nth-child(1) { --random-delay: 0.2; }
-    #memory-space a:nth-child(2) { --random-delay: 1.4; }
-    #memory-space a:nth-child(3) { --random-delay: 0.7; }
-    #memory-space a:nth-child(4) { --random-delay: 1.0; }
-    #memory-space a:nth-child(5) { --random-delay: 0.5; }
-    #memory-space a:nth-child(6) { --random-delay: 1.8; }
-    #memory-space a:nth-child(7) { --random-delay: 0.3; }
+
+    #memory-space a:nth-child(1) { --random-delay: 0.2; } /*Substack*/
+    #memory-space a:nth-child(2) { --random-delay: 1.4; } /*GitHub */
+    #memory-space a:nth-child(3) { --random-delay: 0.7; } /* Elevator*/
+    #memory-space a:nth-child(4) { --random-delay: 1.0; } /* Benji*/
+    #memory-space a:nth-child(5) { --random-delay: 0.5; } /*About me*/
+    #memory-space a:nth-child(6) { --random-delay: 1.8; } /* CV*/
+    #memory-space a:nth-child(7) { --random-delay: 0.3; }/* 3am*/
     #memory-space a:nth-child(8) { --random-delay: 1.2; } /* Research Focus */
     #memory-space a:nth-child(9) { --random-delay: 0.6; } /* Contact Me */
     #memory-space a:nth-child(10) { --random-delay: 0.9; } /* Why This Matters */
+    #memory-space a:nth-child(11) { --random-delay: 1.1; } /* Contra */
 
 
     .node:hover {
@@ -89,7 +111,7 @@ import Layout from '../layouts/Layout.astro';
 
 
 
-    #memory-space a:nth-child(1) { top: 20%; left: 15%; background-color: #a181bc; } /* Substack */
+    #memory-space a:nth-child(1) { top: 20%; left: 15%; background-color: #9275a9; } /* Substack */
     #memory-space a:nth-child(2) { top: 70%; left: 75%; background-color: #93bec1; } /* GitHub */
     #memory-space a:nth-child(3) { top: 5%; left: 40%; background-color: #cec6de; } /* Elevator Music */
     #memory-space a:nth-child(4) { top: 75%; left: 20%; background-color: #c5b37c; } /* Benji */
@@ -97,8 +119,9 @@ import Layout from '../layouts/Layout.astro';
     #memory-space a:nth-child(6) { top: 35%; left: 80%; background-color: #c87da3; } /* CV */
     #memory-space a:nth-child(7) { top: 85%; left: 50%; background-color: #4f596e; } /* 3AM Thoughts */
     #memory-space a:nth-child(8) { top: 60%; left: 30%; background-color: #79b6a2; } /* Research Focus */
-    #memory-space a:nth-child(9) { top: 15%; left:75%; background-color: #e0a167; } /* Contact */
-    #memory-space a:nth-child(10) { top: 25%; left: 50%; background-color: #73b0ec; } /* My Why*/
+    #memory-space a:nth-child(9) { top: 35%; left:35%; background-color: #758caf; } /* Contact */
+    #memory-space a:nth-child(10) { top: 25%; left: 50%; background-color: #9893da; } /* My Why*/
+    #memory-space a:nth-child(11) { top: 15%; left: 75%; background-color: #e6ad70; } /* Contra */
 
     .glitch-text {
       color: white;
@@ -127,14 +150,14 @@ import Layout from '../layouts/Layout.astro';
 
     @keyframes floatFade {
       to {
-        opacity: 0.65; /* <-- not fully solid! */
+        opacity: 0.65; 
         transform: translateY(0);
       }
     }
 
   </style>
 
-  <!-- Scripts -->
+
   <script>
     let targetPage = '';
 
@@ -165,10 +188,12 @@ import Layout from '../layouts/Layout.astro';
 
     function submitPassword() {
       const input = document.getElementById('password-input').value;
-      const correctPassword = "luckyyou"; // <-- set password here
+      const correctPassword = "luckyyou"; 
 
       if (input === correctPassword) {
-        window.location.href = targetPage;
+        history.replaceState(null, '', '/'); 
+        history.pushState(null, '', '/cv');  
+window.location.href = '/cv';
       } else {
         closePasswordModal();
         triggerMemoryFailed();
@@ -180,7 +205,7 @@ import Layout from '../layouts/Layout.astro';
       failed.classList.remove('hidden');
       setTimeout(() => {
         failed.classList.add('hidden');
-      }, 2000);
+      }, 700);
     }
 
     // Canvas connections - this had a lot of issues
@@ -274,11 +299,52 @@ import Layout from '../layouts/Layout.astro';
 
     animate();
 
+  (function watchDevTools() {
+    const messages = [
+      "👁 That wasn't very subtle.",
+      "🔒 Accessing inner thoughts? Cute.",
+      "🤫 Nosy much?"
+    ];
+
+    let devtoolsOpen = false;
+
+    setInterval(() => {
+      const widthThreshold = window.outerWidth - window.innerWidth > 160;
+      const heightThreshold = window.outerHeight - window.innerHeight > 160;
+      const isOpen = widthThreshold || heightThreshold;
+
+      if (isOpen && !devtoolsOpen) {
+        devtoolsOpen = true;
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        alert(randomMessage);
+      }
+
+      if (!isOpen && devtoolsOpen) {
+        devtoolsOpen = false;
+      }
+    }, 1000);
+  })();
 
 
-  console.log("%cA memory once sealed cannot be retrieved.", "color: rgba(157, 126, 219, 0.6); font-size: 13px; font-style: italic;");
 
+  
+
+  console.log(
+    "%cA memory once sealed cannot be retrieved. ✨\n\nBut some memories... they leak.\nTry typing: unlock('exd1000')",
+    "color: #9d7edb; font-size: 12px; font-family: monospace;"
+  );
+
+  window.unlock = function(key) {
+    if (key === 'exd1000') {
+      alert("Key sequence accepted 🔓.\n\nAccess granted to an encrypted memory.");
+      history.replaceState({ trapRoot: true }, '', '/void');
+      location.replace('/void');
+    } else {
+      alert("Unrecognized fragment.");
+    }
+  };
   </script>
+
 
 </main>
 </Layout>

@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 
 
     <h1 class="text-5xl md:text-6xl font-mono text-white mb-8 z-10">
-      You are entering the void
+      Welcome to the Void.
     </h1>
 
     <p class="text-lg md:text-xl text-gray-400 mb-12 z-10">
@@ -15,14 +15,70 @@ import Layout from '../layouts/Layout.astro';
     </p>
 
 
-    <a href="/" class="px-6 py-3 bg-purple-600 text-white rounded-full hover:scale-105 transition-transform hover:bg-purple-500 z-10">
-      Return
-    </a>
+    <div class="flex flex-wrap justify-center gap-4 z-10">
+      <a href="#" class="glitch-btn" data-text="Escape.">Escape.</a>
+      <a href="/" class="glitch-btn" data-text="Escape (For Real).">Escape (For Real).</a>
+    </div>
 
   </main>
 
-  <!-- Particles Background -->
+
   <div id="particles-js" class="fixed inset-0 -z-10 w-full h-full"></div> 
+
+    <style>
+
+
+    .glitch-btn:hover {
+      background-color: #a855f7; 
+      transform: scale(1.05);
+    }
+
+      .glitch-btn::before,
+      .glitch-btn::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        opacity: 0.6;
+        pointer-events: none;
+        color: white;
+        mix-blend-mode: lighten;
+      }
+
+      .glitch-btn::before {
+        animation: glitchTop 2s infinite linear alternate-reverse;
+        transform: translate(2px, -2px);
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+      }
+
+      .glitch-btn::after {
+        animation: glitchBottom 2s infinite linear alternate-reverse;
+        transform: translate(-2px, 2px);
+        clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%);
+      }
+
+      @keyframes glitchTop {
+        0% { transform: translate(2px, -2px); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(2px, 2px); }
+        60% { transform: translate(-2px, -2px); }
+        80% { transform: translate(2px, 0); }
+        100% { transform: translate(0, 0); }
+      }
+
+      @keyframes glitchBottom {
+        0% { transform: translate(-2px, 2px); }
+        20% { transform: translate(2px, -2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(0, 2px); }
+        100% { transform: translate(0, 0); }
+      }
+
+    </style>
+
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -62,4 +118,80 @@ import Layout from '../layouts/Layout.astro';
       });
     });
   </script>
+
+
+<script>
+    const escapeBtns = document.querySelectorAll('.glitch-btn');
+    const maxAttempts = 5;
+    let attempts = parseInt(localStorage.getItem("voidEscapeAttempts")) || 0;
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!history.state || !history.state.trapped) {
+        history.replaceState({ trapRoot: true }, '', '/void');
+        history.pushState({ trapped: true }, '', '/void');
+      }
+
+
+      const messages = [
+        "You can't just leave that easily.",
+        "There is no escape.",
+        "Have you thought about trying again?",
+        "You just had to be nosy.",
+        "Don't say I didn't warn you.",
+        "Consider this a lesson for snooping around.",
+        "Nice try."
+      ];
+      const msg = messages[Math.min(attempts, messages.length - 1)];
+      alert(msg);
+
+
+      if (localStorage.getItem("triedToEscapeViaBack") === "true") {
+        alert("Trying to escape backwards? Cute.");
+        localStorage.removeItem("triedToEscapeViaBack");
+      }
+        });
+
+
+
+
+    window.addEventListener('popstate', (e) => {
+      if (e.state?.trapRoot) {
+        alert("🚷 No going back.");
+        localStorage.setItem("triedToEscapeViaBack", "true");
+        history.pushState({ trapped: true }, '', '/void');
+        setTimeout(() => window.location.replace('/void'), 500);
+      }
+    });
+
+
+    escapeBtns.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (attempts < maxAttempts) {
+          attempts++;
+          localStorage.setItem("voidEscapeAttempts", attempts);
+          window.location.replace("/void");
+        } else {
+          localStorage.removeItem("voidEscapeAttempts");
+          alert("Processing exit request...");
+          setTimeout(() => {
+            window.location.href = "/blank";
+          }, 2000);
+        }
+      });
+    });
+
+
+    console.log("%cLooking for a way out?\nTry typing: reveal('exit')", "color: #9d7edb; font-style: italic;");
+    window.reveal = function(code) {
+      if (code === 'exit') {
+        alert("Congrats you're a genius.");
+        window.location.replace('/void');
+      } else {
+        alert("Nope.");
+      }
+    };
+  </script>
+
 </Layout>
