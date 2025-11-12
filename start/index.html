@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>exd1000</title><!-- Glitchy font aesthetic --><link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"><!-- Glitch + Fiber CSS if not CV --><style>
+        body {
+          background-color: #000;
+          background-image: 
+            repeating-linear-gradient(
+              0deg,
+              rgba(255, 255, 255, 0.015),
+              rgba(255, 255, 255, 0.015) 1px,
+              transparent 1px,
+              transparent 5px
+            ),
+            repeating-linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.015),
+              rgba(255, 255, 255, 0.015) 1px,
+              transparent 1px,
+              transparent 5px
+            );
+          animation: pulseLines 6s infinite ease-in-out;
+          font-family: 'Share Tech Mono', monospace;
+        }
+
+        @keyframes pulseLines {
+          0%, 100% { background-position: 0 0, 0 0; }
+          50% { background-position: 10px 10px, -10px -10px; }
+        }
+      </style><link rel="stylesheet" href="/_astro/about.D6XxK6QI.css">
+<link rel="stylesheet" href="/_astro/start.CrfjxosJ.css"></head> <body class="transition-opacity duration-300 bg-black text-white font-mono"> <div class>  <main class="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden font-mono text-white bg-transparent" data-astro-cid-6vq2egjc> <h1 class="page-title text-2xl md:text-4xl mb-10 z-10 tracking-widest" data-astro-cid-6vq2egjc>
+Which Node Would You Like to Access?
+</h1> <!-- 
+███████ ██   ██  ██████ ██    ██ ███████ ███████     ███    ███ ███████ 
+██       ██ ██  ██      ██    ██ ██      ██          ████  ████ ██      
+█████     ███   ██      ██    ██ ███████ █████       ██ ████ ██ █████   
+██       ██ ██  ██      ██    ██      ██ ██          ██  ██  ██ ██      
+███████ ██   ██  ██████  ██████  ███████ ███████     ██      ██ ███████ 
+                                                                        
+
+
+Can I have some privacy please? 
+--> <div id="particles-js" class="fixed inset-0 -z-10 w-full h-full" data-astro-cid-6vq2egjc></div> <!-- memory nodes --> <div id="memory-space" class="fixed inset-0 z-20" data-astro-cid-6vq2egjc> <!-- left brain nodes --> <a href="https://github.com/exd1000" target="_blank" class="node left" style="top: 20%; left: 10%;" data-astro-cid-6vq2egjc>GitHub</a> <a href="/research" class="node left" style="top: 35%; left: 14%;" data-astro-cid-6vq2egjc>Research Focus</a> <a href="/why" class="node left" style="top: 55%; left: 12%;" data-astro-cid-6vq2egjc>Why This Matters</a> <a href="javascript:cv(0);" id="secret-node" class="node left" style="top: 65%; left: 18%;" data-astro-cid-6vq2egjc>Curriculum Vitae</a> <a href="/clarissa" class="node left" style="top: 80%; left: 10%;" data-astro-cid-6vq2egjc>Meet Clarissa</a> <!-- right brain nodes --> <a href="https://substack.com/@exd1000?utm_source=user-menu" target="_blank" class="node right" style="top: 20%; right: 8%;" data-astro-cid-6vq2egjc>Substack</a> <a href="/thoughts" class="node right" style="top: 35%; right: 12%;" data-astro-cid-6vq2egjc>3AM Thoughts</a> <a href="/contact" class="node right" style="top: 55%; right: 14%;" data-astro-cid-6vq2egjc>Contact Me</a> <a href="/benji" class="node right" style="bottom: 20%; right: 20%;" data-astro-cid-6vq2egjc>♥︎ Benjison ♥︎</a> <!-- connecting/center nodes --> <a href="/" class="node center" style="top: 3%; left: 48%;" data-astro-cid-6vq2egjc>Home</a> <a href="/about" class="node center" style="top: 13%; left: 47%;" data-astro-cid-6vq2egjc>Who Am I?</a> <a href="/blank" class="node center" style="top:25%; left: 46%;" data-astro-cid-6vq2egjc>My Default Node</a> </div>  <!-- password stuff --> <!-- password stuff --> <div id="password-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm" data-astro-cid-6vq2egjc> <div class="modal-panel text-center max-w-sm w-full mx-4 p-8 rounded-2xl" data-astro-cid-6vq2egjc> <h2 class="text-xl font-semibold mb-4 tracking-wide" data-astro-cid-6vq2egjc>Memory Access Required</h2> <input id="password-input" type="password" placeholder="Enter authorization key" class="w-full px-3 py-2 mb-5 rounded-md text-sm tracking-wide outline-none" data-astro-cid-6vq2egjc> <div class="flex justify-center gap-4" data-astro-cid-6vq2egjc> <button id="password-submit" class="modal-btn unlock" data-astro-cid-6vq2egjc>Unlock Memory</button> <button onclick="window.location.href='/contact'" class="modal-btn request" data-astro-cid-6vq2egjc>Request Access</button> <button id="password-cancel" class="modal-btn cancel" data-astro-cid-6vq2egjc>Cancel</button> </div> </div> </div> <div id="memory-failed" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50" data-astro-cid-6vq2egjc> <div class="glitch-text text-2xl animate-glitch" data-astro-cid-6vq2egjc>Memory Retrieval Failed</div> </div> <!-- particle background + connections --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{tsParticles.load("particles-js",{background:{color:"#000000"},fpsLimit:60,interactivity:{events:{onHover:{enable:!0,mode:"grab"},onClick:{enable:!1},resize:!0},modes:{grab:{distance:200,links:{opacity:.8,color:"#b084f9"}}}},particles:{color:{value:"#b084f9"},links:{color:"#b084f9",distance:250,enable:!0,opacity:.25,width:1.1,triangles:{enable:!1}},move:{direction:"none",enable:!0,outModes:{default:"bounce"},random:!0,speed:.25,straight:!1},number:{value:45,density:{enable:!0,area:800}},opacity:{value:{min:.3,max:.8}},shape:{type:"circle"},size:{value:{min:.8,max:2.5}}},detectRetina:!0})});document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("secret-node"),n=document.getElementById("password-submit"),t=document.getElementById("password-cancel");e.addEventListener("click",o=>{o.preventDefault(),c()}),n.addEventListener("click",r),t.addEventListener("click",d)});function c(e){document.getElementById("password-modal").classList.remove("hidden"),document.getElementById("password-input").value="",document.getElementById("password-input").focus()}function d(){document.getElementById("password-modal").classList.add("hidden")}function r(){document.getElementById("password-input").value==="luckyyou"?(history.replaceState(null,"","/"),history.pushState(null,"","/cv"),window.location.href="/cv"):(d(),l())}function l(){const e=document.getElementById("memory-failed");e.classList.remove("hidden"),setTimeout(()=>{e.classList.add("hidden")},2e3)}(function(){const n=["👁 That wasn't very subtle.","🔒 Accessing inner thoughts? Cute.","🤫 Nosy much?"];let t=!1;setInterval(()=>{const o=window.outerWidth-window.innerWidth>160,a=window.outerHeight-window.innerHeight>160,s=o||a;if(s&&!t){t=!0;const i=n[Math.floor(Math.random()*n.length)];alert(i)}!s&&t&&(t=!1)},1e3)})();console.log(`%cA memory once sealed cannot be retrieved. ✨
+
+But some memories... they leak.
+Try typing: unlock('exd1000')`,"color: #9d7edb; font-size: 12px; font-family: mono;");window.unlock=function(e){e==="exd1000"?(alert(`Key sequence accepted 🔓.
+
+Access granted to an encrypted memory.`),history.replaceState({trapRoot:!0},"","/void"),location.replace("/void")):alert("Unrecognized fragment.")};</script> <script type="module" src="/_astro/start.astro_astro_type_script_index_1_lang.QOdwnJaL.js"></script> </main>  </div> <script type="module">document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("a[href]").forEach(n=>{n.addEventListener("click",e=>{const t=e.currentTarget;t.hostname===window.location.hostname&&!t.hasAttribute("target")&&(e.preventDefault(),document.body.classList.add("fade-out"),setTimeout(()=>{window.location=t.href},300))})})});</script></body></html><!-- Prevent back navigation --><!-- <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        history.pushState(null, null, location.href);
+        window.addEventListener('popstate', function () {
+          history.pushState(null, null, location.href);
+        });
+      });
+    </script> --><!-- Fade out animation -->

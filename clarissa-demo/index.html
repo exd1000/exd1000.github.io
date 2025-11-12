@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Try Clarissa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: monospace;
+    }
+    .clarissa-box {
+      border: 1px solid #f472b6;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex flex-col items-center justify-center p-6 space-y-8">
+
+  <!-- Boxed Clarissa Title -->
+  <div class="clarissa-box px-6 py-4 w-full max-w-lg text-center">
+    <div class="flex justify-center items-baseline space-x-2">
+      <p class="text-pink-300 font-bold text-xl">CLARISSA</p>
+      <p class="text-pink-300 text-xs sm:text-sm">(vDemo)</p>
+    </div>
+    <p class="text-gray-300 text-sm mt-1">Command-Line Assistant for Routine Initiation, Structure, Support, and Accountability</p>
+  </div>
+
+  <!-- Status Message -->
+  <div>
+    <p class="text-gray-100 text-sm italic text-center">
+      Booting system... Initializing memory...<br>
+      Session prep underway. Clarissa is watching.
+    </p>
+  </div>
+
+  <!-- Clarissa Quote -->
+  <blockquote class="text-center italic text-gray-500 max-w-md">
+    “Stability isn’t just a protocol. It’s a love language.”
+  </blockquote>
+
+  <!-- Focus Timer Display -->
+  <div id="timer" class="text-4xl font-bold text-white-400">05:00</div>
+
+  <!-- Start Button -->
+  <button id="startBtn" class="bg-pink-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded shadow-lg transition">
+    Start Focus Session
+  </button>
+
+  <!-- Fake Chat Box -->
+  <div class="w-full max-w-md mt-8">
+    <div class="bg-gray-800 p-4 rounded-lg h-48 overflow-y-auto" id="chatBox">
+      <p class="text-pink-200">Clarissa: Hi, I'm Em's assistant. Nice to meet you 👾</p>
+    </div>
+    <div class="flex mt-2">
+      <input id="userInput" type="text" placeholder="Say something..." class="flex-1 p-2 rounded-l bg-gray-700 text-white" />
+      <button id="sendBtn" class="bg-pink-500 hover:bg-gray-600 px-4 rounded-r text-white">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Timer Logic
+    const timerDisplay = document.getElementById('timer');
+    const startBtn = document.getElementById('startBtn');
+    let countdown;
+
+    function startTimer(duration = 300) {
+      let time = duration;
+      countdown = setInterval(() => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        time--;
+        if (time < 0) {
+          clearInterval(countdown);
+          timerDisplay.textContent = "Done!";
+        }
+      }, 1000);
+    }
+
+    startBtn.addEventListener('click', () => {
+      startTimer();
+    });
+
+    // Fake Chat Logic
+    const sendBtn = document.getElementById('sendBtn');
+    const userInput = document.getElementById('userInput');
+    const chatBox = document.getElementById('chatBox');
+
+    const responses = {
+      "hi": "Hey! I’m Clarissa. Em built me to keep her on track 💻🪐",
+      "what do you do": "I help track sessions, log goals, and keep humans grounded.",
+      "can i have a version": "You sure can! Fork me on GitHub 💡",
+    };
+
+    sendBtn.addEventListener('click', () => {
+      const userMsg = userInput.value.toLowerCase().trim();
+      if (!userMsg) return;
+
+      const clarissaReply = responses[userMsg] || "I'm just the demo, but I still believe in you 💖";
+
+      chatBox.innerHTML += `<p class="text-blue-300">You: ${userInput.value}</p>`;
+      chatBox.innerHTML += `<p class="text-pink-200">Clarissa: ${clarissaReply}</p>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+      userInput.value = "";
+    });
+  </script>
+</body>
+</html>
