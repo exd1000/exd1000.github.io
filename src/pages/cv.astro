@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <!-- 
@@ -21,189 +21,355 @@ This is literally GitHub Pages. It’s public. Don’t come at me.
 But you can't say it's not fun though. 
 
 -->
-
-
- 
-
-<Layout pageStyle="blank"> 
-  
-
+<Layout pageStyle="blank">
   <div id="protectedContent" class="hidden">
-    <main class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]">
-
-
-      <h1 class="text-5xl md:text-6xl mb-4 font-bold tracking-wide animate-fade-in-slow">EMILY DINH</h1>
+    <main
+      class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]"
+    >
+      <h1
+        class="text-5xl md:text-6xl mb-4 font-bold tracking-wide animate-fade-in-slow"
+      >
+        EMILY DINH
+      </h1>
 
       <!-- Contact Links -->
-      <div class="flex flex-wrap justify-center items-center gap-6 text-gray-500 text-sm mb-10 animate-fade-in-slow">
-        <a href="https://github.com/exd1000" target="_blank" class="hover:text-indigo-300 transition">GitHub</a>
+      <div
+        class="flex flex-wrap justify-center items-center gap-6 text-gray-500 text-sm mb-10 animate-fade-in-slow"
+      >
+        <a
+          href="https://github.com/exd1000"
+          target="_blank"
+          class="hover:text-indigo-300 transition">GitHub</a
+        >
         <span>·</span>
-        <a href="https://exd1000.substack.com/" target="_blank" class="hover:text-indigo-300 transition">Substack</a>
+        <a
+          href="https://exd1000.substack.com/"
+          target="_blank"
+          class="hover:text-indigo-300 transition">Substack</a
+        >
         <span>·</span>
-        <a href="https://linkedin.com/in/dinhemily" target="_blank" class="hover:text-indigo-300 transition">LinkedIn</a>
-        <span>·</span>
-        <a href="mailto:etdinhh@gmail.com" class="hover:text-indigo-300 transition">Email</a>
+        <a
+          href="mailto:etdinhh@gmail.com"
+          class="hover:text-indigo-300 transition">Email</a
+        >
       </div>
 
       <!-- Main -->
-      <div class="scroll-area relative w-full max-w-4xl p-6 overflow-y-auto" style="max-height: 80vh;">
+      <div
+        class="scroll-area relative w-full max-w-4xl p-6 overflow-y-auto"
+        style="max-height: 80vh;"
+      >
         <section class="text-left text-base leading-relaxed space-y-16">
-
           <!-- Education -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Education</h2>
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Education
+            </h2>
             <ul class="space-y-6">
-              
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('edu1')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">M.S., Applied Artificial Intelligence</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('edu1')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >M.S., Applied Artificial Intelligence</strong
+                  >
                   <span class="text-gray-500 text-sm">Dec 2023</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   University of San Diego
                 </div>
-                <div id="edu1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="edu1"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
                     <li>GPA: 4.0</li>
-                    <li>Capstone: Brain Tumor Classification & Detection GUI</li>
+                    <li>
+                      Capstone: Brain Tumor Classification & Detection GUI
+                    </li>
                   </ul>
                 </div>
               </li>
-          
+
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('edu2')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">B.S., Biological Sciences</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('edu2')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >B.S., Biological Sciences</strong
+                  >
                   <span class="text-gray-500 text-sm">Jun 2020</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   University of California, Irvine
                 </div>
-                <div id="edu2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="edu2"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
                     <li>Minor in Psychological Behavior & Sciences</li>
                   </ul>
                 </div>
               </li>
-          
+
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('edu3')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">International Summer School, Physics</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('edu3')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >International Summer School, Physics</strong
+                  >
                   <span class="text-gray-500 text-sm">Jun 2017</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   University of Sussex
                 </div>
-                <div id="edu3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="edu3"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Summer Program in Physics, International Collaboration</li>
+                    <li>
+                      Summer Program in Physics, International Collaboration
+                    </li>
                   </ul>
                 </div>
               </li>
-          
             </ul>
           </div>
           <div class="divider"></div>
           <!-- Research Focus -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Research Focus</h2>
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Research Focus
+            </h2>
             <p class="text-sm text-gray-700">
-              Computational cognitive neuroscience researcher specializing in artificial intelligence, human memory modeling, and machine learning.
-              I focus on high-dimensional vector spaces and computational models that simulate memory encoding, retrieval, and inference, offering insights into both biological 
-              and artificial systems. Drawing from deep learning architectures, associative learning, and graph-based memory representations, 
-              I explore how different methodologies and theoretical frameworks can inform the dynamical structures of memory 
-              and cognition in both humans and artificial systems, contributing to the development of interpretable AI models and understanding of human memory.
+              Computational cognitive neuroscience researcher specializing in
+              artificial intelligence, human memory modeling, and machine
+              learning. I focus on high-dimensional vector spaces and
+              computational models that simulate memory encoding, retrieval, and
+              inference, offering insights into both biological and artificial
+              systems. Drawing from deep learning architectures, associative
+              learning, and graph-based memory representations, I explore how
+              different methodologies and theoretical frameworks can inform the
+              dynamical structures of memory and cognition in both humans and
+              artificial systems, contributing to the development of
+              interpretable AI models and understanding of human memory.
             </p>
           </div>
           <div class="divider"></div>
 
-
           <!-- Personal Research -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Currently</h2>
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Currently
+            </h2>
             <p class="text-sm text-gray-700">
-              I’m building <strong>EXD-Net</strong>: a computational memory framework that simulates emotional destabilization as the catalyst for identity restructuring. 
-              To me, memory isn't static. It learns, drifts, and transforms, and EXD-Net embodies that by integrating dynamical systems theory, attractor state dynamics, and high-dimensional vector space drift. EXD-Net models how memory 
-              reconsolidation unfolds in the aftermath of destabilization. Rather than treating instability as noise, EXD-Net frames emotional perturbation as a signal for adaptive learning across both artificial and biological systems.
+              I’m building <strong>EXD-Net</strong>: a computational memory
+              framework that simulates emotional destabilization as the catalyst
+              for identity restructuring. To me, memory isn't static. It learns,
+              drifts, and transforms, and EXD-Net embodies that by integrating
+              dynamical systems theory, attractor state dynamics, and
+              high-dimensional vector space drift. EXD-Net models how memory
+              reconsolidation unfolds in the aftermath of destabilization.
+              Rather than treating instability as noise, EXD-Net frames
+              emotional perturbation as a signal for adaptive learning across
+              both artificial and biological systems.
             </p>
           </div>
           <div class="divider"></div>
 
           <!-- Research Exp -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Research Experience</h2>
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Research Experience
+            </h2>
             <ul class="space-y-6">
-          
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details2')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Computational Cognitive Science Researcher</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('details2')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Computational Cognitive Science Researcher</strong
+                  >
                   <span class="text-gray-500 text-sm">Jan 2023 – Present</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
-                  UCI Computational Cognitive Neuroscience Lab, Aaron Bornstein, Ph.D.
+                  UCI Computational Cognitive Neuroscience Lab, Aaron Bornstein,
+                  Ph.D.
                 </div>
-                <div id="details2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="details2"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Trained autoencoder models on associative learning tasks to simulate human memory, revealing how latent space capacity shapes learning, planning, and recall.</li>
-                    <li>Investigated latent geometries to identify how distributed and sparse bottleneck encodings support individual differences in memory retrieval.</li>
-                    <li>Explored graph-based memory representations and entropy-driven structures to bridge biological and artificial memory systems, contributing to interpretable AI.</li>
-                    <li>Co-authored publications on representational change, temporal learning sequence effects, and memory constraints in high-dimensional systems.</li>
+                    <li>
+                      Trained autoencoder models on associative learning tasks
+                      to simulate human memory, revealing how latent space
+                      capacity shapes learning, planning, and recall.
+                    </li>
+                    <li>
+                      Investigated latent geometries to identify how distributed
+                      and sparse bottleneck encodings support individual
+                      differences in memory retrieval.
+                    </li>
+                    <li>
+                      Explored graph-based memory representations and
+                      entropy-driven structures to bridge biological and
+                      artificial memory systems, contributing to interpretable
+                      AI.
+                    </li>
+                    <li>
+                      Co-authored publications on representational change,
+                      temporal learning sequence effects, and memory constraints
+                      in high-dimensional systems.
+                    </li>
                   </ul>
                 </div>
               </li>
 
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details3')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Clinical Data Scientist (Medical Affairs)</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('details3')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Clinical Data Scientist (Medical Affairs)</strong
+                  >
                   <span class="text-gray-500 text-sm">Jun 2022 – Jun 2025</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   Johnson & Johnson MedTech – Biosense Webster Inc.
                 </div>
-                <div id="details3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="details3"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                      <li>Developed ML models across 500K+ clinical datapoints to identify predictive markers for atrial fibrillation recurrence and stratify patient risk.</li>
-                      <li>Implemented statistical inference to investigate hidden correlations between patient characteristics, procedural outcomes, and long-term recurrence risks.</li>
-                      <li>Supported multiple global clinical studies with 200+ patients, providing analytics for efficacy tracking and regulatory submissions.</li>
-                      <li>Authored clinical protocols, technical reports, and regulatory documentation for internal and external review.</li>
+                    <li>
+                      Developed ML models across 500K+ clinical datapoints to
+                      identify predictive markers for atrial fibrillation
+                      recurrence and stratify patient risk.
+                    </li>
+                    <li>
+                      Implemented statistical inference to investigate hidden
+                      correlations between patient characteristics, procedural
+                      outcomes, and long-term recurrence risks.
+                    </li>
+                    <li>
+                      Supported multiple global clinical studies with 200+
+                      patients, providing analytics for efficacy tracking and
+                      regulatory submissions.
+                    </li>
+                    <li>
+                      Authored clinical protocols, technical reports, and
+                      regulatory documentation for internal and external review.
+                    </li>
                   </ul>
                 </div>
               </li>
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details1')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4 self-center">
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('details1')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4 self-center"
+                  >
                     AI & Language Model Consultant
                   </strong>
                   <div class="text-right leading-tight">
-                    <div class="text-gray-500 text-sm">Oct 2024 – April 2025</div>
-                    <div class="italic text-xs text-gray-400">(Concurrent with JNJ)</div>
+                    <div class="text-gray-500 text-sm">
+                      Oct 2024 – April 2025
+                    </div>
+                    <div class="italic text-xs text-gray-400">
+                      (Concurrent with JNJ)
+                    </div>
                   </div>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   University of San Diego, Darby Vickers, Ph.D.
                 </div>
-                <div id="details1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="details1"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Developed theoretical frameworks for emergent behavior in LLMs through cross-disciplinary synthesis and collaboration.</li>
-                    <li>Analyzed how model complexity relates to emergent human-like behaviors, translating abstract ML principles into intuitive insights.</li>
-                    <li>Integrated ML, philosophy, complex systems theory, and cognitive science to guide research direction and support non-technical understanding.</li>
+                    <li>
+                      Developed theoretical frameworks for emergent behavior in
+                      LLMs through cross-disciplinary synthesis and
+                      collaboration.
+                    </li>
+                    <li>
+                      Analyzed how model complexity relates to emergent
+                      human-like behaviors, translating abstract ML principles
+                      into intuitive insights.
+                    </li>
+                    <li>
+                      Integrated ML, philosophy, complex systems theory, and
+                      cognitive science to guide research direction and support
+                      non-technical understanding.
+                    </li>
                   </ul>
                 </div>
               </li>
 
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('details4')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Medical Laboratory Researcher</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('details4')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Medical Laboratory Researcher</strong
+                  >
                   <span class="text-gray-500 text-sm">Jul 2021 – Apr 2022</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   IQVIA – Q2 Solutions
                 </div>
-                <div id="details4" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="details4"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Analyzed and validated patient samples and immunological assays for vaccine research on SARS, Ebola, and Dengue viruses.</li>
-                    <li>Cultivated and maintained Vero cell lines for infectious disease assays, achieving 100% confluency and high assay reproducibility.</li>
-                    <li>Prepared sterile media, reagents, and cell cultures in BSL-2/aseptic laboratory environments, demonstrating expertise in wet lab techniques.</li>
-                    <li>Gained foundational exposure to biological data preprocessing and medical lab informatics.</li>
+                    <li>
+                      Analyzed and validated patient samples and immunological
+                      assays for vaccine research on SARS, Ebola, and Dengue
+                      viruses.
+                    </li>
+                    <li>
+                      Cultivated and maintained Vero cell lines for infectious
+                      disease assays, achieving 100% confluency and high assay
+                      reproducibility.
+                    </li>
+                    <li>
+                      Prepared sterile media, reagents, and cell cultures in
+                      BSL-2/aseptic laboratory environments, demonstrating
+                      expertise in wet lab techniques.
+                    </li>
+                    <li>
+                      Gained foundational exposure to biological data
+                      preprocessing and medical lab informatics.
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -212,85 +378,170 @@ But you can't say it's not fun though.
           <div class="divider"></div>
           <!-- Publications -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Publications & Presentations</h2>
-          
-            <ul class="list-disc list-inside text-sm text-gray-700 space-y-4 ml-4">
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Publications & Presentations
+            </h2>
+
+            <ul
+              class="list-disc list-inside text-sm text-gray-700 space-y-4 ml-4"
+            >
               <li>
-                <strong>Dinh, E.</strong> (in development). <em>EXD-Net: Modeling Emotional Memory Destabilization as a Catalyst of Cognitive Reorganization.</em> Framework and initial simulations under development.
+                <strong>Dinh, E.</strong> (in development). <em
+                  >EXD-Net: Modeling Emotional Memory Destabilization as a
+                  Catalyst of Cognitive Reorganization.</em
+                > Framework and initial simulations under development.
               </li>
               <li>
-                Zhou, D., Noh, S., <strong>Dinh, E.</strong>, Guo, J., Cooper, K., & Bornstein, A. (in press). 
-                <em>Sparse distributed memory constraints drive representational change as a function of temporal learning sequence.</em> 
-                In A. Ruggeri, D. Barner, C. Walker, & N. Bramley (Eds.), 
-                <em>Proceedings of the 47th Annual Meeting of the Cognitive Science Society</em>. 
-                Cognitive Science Society, San Francisco, CA.
+                Zhou, D., Noh, S., <strong>Dinh, E.</strong>, Guo, J., Cooper,
+                K., & Bornstein, A. (in press).
+                <em
+                  >Sparse distributed memory constraints drive representational
+                  change as a function of temporal learning sequence.</em
+                >
+                In A. Ruggeri, D. Barner, C. Walker, & N. Bramley (Eds.),
+                <em
+                  >Proceedings of the 47th Annual Meeting of the Cognitive
+                  Science Society</em
+                >. Cognitive Science Society, San Francisco, CA.
               </li>
-          
+
               <li>
-                Noh, S., Zhou, D., Cooper, K., Guo, J., <strong>Dinh, E.</strong>, & Bornstein, A. (under review). 
-                <em>Sparsity and memory constraints interact with training sequence to bias learning of associative maps.</em> 
-                Manuscript submitted for publication in <em>Neuropsychologia</em>.
+                Noh, S., Zhou, D., Cooper, K., Guo, J., <strong>Dinh, E.</strong
+                >, & Bornstein, A. (under review).
+                <em
+                  >Sparsity and memory constraints interact with training
+                  sequence to bias learning of associative maps.</em
+                >
+                Manuscript submitted for publication in <em>Neuropsychologia</em
+                >.
               </li>
-          
+
               <li>
-                <strong>Dinh, E.</strong>, Zhou, D., Guo, J., Noh, S., Cooper, K., & Bornstein, A. (2024, October 5–9). 
-                <em>Autoencoder models of human graph learning reveal that sparse and dense representations differentially support planning and recall.</em> 
-                [Poster presentation]. Society of Neuroscience Annual Conference, Chicago, IL.
+                <strong>Dinh, E.</strong>, Zhou, D., Guo, J., Noh, S., Cooper,
+                K., & Bornstein, A. (2024, October 5–9).
+                <em
+                  >Autoencoder models of human graph learning reveal that sparse
+                  and dense representations differentially support planning and
+                  recall.</em
+                >
+                [Poster presentation]. Society of Neuroscience Annual Conference,
+                Chicago, IL.
               </li>
             </ul>
           </div>
           <div class="divider"></div>
           <!-- Teaching -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Teaching & Mentorship</h2>
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Teaching & Mentorship
+            </h2>
             <ul class="space-y-6">
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach1')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Data Science Instructor</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('teach1')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Data Science Instructor</strong
+                  >
                   <span class="text-gray-500 text-sm">Sep 2024 – May 2025</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   Learning Fuze
                 </div>
-                <div id="teach1" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="teach1"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Led instruction across foundational and advanced ML topics, including supervised learning, neural networks, and model evaluation techniques.</li>
-                    <li>Mentored students through the development of custom ML pipelines using Python, Pandas, and Scikit-learn.</li>
+                    <li>
+                      Led instruction across foundational and advanced ML
+                      topics, including supervised learning, neural networks,
+                      and model evaluation techniques.
+                    </li>
+                    <li>
+                      Mentored students through the development of custom ML
+                      pipelines using Python, Pandas, and Scikit-learn.
+                    </li>
                   </ul>
                 </div>
               </li>
-          
+
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach2')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Cognitive Behavior Educator</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('teach2')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Cognitive Behavior Educator</strong
+                  >
                   <span class="text-gray-500 text-sm">2019 – 2020</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   Centria Healthcare
                 </div>
-                <div id="teach2" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="teach2"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Designed and implemented evidence-based intervention strategies rooted in applied behavior analysis (ABA).</li>
-                    <li>Tracked and quantified behavioral adaptation and cognitive learning across 5+ neurodiverse children.</li>
-                    <li>Gained early insight into memory generalization, stimulus-response mapping, and structured learning sequences.</li>
-                 </ul>
+                    <li>
+                      Designed and implemented evidence-based intervention
+                      strategies rooted in applied behavior analysis (ABA).
+                    </li>
+                    <li>
+                      Tracked and quantified behavioral adaptation and cognitive
+                      learning across 5+ neurodiverse children.
+                    </li>
+                    <li>
+                      Gained early insight into memory generalization,
+                      stimulus-response mapping, and structured learning
+                      sequences.
+                    </li>
+                  </ul>
                 </div>
               </li>
-          
+
               <li>
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('teach3')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Lead Developmental Instructor</strong>
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('teach3')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Lead Developmental Instructor</strong
+                  >
                   <span class="text-gray-500 text-sm">2016 – 2018</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
                   Autism Interventions & Resources
                 </div>
-                <div id="teach3" class="hidden mt-2 text-sm text-gray-600 space-y-2">
+                <div
+                  id="teach3"
+                  class="hidden mt-2 text-sm text-gray-600 space-y-2"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Led 1:1 cognitive instruction and social skills development sessions for children with ASD and developmental conditions.</li>
-                    <li>Mentored junior instructors and designed adaptive lesson plans based on real-time behavioral metrics.</li>
-                    <li>Collaborated with families and specialists to ensure alignment between learning outcomes and neurodevelopmental goals.</li>                 
-                   </ul>
+                    <li>
+                      Led 1:1 cognitive instruction and social skills
+                      development sessions for children with ASD and
+                      developmental conditions.
+                    </li>
+                    <li>
+                      Mentored junior instructors and designed adaptive lesson
+                      plans based on real-time behavioral metrics.
+                    </li>
+                    <li>
+                      Collaborated with families and specialists to ensure
+                      alignment between learning outcomes and neurodevelopmental
+                      goals.
+                    </li>
+                  </ul>
                 </div>
               </li>
             </ul>
@@ -299,11 +550,19 @@ But you can't say it's not fun though.
           <div class="divider"></div>
 
           <!-- Skills -->
-           <div class="fade-section">
-           <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-700">
+          <div class="fade-section">
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Technical Skills
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-700"
+            >
               <div>
-                <strong class="block text-gray-600 mb-1">Programming & Tools</strong>
+                <strong class="block text-gray-600 mb-1"
+                  >Programming & Tools</strong
+                >
                 Python, TypeScript, Rust, Go, R, SQL, Git
               </div>
               <div>
@@ -311,87 +570,155 @@ But you can't say it's not fun though.
                 PyTorch, TensorFlow, Scikit-Learn, Hugging Face
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1">Modeling & Theory</strong>
-                Hopfield Networks, Autoencoders, Transformer Models (LLMs), Graph Theory, Dynamical Systems, Fisher Information Theory, Entropy & Sparsity Metrics
+                <strong class="block text-gray-600 mb-1"
+                  >Modeling & Theory</strong
+                >
+                Hopfield Networks, Autoencoders, Transformer Models (LLMs), Graph
+                Theory, Dynamical Systems, Fisher Information Theory, Entropy & Sparsity
+                Metrics
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1">Cognitive Modeling</strong>
-                Memory Representation, Vector Drift Simulation, Associative Recall Dynamics, Model Interpretability
+                <strong class="block text-gray-600 mb-1"
+                  >Cognitive Modeling</strong
+                >
+                Memory Representation, Vector Drift Simulation, Associative Recall
+                Dynamics, Model Interpretability
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1">Advising & Communication</strong>
-                Scientific Storytelling, Technical Synthesis, Cross-Domain Concept Translation, Lay Audience Education (e.g. Substack), 
-                Client-Facing Advisory, Intuitive Framing of Abstract Theory, Systems-Level Narrative Design
+                <strong class="block text-gray-600 mb-1"
+                  >Advising & Communication</strong
+                >
+                Scientific Storytelling, Technical Synthesis, Cross-Domain Concept
+                Translation, Lay Audience Education (e.g. Substack), Client-Facing
+                Advisory, Intuitive Framing of Abstract Theory, Systems-Level Narrative
+                Design
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1">Biological & Clinical Data Research</strong>
-              GCP, Regulatory Documentation, FDA Submission Support, Clinical Trial Management Systems (WindChill, iMetidata, LIMS), Tissue Culture, Cell-Based Assays, Sterile Media Preparation, Virus Propagation, Equipment (ELISA, ELISPOT)
+                <strong class="block text-gray-600 mb-1"
+                  >Biological & Clinical Data Research</strong
+                >
+                GCP, Regulatory Documentation, FDA Submission Support, Clinical Trial
+                Management Systems (WindChill, iMetidata, LIMS), Tissue Culture, Cell-Based
+                Assays, Sterile Media Preparation, Virus Propagation, Equipment (ELISA,
+                ELISPOT)
               </div>
               <div>
                 <strong class="block text-gray-600 mb-1">Languages</strong>
                 English (fluent), Vietnamese (fluent), Spanish (basic)
               </div>
             </div>
-            </div>
-
+          </div>
 
           <div class="divider"></div>
 
           <!-- Affilations -->
           <div class="fade-section">
-            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">Professional Affiliations</h2>
-          
+            <h2
+              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
+            >
+              Professional Affiliations
+            </h2>
 
-            
-              <!-- NTX -->
-              <div class="space-y-2">
-                <h3 class="text-lg italic font-normal text-gray-700 mb-4">NeuroTechX</h3>
-                <div class="ml-3 space-y-6"> 
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('affil1')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Content Lab Management Team – Writing Lead</strong>
+            <!-- NTX -->
+            <div class="space-y-2">
+              <h3 class="text-lg italic font-normal text-gray-700 mb-4">
+                NeuroTechX
+              </h3>
+              <div class="ml-3 space-y-6">
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('affil1')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Content Lab Management Team – Writing Lead</strong
+                  >
                   <span class="text-gray-500 text-sm">Jul 2023 – Present</span>
                 </div>
-                <div id="affil1" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
+                <div
+                  id="affil1"
+                  class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Directed editorial production across scientific content teams in a 6K+ member neurotechnology community.</li>
-                    <li>Oversaw concept development, accuracy review, and narrative clarity for pieces on AI, cognition, and neural tech.</li>
-                    <li>Collaborated with global researchers and professionals to deliver accessible, research-driven articles.</li>
+                    <li>
+                      Directed editorial production across scientific content
+                      teams in a 6K+ member neurotechnology community.
+                    </li>
+                    <li>
+                      Oversaw concept development, accuracy review, and
+                      narrative clarity for pieces on AI, cognition, and neural
+                      tech.
+                    </li>
+                    <li>
+                      Collaborated with global researchers and professionals to
+                      deliver accessible, research-driven articles.
+                    </li>
                   </ul>
                 </div>
-          
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('affil2')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">News Squad Team Member</strong>
+
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('affil2')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >News Squad Team Member</strong
+                  >
                   <span class="text-gray-500 text-sm">Mar 2023 – Mar 2024</span>
                 </div>
-                <div id="affil2" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
+                <div
+                  id="affil2"
+                  class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Curated and disseminated monthly global neurotech research and industry updates to 30+ international chapters.</li>
+                    <li>
+                      Curated and disseminated monthly global neurotech research
+                      and industry updates to 30+ international chapters.
+                    </li>
                   </ul>
                 </div>
-          
-                <div class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200" onclick="toggleDetails('affil3')">
-                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">Content Lab Associate Editor</strong>
+
+                <div
+                  class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  onclick="toggleDetails('affil3')"
+                >
+                  <strong
+                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
+                    >Content Lab Associate Editor</strong
+                  >
                   <span class="text-gray-500 text-sm">Nov 2021 – Mar 2024</span>
                 </div>
-                <div id="affil3" class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8">
+                <div
+                  id="affil3"
+                  class="hidden mt-2 text-sm text-gray-700 space-y-1 ml-8"
+                >
                   <ul class="list-disc list-inside">
-                    <li>Reviewed and edited articles on neuroscience, memory, and BCI technologies for clarity and rigor.</li>
-                    <li>Promoted scientific accessibility through engaging editorial strategy.</li>
+                    <li>
+                      Reviewed and edited articles on neuroscience, memory, and
+                      BCI technologies for clarity and rigor.
+                    </li>
+                    <li>
+                      Promoted scientific accessibility through engaging
+                      editorial strategy.
+                    </li>
                   </ul>
                 </div>
-
-          
-
               </div>
             </div>
           </div>
 
           <!-- Exit Warning -->
-          <div class="mt-12 text-center text-xs font-sans tracking-normal antialiased">
+          <div
+            class="mt-12 text-center text-xs font-sans tracking-normal antialiased"
+          >
             <span class="italic text-gray-600 font-bold">Warning:</span>
-            <span class="text-gray-500 opacity-70 italic"> Page will close upon </span>
-            <button id="exitButton" 
-                    class="text-gray-500 cursor-pointer underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-400 transition-all italic">
+            <span class="text-gray-500 opacity-70 italic">
+              Page will close upon
+            </span>
+            <button
+              id="exitButton"
+              class="text-gray-500 cursor-pointer underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-400 transition-all italic"
+            >
               exit
             </button>
           </div>
@@ -400,35 +727,81 @@ But you can't say it's not fun though.
     </main>
   </div>
 
-
-  <div id="unlockModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-    <div class="bg-[#f8f5f0] text-[#1f2937] p-8 rounded-xl shadow-lg max-w-sm w-full text-center">
+  <div
+    id="unlockModal"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+  >
+    <div
+      class="bg-[#f8f5f0] text-[#1f2937] p-8 rounded-xl shadow-lg max-w-sm w-full text-center"
+    >
       <h2 class="text-xl font-bold mb-4">[ACCESS CV NODE]</h2>
-      <input id="passwordInput" type="password" placeholder="Enter authorization key" 
-        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 mb-4 text-sm" />
-      <button id="unlockButton" 
-        class="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-black transition-all text-sm">
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Enter authorization key"
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 mb-4 text-sm"
+      />
+      <button
+        id="unlockButton"
+        class="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-black transition-all text-sm"
+      >
         Unlock Memory
       </button>
-      <div id="unlockError" class="text-red-400 text-xs mt-2 hidden">Uh oh. That's not right.</div>
+      <div id="unlockError" class="text-red-400 text-xs mt-2 hidden">
+        Uh oh. That's not right.
+      </div>
     </div>
   </div>
 
-
   <style>
-    .animate-fade-in-slow { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-    html { scroll-behavior: smooth; }
-    .divider { border-top: 1px solid #d1d5db; margin-top: 2rem; margin-bottom: 2rem; }
-    @keyframes fogReveal {
-      0% { opacity: 0; filter: blur(8px); transform: translateY(30px); }
-      50% { opacity: 0.5; filter: blur(4px); }
-      100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+    .animate-fade-in-slow {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
     }
-    .fade-section { opacity: 0; transform: translateY(30px); filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease; }
-    .fade-section.visible { animation: fogReveal 0.6s ease forwards; }
-  
-  
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .divider {
+      border-top: 1px solid #d1d5db;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    @keyframes fogReveal {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(30px);
+      }
+      50% {
+        opacity: 0.5;
+        filter: blur(4px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(8px);
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        filter 0.4s ease;
+    }
+    .fade-section.visible {
+      animation: fogReveal 0.6s ease forwards;
+    }
+
     html {
       height: 100%;
       overflow-x: hidden;
@@ -443,174 +816,164 @@ But you can't say it's not fun though.
       display: none !important;
     }
 
-  .scroll-area::-webkit-scrollbar {
-    display: none;
-  }
-  .scroll-area {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;     
-  }
+    .scroll-area::-webkit-scrollbar {
+      display: none;
+    }
+    .scroll-area {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     @media (max-height: 600px) {
-    .scroll-area {
-      max-height: none;
+      .scroll-area {
+        max-height: none;
+      }
     }
-  }
-
   </style>
 
-
-
-
-<script>
+  <script>
     let hasGlitched = false;
 
     function setHistoryTrap() {
       const current = history.state;
-      if (!current || current.trap !== 'cv') {
-        history.replaceState({ trap: 'entry' }, '', location.href);
-        history.pushState({ trap: 'cv' }, '', location.href);
+      if (!current || current.trap !== "cv") {
+        history.replaceState({ trap: "entry" }, "", location.href);
+        history.pushState({ trap: "cv" }, "", location.href);
       }
     }
 
-
-
-      if (!sessionStorage.getItem('cvUnlocked')) {
-        const isExternal = !document.referrer || !document.referrer.includes(window.location.origin);
-        sessionStorage.setItem('isExternalEntry', isExternal ? 'true' : 'false');
+    if (!sessionStorage.getItem("cvUnlocked")) {
+      const isExternal =
+        !document.referrer ||
+        !document.referrer.includes(window.location.origin);
+      sessionStorage.setItem("isExternalEntry", isExternal ? "true" : "false");
 
       if (isExternal) {
-        window.addEventListener('DOMContentLoaded', () => {
-          triggerCorruption();  
+        window.addEventListener("DOMContentLoaded", () => {
+          triggerCorruption();
         });
       }
-      }
+    } else {
+      sessionStorage.setItem("isExternalEntry", "false");
+    }
 
-      else {
-        sessionStorage.setItem('isExternalEntry', 'false');
-      }
-    
-      document.addEventListener("DOMContentLoaded", () => {
-        const correctPassword = "luckyyou";
-        const modal = document.getElementById('unlockModal');
-        const passwordInput = document.getElementById('passwordInput');
-        const unlockButton = document.getElementById('unlockButton');
-        const unlockError = document.getElementById('unlockError');
-        const protectedContent = document.getElementById('protectedContent');
-        hasGlitched = false;
+    document.addEventListener("DOMContentLoaded", () => {
+      const correctPassword = "luckyyou";
+      const modal = document.getElementById("unlockModal");
+      const passwordInput = document.getElementById("passwordInput");
+      const unlockButton = document.getElementById("unlockButton");
+      const unlockError = document.getElementById("unlockError");
+      const protectedContent = document.getElementById("protectedContent");
+      hasGlitched = false;
 
+      if (sessionStorage.getItem("cvUnlocked") === "true") {
+        modal.classList.add("hidden");
+        protectedContent.classList.remove("hidden");
 
-        if (sessionStorage.getItem('cvUnlocked') === 'true') {
-          modal.classList.add('hidden');
-          protectedContent.classList.remove('hidden');
-
-          if (!history.state || history.state.trap !== 'cv') {
-            setTimeout(() => {
-              setHistoryTrap();
-            }, 50);
-          }
-        } else {
-          modal.classList.remove('hidden');
+        if (!history.state || history.state.trap !== "cv") {
+          setTimeout(() => {
+            setHistoryTrap();
+          }, 50);
         }
+      } else {
+        modal.classList.remove("hidden");
+      }
 
-
-        const sections = document.querySelectorAll('.fade-section');
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
+      const sections = document.querySelectorAll(".fade-section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
+              entry.target.classList.add("visible");
             } else {
-              entry.target.classList.remove('visible');
+              entry.target.classList.remove("visible");
             }
           });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
+        },
+        { threshold: 0.1 },
+      );
+      sections.forEach((section) => observer.observe(section));
 
+      unlockButton.addEventListener("click", () => {
+        if (passwordInput.value.trim().toLowerCase() === correctPassword) {
+          sessionStorage.setItem("cvUnlocked", "true");
+          sessionStorage.setItem("isExternalEntry", "false");
 
-        unlockButton.addEventListener('click', () => {
-          if (passwordInput.value.trim().toLowerCase() === correctPassword) {
-            sessionStorage.setItem('cvUnlocked', 'true');
-            sessionStorage.setItem('isExternalEntry', 'false');
+          modal.classList.add("hidden");
+          protectedContent.classList.remove("hidden");
 
-            modal.classList.add('hidden');
-            protectedContent.classList.remove('hidden');
+          setHistoryTrap();
 
+          window.addEventListener("beforeunload", () => {
+            sessionStorage.setItem("redirectToCorruption", "true");
+          });
+        } else {
+          unlockError.classList.remove("hidden");
+        }
+      });
 
-            setHistoryTrap();
+      passwordInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") unlockButton.click();
+      });
 
-            window.addEventListener('beforeunload', () => {
-              sessionStorage.setItem('redirectToCorruption', 'true');
-            });
-
-          } else {
-            unlockError.classList.remove('hidden');
-          }
-        });
-
-        passwordInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') unlockButton.click();
-        });
-
-
-        (function setupBackTrap() {
-        history.pushState({ trap: 'cv-trap' }, '', location.href);
-        window.addEventListener('popstate', (event) => {
+      (function setupBackTrap() {
+        history.pushState({ trap: "cv-trap" }, "", location.href);
+        window.addEventListener("popstate", (event) => {
           const state = event.state;
-          if (!state || state.trap !== 'cv-trap') {
+          if (!state || state.trap !== "cv-trap") {
             triggerCorruption();
           } else {
             setTimeout(() => {
-              history.pushState({ trap: 'cv-trap' }, '', location.href);
+              history.pushState({ trap: "cv-trap" }, "", location.href);
             }, 50);
           }
         });
       })();
 
+      const exitButton = document.getElementById("exitButton");
+      if (exitButton) {
+        exitButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          triggerCorruption();
+        });
+      }
 
-
-
-
-        const exitButton = document.getElementById('exitButton');
-        if (exitButton) {
-          exitButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            triggerCorruption();
-          });
-        }
-
-        document.querySelectorAll('[onclick^="toggleDetails"]').forEach(item => {
-          item.addEventListener('click', (e) => {
-            const id = e.currentTarget.getAttribute('onclick').match(/'([^']+)'/)[1];
+      document
+        .querySelectorAll('[onclick^="toggleDetails"]')
+        .forEach((item) => {
+          item.addEventListener("click", (e) => {
+            const id = e.currentTarget
+              .getAttribute("onclick")
+              .match(/'([^']+)'/)[1];
             toggleDetails(id);
           });
         });
-      });
+    });
 
-   
     function toggleDetails(id) {
       const element = document.getElementById(id);
-      element.classList.toggle('hidden');
+      element.classList.toggle("hidden");
     }
 
-      function triggerCorruption() {
-        const fromExternal = sessionStorage.getItem('isExternalEntry') === 'true';
-        let message;
+    function triggerCorruption() {
+      const fromExternal = sessionStorage.getItem("isExternalEntry") === "true";
+      let message;
 
-        if (fromExternal) {
-          message = "⚠️ Unauthorized External Memory Jump Detected"
-        } else {
-          const options = [
-            "Memory Corrupted.",
-            "Access Revoked.",
-            "Node Disconnected.",
-            "Memory Fragment Unrecoverable.",
-            "Unauthorized Neural Reentry.",
-            "Signal Lost."
-          ];
-          message = options[Math.floor(Math.random() * options.length)];
-        }
+      if (fromExternal) {
+        message = "⚠️ Unauthorized External Memory Jump Detected";
+      } else {
+        const options = [
+          "Memory Corrupted.",
+          "Access Revoked.",
+          "Node Disconnected.",
+          "Memory Fragment Unrecoverable.",
+          "Unauthorized Neural Reentry.",
+          "Signal Lost.",
+        ];
+        message = options[Math.floor(Math.random() * options.length)];
+      }
 
-          document.body.innerHTML = `
+      document.body.innerHTML = `
             <style>
               body { 
                 background: black; 
@@ -644,30 +1007,29 @@ But you can't say it's not fun though.
           `;
 
       setTimeout(() => {
-        window.location.replace('/');
+        window.location.replace("/");
       }, 1000);
     }
 
-    window.addEventListener('popstate', () => {
+    window.addEventListener("popstate", () => {
       const currentState = history.state;
 
-      if (currentState?.trap === 'entry') {
+      if (currentState?.trap === "entry") {
         triggerCorruption();
       }
 
-      if (sessionStorage.getItem('cvUnlocked') === 'true') {
+      if (sessionStorage.getItem("cvUnlocked") === "true") {
         setTimeout(() => {
           setHistoryTrap();
         }, 50);
       }
     });
 
-
-          (function watchDevTools() {
+    (function watchDevTools() {
       const messages = [
         "👁 That wasn't very subtle.",
         "🔒 Accessing inner thoughts? Cute.",
-        "🤫 Nosy much?"
+        "🤫 Nosy much?",
       ];
 
       let devtoolsOpen = false;
@@ -679,7 +1041,8 @@ But you can't say it's not fun though.
 
         if (isOpen && !devtoolsOpen) {
           devtoolsOpen = true;
-          const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+          const randomMessage =
+            messages[Math.floor(Math.random() * messages.length)];
           alert(randomMessage);
         }
 
@@ -689,13 +1052,9 @@ But you can't say it's not fun though.
       }, 1000);
     })();
 
-
-      console.log("%cUhhh... did you need something?", "color: rgba(157, 126, 219, 0.6); font-size: 13px; font-style: italic;");
-
-
-
+    console.log(
+      "%cUhhh... did you need something?",
+      "color: rgba(157, 126, 219, 0.6); font-size: 13px; font-style: italic;",
+    );
   </script>
-
 </Layout>
-
-

@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loading Memory Space...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         background-color: white;
+        color: #a5a5b5;
         color: black;
-        font-family: 'Share Tech Mono', monospace;
+        font-family: "Share Tech Mono", monospace;
         margin: 0;
         padding: 0;
         display: flex;
@@ -20,6 +24,8 @@
         font-size: 1.5rem;
         overflow: hidden;
         text-align: center;
+
+        font-family: monospace;
       }
 
       #flash-overlay {
@@ -69,14 +75,16 @@
   </head>
 
   <body>
-    <div id="loading-text" class="glitch" data-text="Loading Memory Space...">Loading Memory Space...</div>
+    <div id="loading-text" class="glitch" data-text="Loading Memory Space...">
+      Loading Memory Space...
+    </div>
     <div id="percent-text">0% complete</div>
     <div id="flash-overlay"></div>
 
     <script>
-      const loadingText = document.getElementById('loading-text');
-      const percentText = document.getElementById('percent-text');
-      const flashOverlay = document.getElementById('flash-overlay');
+      const loadingText = document.getElementById("loading-text");
+      const percentText = document.getElementById("percent-text");
+      const flashOverlay = document.getElementById("flash-overlay");
 
       let percent = 0;
 
@@ -85,34 +93,34 @@
         let speed;
 
         if (percent < 50) {
-          increment = Math.floor(Math.random() * 3) + 1; 
+          increment = Math.floor(Math.random() * 3) + 1;
           speed = 180;
         } else if (percent < 90) {
-          increment = Math.floor(Math.random() * 3) + 1; 
+          increment = Math.floor(Math.random() * 3) + 1;
           speed = 130;
         } else {
-          increment = Math.floor(Math.random() * 2) + 1; 
+          increment = Math.floor(Math.random() * 2) + 1;
           speed = 100;
         }
 
         percent += increment;
         if (percent > 100) percent = 100;
 
-        loadingText.setAttribute('data-text', "Loading Memory Space...");
+        loadingText.setAttribute("data-text", "Loading Memory Space...");
         percentText.textContent = `${percent}% complete`;
 
         if (percent === 100) {
           setTimeout(() => {
             flashOverlay.style.opacity = 1;
             setTimeout(() => {
-              window.location.href = "/start"; 
+              window.location.href = "/start";
             }, 700);
           }, 500);
         } else {
           setInterval(updateLoading, speed);
         }
       }
-      updateLoading()
+      updateLoading();
     </script>
   </body>
 </html>

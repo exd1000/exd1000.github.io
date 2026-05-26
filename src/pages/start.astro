@@ -1,18 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-                                                                
-
 <Layout>
-<main class="fixed inset-0 overflow-hidden text-white font-mono">
-        
-  <div class="absolute inset-0 bg-black z-0"></div>
-  <canvas id="connections" class="absolute top-0 left-0 z-0 pointer-events-none"></canvas>
+  <main
+    class="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden font-mono text-white bg-transparent"
+  >
+    <h1 class="page-title text-2xl md:text-4xl mb-10 z-10 tracking-widest">
+      Which Node Would You Like to Access?
+    </h1>
 
-
-
-  <!-- 
+    <!-- 
 ███████ ██   ██  ██████ ██    ██ ███████ ███████     ███    ███ ███████ 
 ██       ██ ██  ██      ██    ██ ██      ██          ████  ████ ██      
 █████     ███   ██      ██    ██ ███████ █████       ██ ████ ██ █████   
@@ -24,327 +22,578 @@ import Layout from '../layouts/Layout.astro';
 Can I have some privacy please? 
 -->
 
-  <div id="memory-space" class="fixed inset-0 z-10">
-    <a href="https://exd1000.substack.com" target="_blank" class="node"><em>Substack</em></a>
-    <a href="https://github.com/exd1000" target="_blank" class="node"><em>GitHub</em></a>
-    <a href="/blank" class="node">My Default Node</a>
-    <a href="/benji" class="node">♥︎ Benjison ♥︎</a>
-    <a href="/about" class="node">Who Am I?</a>
-    <a href="javascript:cv(0);" id="secret-node" class="node">Curriculum Vitae</a>
-    <a href="/thoughts" class="node">3AM Thoughts</a>
-    <a href="/research" class="node">Research Focus</a> 
-    <a href="/contact" class="node">Contact Me</a> 
-    <a href="/why" class="node">Why This Matters</a>  
-    <!-- <a href="https://contra.com/emilydinh" target="_blank" class="node"><em>Contra</em></a> -->
-  </div>
-    
+    <div id="particles-js" class="fixed inset-0 -z-10 w-full h-full"></div>
 
+    <!-- memory nodes -->
+    <div id="memory-space" class="fixed inset-0 z-20">
+      <!-- left brain nodes -->
 
-  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">  <h1 class="text-2xl md:text-4xl animate-fade-in-slow text-center text-white">
-    Which Memory Node Would You Like to Access?
-  </h1>
-  </div>
+      <a
+        href="https://github.com/exd1000"
+        target="_blank"
+        class="node left"
+        style="top: 20%; left: 10%;">GitHub</a
+      >
+      <a href="/research" class="node left" style="top: 35%; left: 14%;"
+        >Research Focus</a
+      >
+      <a href="/why" class="node left" style="top: 55%; left: 12%;"
+        >Why This Matters</a
+      >
+      <a
+        href="javascript:cv(0);"
+        id="secret-node"
+        class="node left"
+        style="bottom: 20%; left: 18%;">Curriculum Vitae</a
+      >
 
+      <!-- right brain nodes -->
+      <a
+        href="https://dimensionaldrift.substack.com/"
+        target="_blank"
+        class="node right"
+        style="top: 20%; right: 8%;">Substack</a
+      >
+      <a href="/thoughts" class="node right" style="top: 35%; right: 12%;"
+        >3AM Thoughts</a
+      >
+      <a href="/contact" class="node right" style="top: 55%; right: 14%;"
+        >Contact Me</a
+      >
+      <a href="/benji" class="node right" style="bottom: 25%; right: 20%;"
+        >♥︎ Benjison ♥︎</a
+      >
 
-
-
-  <div id="password-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-    <div class="bg-white text-black rounded-xl p-8 shadow-lg flex flex-col gap-4 max-w-sm w-full text-center">
-      <h2 class="text-lg font-bold">Memory Access Required</h2>
-      <input id="password-input" type="password" placeholder="Enter authorization key" class="border p-2 rounded-md w-full" />
-      <div class="flex justify-center gap-4">
-        <button id="password-submit" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-400">
-          Unlock Memory
-        </button>
-        <button onclick="window.location.href='/contact'" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-400">
-          Request Access
-        </button>
-        <button id="password-cancel" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-400">
-          Cancel
-        </button>
-      </div>
+      <!-- connecting/center nodes -->
+      <a href="/" class="node center" style="top: 3%; left: 48%;">Home</a>
+      <a href="/about" class="node center" style="top: 13%; left: 47%;"
+        >Who Am I?</a
+      >
+      <a href="/blank" class="node center" style="top:25%; left: 46%;"
+        >My Default Node</a
+      >
     </div>
-  </div>
 
-
-  <div id="memory-failed" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
-    <div class="glitch-text text-2xl animate-glitch">Memory Retrieval Failed</div>
-  </div>
-
-
-  <style>
-    .node {
-      position: absolute;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      background: #6b21a8;
-      transition: all 0.3s;
-      animation: pulse 2s infinite;
-      animation-delay: calc(var(--random-delay) * 1s);
-      box-shadow: 0 0 10px #a855f7;
-      font-weight: bold;
-      font-family: monospace;
-      pointer-events: auto;
-      text-align: center;
-    }
-
-
-    #memory-space a:nth-child(1) { --random-delay: 0.2; } /*Substack*/
-    #memory-space a:nth-child(2) { --random-delay: 1.4; } /*GitHub */
-    #memory-space a:nth-child(3) { --random-delay: 0.7; } /* Elevator*/
-    #memory-space a:nth-child(4) { --random-delay: 1.0; } /* Benji*/
-    #memory-space a:nth-child(5) { --random-delay: 0.5; } /*About me*/
-    #memory-space a:nth-child(6) { --random-delay: 1.8; } /* CV*/
-    #memory-space a:nth-child(7) { --random-delay: 0.3; }/* 3am*/
-    #memory-space a:nth-child(8) { --random-delay: 1.2; } /* Research Focus */
-    #memory-space a:nth-child(9) { --random-delay: 0.6; } /* Contact Me */
-    #memory-space a:nth-child(10) { --random-delay: 0.9; } /* Why This Matters */
-    /* #memory-space a:nth-child(11) { --random-delay: 1.1; }  Contra */ 
-
-
-    .node:hover {
-      transform: scale(1.05);
-      background: #9333ea;
-    }
-
-
-
-
-
-    #memory-space a:nth-child(1) { top: 20%; left: 15%; background-color: #9275a9; } /* Substack */
-    #memory-space a:nth-child(2) { top: 70%; left: 75%; background-color: #93bec1; } /* GitHub */
-    #memory-space a:nth-child(3) { top: 5%; left: 40%; background-color: #cec6de; } /* Elevator Music */
-    #memory-space a:nth-child(4) { top: 75%; left: 20%; background-color: #c5b37c; } /* Benji */
-    #memory-space a:nth-child(5) { top: 40%; left: 5%; background-color: #b36d69; } /* Who am I */
-    #memory-space a:nth-child(6) { top: 35%; left: 80%; background-color: #c87da3; } /* CV */
-    #memory-space a:nth-child(7) { top: 85%; left: 50%; background-color: #4f596e; } /* 3AM Thoughts */
-    #memory-space a:nth-child(8) { top: 60%; left: 30%; background-color: #79b6a2; } /* Research Focus */
-    #memory-space a:nth-child(9) { top:15%; left:75%; background-color: #758caf; } /* Contact */
-    #memory-space a:nth-child(10) { top: 25%; left: 50%; background-color: #9893da; } /* My Why*/
-    /*  #memory-space a:nth-child(11) { top: 35%; left: 35%; background-color: #e6ad70; } Contra */
-
-    .glitch-text {
-      color: white;
-      font-family: monospace;
-      text-shadow: 1px 1px #ff00ff, -1px -1px #00ffff;
-    }
-
-    @keyframes glitch {
-      0%, 100% { transform: translate(0); opacity: 1; }
-      20% { transform: translate(-2px, 2px); opacity: 0.8; }
-      40% { transform: translate(2px, -1px); opacity: 0.9; }
-      60% { transform: translate(-1px, 1px); opacity: 0.85; }
-      80% { transform: translate(1px, -2px); opacity: 0.95; }
-    }
-
-    .animate-glitch {
-      animation: glitch 1s infinite;
-    }
-
-
-    .animate-fade-in-slow {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: floatFade 2.2s ease forwards;
-    }
-
-    @keyframes floatFade {
-      to {
-        opacity: 0.65; 
-        transform: translateY(0);
+    <style>
+      main {
+        background: transparent !important;
       }
-    }
-
-  </style>
-
-
-  <script>
-    let targetPage = '';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const secretNode = document.getElementById('secret-node');
-      const submitButton = document.getElementById('password-submit');
-      const cancelButton = document.getElementById('password-cancel');
-
-      secretNode.addEventListener('click', (e) => {
-        e.preventDefault();
-        openPasswordModal('/cv');
-      });
-
-      submitButton.addEventListener('click', submitPassword);
-      cancelButton.addEventListener('click', closePasswordModal);
-    });
-
-    function openPasswordModal(page) {
-      targetPage = page;
-      document.getElementById('password-modal').classList.remove('hidden');
-      document.getElementById('password-input').value = '';
-      document.getElementById('password-input').focus();
-    }
-
-    function closePasswordModal() {
-      document.getElementById('password-modal').classList.add('hidden');
-    }
-
-    function submitPassword() {
-      const input = document.getElementById('password-input').value;
-      const correctPassword = "luckyyou"; 
-
-      if (input === correctPassword) {
-        history.replaceState(null, '', '/'); 
-        history.pushState(null, '', '/cv');  
-window.location.href = '/cv';
-      } else {
-        closePasswordModal();
-        triggerMemoryFailed();
+      /* intro style */
+      .page-title {
+        font-family: monospace;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.1em;
+        text-shadow: 0 0 6px rgba(168, 85, 247, 0.25);
+        animation: titleGlow 6s ease-in-out infinite;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        backdrop-filter: blur(2px);
       }
-    }
 
-    function triggerMemoryFailed() {
-      const failed = document.getElementById('memory-failed');
-      failed.classList.remove('hidden');
-      setTimeout(() => {
-        failed.classList.add('hidden');
-      }, 700);
-    }
-
-    // Canvas connections - this had a lot of issues
-    const canvas = document.getElementById('connections');
-    const ctx = canvas.getContext('2d');
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const nodes = Array.from(document.querySelectorAll('#memory-space a'));
-    let mouseX = null;
-    let mouseY = null;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    const particles = Array.from({ length: 120 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      radius: Math.random() * 2 + 0.5,
-      dx: (Math.random() - 0.5) * 0.4,
-      dy: (Math.random() - 0.5) * 0.4,
-    }));
-
-    function updateParticles() {
-      for (let p of particles) {
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > window.innerWidth) p.dx *= -1;
-        if (p.y < 0 || p.y > window.innerHeight) p.dy *= -1;
-      }
-    }
-
-    function drawParticles() {
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-        ctx.fill();
-      }
-    }
-
-    function getNodeCenters() {
-      return nodes.map(node => {
-        const rect = node.getBoundingClientRect();
-        return {
-          x: rect.left + rect.width / 2 + window.scrollX,
-          y: rect.top + rect.height / 2 + window.scrollY
-        };
-      });
-    }
-
-    function drawLines() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawParticles();
-
-      const centers = getNodeCenters();
-
-      for (let i = 0; i < centers.length; i++) {
-        for (let j = i + 1; j < centers.length; j++) {
-          const dist = Math.hypot(centers[i].x - centers[j].x, centers[i].y - centers[j].y);
-          if (dist < 600) {
-            const hover = mouseX && mouseY &&
-              (Math.hypot(mouseX - centers[i].x, mouseY - centers[i].y) < 80 ||
-              Math.hypot(mouseX - centers[j].x, mouseY - centers[j].y) < 80);
-
-            ctx.strokeStyle = hover
-              ? 'rgba(255, 255, 255, 0.8)'
-              : 'rgba(168, 85, 247, 0.4)';
-            ctx.lineWidth = hover ? 2.5 : 1.5;
-            ctx.beginPath();
-            ctx.moveTo(centers[i].x, centers[i].y);
-            ctx.lineTo(centers[j].x, centers[j].y);
-            ctx.stroke();
-          }
+      @keyframes titleGlow {
+        0%,
+        100% {
+          opacity: 0.7;
+          text-shadow: 0 0 6px rgba(168, 85, 247, 0.3);
+        }
+        50% {
+          opacity: 1;
+          text-shadow: 0 0 18px rgba(168, 85, 247, 0.6);
         }
       }
-    }
 
-    function animate() {
-      requestAnimationFrame(animate);
-      updateParticles();
-      drawLines();
-    }
-
-    animate();
-
-  (function watchDevTools() {
-    const messages = [
-      "👁 That wasn't very subtle.",
-      "🔒 Accessing inner thoughts? Cute.",
-      "🤫 Nosy much?"
-    ];
-
-    let devtoolsOpen = false;
-
-    setInterval(() => {
-      const widthThreshold = window.outerWidth - window.innerWidth > 160;
-      const heightThreshold = window.outerHeight - window.innerHeight > 160;
-      const isOpen = widthThreshold || heightThreshold;
-
-      if (isOpen && !devtoolsOpen) {
-        devtoolsOpen = true;
-        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        alert(randomMessage);
+      /* hemisphere vibes  */
+      #particles-js::before,
+      #particles-js::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        z-index: 1;
       }
 
-      if (!isOpen && devtoolsOpen) {
-        devtoolsOpen = false;
+      /* Base static hemisphere glow (left + right balance) */
+      #particles-js::before {
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(110, 165, 255, 0.28),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 80% 50%,
+            rgba(225, 140, 255, 0.28),
+            transparent 60%
+          ),
+          linear-gradient(
+            to right,
+            rgba(110, 165, 255, 0.18),
+            rgba(176, 132, 249, 0.22) 50%,
+            rgba(225, 140, 255, 0.18)
+          );
+        filter: blur(2px);
       }
-    }, 1000);
-  })();
 
+      /* Breathing glow overlay (pulsating lilac haze) */
+      /* Gradient Hemisphere Aura */
+      #particles-js::before,
+      #particles-js::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        z-index: 1;
+      }
 
+      /* Base static glow (anchors the hemispheres) */
+      #particles-js::before {
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(110, 165, 255, 0.25),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 80% 50%,
+            rgba(225, 140, 255, 0.25),
+            transparent 60%
+          ),
+          linear-gradient(
+            to right,
+            rgba(110, 165, 255, 0.18),
+            rgba(176, 132, 249, 0.25) 50%,
+            rgba(225, 140, 255, 0.18)
+          );
+        filter: blur(2px);
+      }
 
-  
+      /* Breathing gradient overlay */
+      #particles-js::after {
+        background: linear-gradient(
+          90deg,
+          rgba(110, 165, 255, 0.15),
+          rgba(176, 132, 249, 0.25),
+          rgba(225, 140, 255, 0.15)
+        );
+        background-size: 200% 200%;
+        animation: gradientBreathe 12s ease-in-out infinite;
+        filter: blur(4px);
+      }
 
-  console.log(
-    "%cA memory once sealed cannot be retrieved. ✨\n\nBut some memories... they leak.\nTry typing: unlock('exd1000')",
-    "color: #9d7edb; font-size: 12px; font-family: monospace;"
-  );
+      @keyframes gradientBreathe {
+        0% {
+          background-position: 0% 50%;
+          opacity: 0.35;
+        }
+        25% {
+          background-position: 25% 50%;
+          opacity: 0.5;
+        }
+        50% {
+          background-position: 100% 50%;
+          opacity: 0.65;
+        }
+        75% {
+          background-position: 75% 50%;
+          opacity: 0.5;
+        }
+        100% {
+          background-position: 0% 50%;
+          opacity: 0.35;
+        }
+      }
 
-  window.unlock = function(key) {
-    if (key === 'exd1000') {
-      alert("Key sequence accepted 🔓.\n\nAccess granted to an encrypted memory.");
-      history.replaceState({ trapRoot: true }, '', '/void');
-      location.replace('/void');
-    } else {
-      alert("Unrecognized fragment.");
-    }
-  };
-  </script>
+      /* memory nodes style */
+      .node {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        font-size: 0.85rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: 2px;
+        background: transparent;
+        text-decoration: none;
+        pointer-events: auto;
+        transition: all 0.3s ease;
+        animation: nodeGlow 6s ease-in-out infinite;
+        animation-delay: calc(var(--delay, 0) * 1s);
+      }
 
+      /* LEFT HEMISPHERE —  blue */
+      .node.left {
+        text-shadow: 0 0 10px rgba(110, 165, 255, 0.35);
+      }
+      .node.left:hover {
+        text-shadow: 0 0 15px rgba(130, 190, 255, 0.8);
+        box-shadow: 0 0 10px rgba(130, 190, 255, 0.4);
+      }
 
-</main>
+      /* RIGHT HEMISPHERE — red */
+      .node.right {
+        text-shadow: 0 0 10px rgba(225, 140, 255, 0.35);
+      }
+      .node.right:hover {
+        text-shadow: 0 0 15px rgba(227, 37, 88, 0.8);
+        box-shadow: 0 0 10px rgba(255, 160, 255, 0.4);
+      }
+
+      /* CENTER —  white */
+      .node.center {
+        text-shadow: 0 0 10px rgba(176, 132, 249, 0.5);
+      }
+      .node.center:hover {
+        text-shadow: 0 0 18px rgba(201, 180, 234, 0.9);
+        box-shadow: 0 0 12px rgba(176, 132, 249, 0.6);
+      }
+
+      /* random delays per node */
+      .node:nth-child(1) {
+        --delay: 0;
+      }
+      .node:nth-child(2) {
+        --delay: 1.2;
+      }
+      .node:nth-child(3) {
+        --delay: 2.4;
+      }
+      .node:nth-child(4) {
+        --delay: 3.6;
+      }
+      .node:nth-child(5) {
+        --delay: 4.2;
+      }
+      .node:nth-child(6) {
+        --delay: 2.1;
+      }
+      .node:nth-child(7) {
+        --delay: 5.1;
+      }
+      .node:nth-child(8) {
+        --delay: 1.8;
+      }
+      .node:nth-child(9) {
+        --delay: 3.3;
+      }
+      .node:nth-child(10) {
+        --delay: 0.9;
+      }
+      .node:nth-child(11) {
+        --delay: 4.8;
+      }
+      .node:nth-child(12) {
+        --delay: 1.6;
+      }
+
+      .node:hover {
+        color: #fff;
+        background: rgba(168, 85, 247, 0.3);
+        box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+        transform: scale(1.03);
+        padding: 0 0.5rem; /* tighter fit */
+        border-radius: 1px; /* crisp corners */
+        animation: none;
+      }
+
+      @keyframes nodeGlow {
+        0%,
+        100% {
+          opacity: 0.4;
+          text-shadow: 0 0 4px rgba(168, 85, 247, 0.15);
+        }
+        50% {
+          opacity: 0.9;
+          text-shadow: 0 0 14px rgba(168, 85, 247, 0.45);
+        }
+      }
+
+      /* holographic modal styling */
+      .modal-panel {
+        background: radial-gradient(
+          circle at 50% 20%,
+          rgba(176, 132, 249, 0.25),
+          rgba(0, 0, 0, 0.75)
+        );
+        border: 1px solid rgba(176, 132, 249, 0.25);
+        box-shadow:
+          0 0 20px rgba(176, 132, 249, 0.25),
+          0 0 60px rgba(176, 132, 249, 0.1);
+        font-family: "Share Tech Mono", monospace;
+        color: #e5dfff;
+        letter-spacing: 0.03em;
+        backdrop-filter: blur(14px);
+      }
+
+      /* title */
+      .modal-panel h2 {
+        color: #d9c2ff;
+        text-shadow: 0 0 10px rgba(176, 132, 249, 0.5);
+        margin-bottom: 1.25rem;
+      }
+
+      /* input field */
+      #password-input {
+        background: rgba(255, 255, 255, 0.05);
+        color: #e6dfff;
+        border: 1px solid rgba(176, 132, 249, 0.4);
+        border-radius: 8px;
+        padding: 0.6rem 0.8rem;
+        transition: all 0.25s ease;
+      }
+      #password-input:focus {
+        border-color: rgba(225, 140, 255, 0.7);
+        box-shadow: 0 0 12px rgba(176, 132, 249, 0.5);
+      }
+
+      /* buttons */
+      .modal-btn {
+        font-family: "Share Tech Mono", monospace;
+        letter-spacing: 0.03em;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* Unlock + Request Access */
+      .modal-btn.unlock,
+      .modal-btn.request {
+        background: linear-gradient(
+          135deg,
+          rgba(176, 132, 249, 0.85),
+          rgba(225, 140, 255, 0.85)
+        );
+        color: white;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        animation: buttonBreathe 6s ease-in-out infinite;
+      }
+
+      .modal-btn.unlock:hover,
+      .modal-btn.request:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(225, 140, 255, 1),
+          rgba(176, 132, 249, 1)
+        );
+        box-shadow: 0 0 15px rgba(176, 132, 249, 0.7);
+        transform: scale(1.05);
+      }
+
+      /* Cancel */
+      .modal-btn.cancel {
+        background: rgba(90, 90, 110, 0.6);
+        color: #ddd;
+      }
+      .modal-btn.cancel:hover {
+        background: rgba(110, 110, 130, 0.9);
+        box-shadow: 0 0 10px rgba(176, 132, 249, 0.3);
+      }
+
+      /* pulse */
+      @keyframes buttonBreathe {
+        0%,
+        100% {
+          box-shadow: 0 0 8px rgba(176, 132, 249, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(225, 140, 255, 0.5);
+        }
+      }
+    </style>
+
+    <!-- password stuff -->
+    <!-- password stuff -->
+    <div
+      id="password-modal"
+      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm"
+    >
+      <div class="modal-panel text-center max-w-sm w-full mx-4 p-8 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-4 tracking-wide">
+          Memory Access Required
+        </h2>
+
+        <input
+          id="password-input"
+          type="password"
+          placeholder="Enter authorization key"
+          class="w-full px-3 py-2 mb-5 rounded-md text-sm tracking-wide outline-none"
+        />
+
+        <div class="flex justify-center gap-4">
+          <button id="password-submit" class="modal-btn unlock"
+            >Unlock Memory</button
+          >
+          <button
+            onclick="window.location.href='/contact'"
+            class="modal-btn request">Request Access</button
+          >
+          <button id="password-cancel" class="modal-btn cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="memory-failed"
+      class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+    >
+      <div class="glitch-text text-2xl animate-glitch">
+        Memory Retrieval Failed
+      </div>
+    </div>
+
+    <!-- particle background + connections -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        tsParticles.load("particles-js", {
+          background: { color: "#000000" },
+          fpsLimit: 60,
+          interactivity: {
+            events: {
+              onHover: { enable: true, mode: "grab" },
+              onClick: { enable: false },
+              resize: true,
+            },
+            modes: {
+              grab: {
+                distance: 200,
+                links: {
+                  opacity: 0.8,
+                  color: "#b084f9",
+                },
+              },
+            },
+          },
+          particles: {
+            color: { value: "#b084f9" },
+            links: {
+              color: "#b084f9",
+              distance: 250, // longer connections for that soft-web look
+              enable: true,
+              opacity: 0.25,
+              width: 1.1,
+              triangles: { enable: false },
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: { default: "bounce" },
+              random: true,
+              speed: 0.25,
+              straight: false,
+            },
+            number: { value: 45, density: { enable: true, area: 800 } },
+            opacity: { value: { min: 0.3, max: 0.8 } },
+            shape: { type: "circle" },
+            size: { value: { min: 0.8, max: 2.5 } },
+          },
+          detectRetina: true,
+        });
+      });
+
+      // more password stuff
+      let targetPage = "";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const secretNode = document.getElementById("secret-node");
+        const submitButton = document.getElementById("password-submit");
+        const cancelButton = document.getElementById("password-cancel");
+
+        secretNode.addEventListener("click", (e) => {
+          e.preventDefault();
+          openPasswordModal("/cv");
+        });
+
+        submitButton.addEventListener("click", submitPassword);
+        cancelButton.addEventListener("click", closePasswordModal);
+      });
+
+      function openPasswordModal(page) {
+        targetPage = page;
+        document.getElementById("password-modal").classList.remove("hidden");
+        document.getElementById("password-input").value = "";
+        document.getElementById("password-input").focus();
+      }
+
+      function closePasswordModal() {
+        document.getElementById("password-modal").classList.add("hidden");
+      }
+
+      function submitPassword() {
+        const input = document.getElementById("password-input").value;
+        const correctPassword = "luckyyou";
+
+        if (input === correctPassword) {
+          history.replaceState(null, "", "/");
+          history.pushState(null, "", "/cv");
+          window.location.href = "/cv";
+        } else {
+          closePasswordModal();
+          triggerMemoryFailed();
+        }
+      }
+
+      function triggerMemoryFailed() {
+        const failed = document.getElementById("memory-failed");
+        failed.classList.remove("hidden");
+        setTimeout(() => {
+          failed.classList.add("hidden");
+        }, 2000);
+      }
+
+      // dev tools easter egg
+      (function watchDevTools() {
+        const messages = [
+          "👁 That wasn't very subtle.",
+          "🔒 Accessing inner thoughts? Cute.",
+          "🤫 Nosy much?",
+        ];
+
+        let devtoolsOpen = false;
+
+        setInterval(() => {
+          const widthThreshold = window.outerWidth - window.innerWidth > 160;
+          const heightThreshold = window.outerHeight - window.innerHeight > 160;
+          const isOpen = widthThreshold || heightThreshold;
+
+          if (isOpen && !devtoolsOpen) {
+            devtoolsOpen = true;
+            const randomMessage =
+              messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMessage);
+          }
+
+          if (!isOpen && devtoolsOpen) {
+            devtoolsOpen = false;
+          }
+        }, 1000);
+      })();
+
+      // void redirect
+      console.log(
+        "%cA memory once sealed cannot be retrieved. ✨\n\nBut some memories... they leak.\nTry typing: unlock('exd1000')",
+        "color: #9d7edb; font-size: 12px; font-family: mono;",
+      );
+
+      window.unlock = function (key) {
+        if (key === "exd1000") {
+          alert(
+            "Key sequence accepted 🔓.\n\nAccess granted to an encrypted memory.",
+          );
+          history.replaceState({ trapRoot: true }, "", "/void");
+          location.replace("/void");
+        } else {
+          alert("Unrecognized fragment.");
+        }
+      };
+    </script>
+  </main>
 </Layout>

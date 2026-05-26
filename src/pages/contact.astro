@@ -2,92 +2,270 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-<main class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 text-center">
-    <a href="/start" class="absolute top-6 left-6 text-gray-400 hover:text-gray-600 transition-all text-l font-light">
-        ← Back
-    </a>
+  <div id="particles-js" class="fixed inset-0 -z-10 w-full h-full"></div>
 
-    <h1 class="text-4xl md:text-6xl mb-8 animate-fade-in-slow">Get in Touch</h1>
+  <main class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 text-center relative overflow-hidden">
 
-    <p class="max-w-2xl text-lg md:text-xl leading-relaxed animate-fade-in-slow opacity-80">
-      Interested in collaborating, discussing research, or just saying hello?
-      Feel free to reach out.
-    </p>
+    <div class="contact-panel animate-fade-in-slow">
+      <h1 class="contact-title">Get in Touch</h1>
+      <p class="contact-subtitle">Interested in collaborating, discussing research, or just saying hello?</p>
+      <p class="contact-subtitle-light">Send a signal through the memory stream.</p>
 
+      <form id="contactForm" action="https://formspree.io/f/mwpovvbn" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
 
-    <form id="contactForm" action="https://formspree.io/f/mwpovvbn" method="POST" class="flex flex-col gap-4 mt-8 w-full max-w-md">
-      <input type="text" name="name" placeholder="Your Name" required class="p-3 rounded bg-[#111] text-white placeholder-gray-400 border border-gray-600" />
-      <input type="email" name="email" placeholder="Your Email" required class="p-3 rounded bg-[#111] text-white placeholder-gray-400 border border-gray-600" />
-      <textarea name="message" placeholder="Your Message" required class="p-3 rounded bg-[#111] text-white placeholder-gray-400 border border-gray-600"></textarea>
-      <button type="submit" class="bg-gray-700 hover:bg-indigo-400 transition text-white rounded p-3">Send Message</button>
-    </form>
-    
+      <div id="successMessage" class="hidden mt-8 text-purple-300 text-md font-light">
+        ✦ Transmission received. Thanks for reaching out. ✦
+      </div>
 
-
-    <div id="successMessage" class="hidden mt-10 text-indigo-300 text-lg font-light">
-      ✨ Message sent. Thanks for reaching out! ✨
+      <p class="contact-footer"> ⚡︎  Memory fragments can find each other across time and space.</p>
     </div>
+  </main>
 
-    <div class="mt-10 opacity-60 text-sm">
-      <p>⚡ Memory fragments can find each other across time and space.</p>
-    </div>
-</main>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      tsParticles.load("particles-js", {
+        particles: {
+          number: { value: 90 },
+          color: { value: "#ffffff" },
+          opacity: { value: 0.4 },
+          size: { value: 2 },
+          links: { enable: true, color: "#a855f7", opacity: 0.2 },
+          move: { enable: true, speed: 0.8 },
+        },
+      });
+    });
+  </script>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          form.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+        } else {
+          alert('Transmission failed. Please try again.');
+        }
+      } catch (error) {
+        alert('Transmission error. Please try again.');
+      }
+    });
+  </script>
+</Layout>
+
+
 
 <style>
-.animate-fade-in-slow {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: floatFade 2.2s ease forwards;
-}
-@keyframes floatFade {
-  to {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
-}
-
-    html, body {
-      height: 100%;  
-      overflow-y: scroll;  
-    }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
   body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    background: radial-gradient(ellipse at center, #0c0615 0%, #000 80%);
+    font-family: 'Share Tech Mono', monospace;
   }
-</style>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const successMessage = document.getElementById('successMessage');
+  /* aura behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 25% 50%, rgba(110,165,255,0.15), transparent 70%),
+                radial-gradient(circle at 75% 50%, rgba(225,140,255,0.15), transparent 70%);
+    animation: hemispherePulse 8s ease-in-out infinite;
+    z-index: -1;
+  }
+  @keyframes hemispherePulse {
+    0%,100% { opacity: 0.3; filter: blur(50px); }
+    50% { opacity: 0.7; filter: blur(80px); }
+  }
 
-  form.addEventListener('submit', async function(event) {
-    event.preventDefault(); // Prevent page reload
+  .contact-panel {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 12px;
+    padding: 3.5rem 4.5rem;
+    width: 90%;
+    max-width: 46rem;
+    backdrop-filter: blur(14px) saturate(120%);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.12);
+    animation: panelBreath 10s ease-in-out infinite;
+    transition: all 0.6s ease;
+  }
 
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        form.reset();
-        form.classList.add('hidden');
-        successMessage.classList.remove('hidden');
-      } else {
-        alert('Oops! There was a problem submitting your form.');
-      }
-    } catch (error) {
-      alert('Oops! There was a problem submitting your form.');
+  /* breathing animation same as index */
+  @keyframes panelBreath {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(176, 132, 249, 0.15),
+                  0 0 40px rgba(176, 132, 249, 0.05);
     }
-  });
-</script>
-</Layout>
+    50% {
+      box-shadow: 0 0 45px rgba(176, 132, 249, 0.3),
+                  0 0 90px rgba(176, 132, 249, 0.15);
+    }
+  }
+
+  /* hover enhances glow */
+  .contact-panel:hover {
+    background: rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 55px rgba(176, 132, 249, 0.4),
+                0 0 120px rgba(176, 132, 249, 0.25);
+    transform: scale(1.01);
+  }
+
+  .contact-title {
+    font-size: 2.4rem;
+    color: #eae3ff;
+    text-shadow: 0 0 15px rgba(176,132,249,0.4);
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    color: #d1d5db;
+    opacity: 0.8;
+  }
+
+  .contact-subtitle-light {
+    font-size: 0.9rem;
+    color: #a78bfa;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: rgba(30, 30, 45, 0.5);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 6px;
+    color: #eae3ff;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 12px rgba(168,85,247,0.4);
+  }
+
+  .contact-form button {
+    margin-top: 1rem;
+    background: linear-gradient(135deg, rgba(176,132,249,0.9), rgba(225,140,255,0.9));
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem;
+    cursor: pointer;
+    text-shadow: 0 0 6px rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(176,132,249,0.5);
+  }
+
+  .contact-footer {
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+    color: #bcaefc;
+    opacity: 0.6;
+  }
+
+  .animate-fade-in-slow {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  /* MOBILE ADAPTATION - i hate life */
+@media (max-width: 640px) {
+
+  /* shrink glowing panel */
+  .contact-panel {
+    padding: 2rem 1.5rem;
+    max-width: 95%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(176,132,249,0.2);
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .contact-subtitle-light {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* better spacing */
+  .contact-form {
+    gap: 0.7rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-footer {
+    font-size: 0.7rem;
+    margin-top: 1.2rem;
+  }
+
+  /* loosen up the main container so it's centered nicely */
+  main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* reduce particle intensity */
+  #particles-js canvas {
+    opacity: 0.5;
+  }
+}
+</style>

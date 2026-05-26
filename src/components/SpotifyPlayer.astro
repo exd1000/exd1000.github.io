@@ -1,0 +1,22 @@
+---
+// src/components/SpotifyPlayer.astro
+interface Props {
+  id: string;
+  type?: "playlist" | "track" | "album" | "artist";
+  height?: string;
+}
+
+const { id, type = "playlist", height = "352" } = Astro.props;
+
+const embedUrl = `https://open.spotify.com/embed/type/id?utm_source=generator`;
+---
+
+<iframe
+  style="border-radius:12px"
+  src={embedUrl}
+  width="100%"
+  height={height}
+  frameborder="0"
+  allowfullscreen=""
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  loading="lazy"></iframe>

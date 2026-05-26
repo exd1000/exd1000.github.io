@@ -1,338 +1,582 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout pageStyle="blank">
+  <main
+    class="min-h-screen bg-black flex flex-col items-center justify-center text-center overflow-hidden text-white font-mono px-4"
+  >
+    <!-- Easter egg (top center) -->
+    <div
+      id="easter-egg-click"
+      class="hidden absolute top-10 left-1/2 transform -translate-x-1/2 text-purple-300 text-sm opacity-80"
+    >
+      🤨 Chill out, man.
+    </div>
 
-<div id="memory-glitch" class="hidden">
-  <div id="glitch-text">SYSTEM OVERLOAD</div>
-</div>
+    <div id="static-overlay"></div>
+    <div id="memory-glitch" class="hidden">
+      <div id="glitch-text">SYSTEM OVERLOAD</div>
+    </div>
 
-<main class="min-h-screen bg-black flex flex-col items-center justify-center text-center overflow-y-auto text-white font-mono px-4">  <a href="/start" class="absolute top-6 left-6 text-gray-400 hover:text-gray-600 transition-all text-l font-light">
-    ← Back
-  </a>
+    <!-- restart text (only at end)  -->
+    <div
+      id="easter-egg"
+      class="absolute top-10 left-1/2 transform -translate-x-1/2 text-purple-300 text-xs opacity-0 pointer-events-none transition-all duration-700 ease-in-out cursor-pointer select-none"
+    >
+      wanna see me do it again?
+    </div>
 
-  <div class="identity-container">
-    <div id="whoami" class="special-whoami">Who am I?</div>
-    <div id="typing-container">
-      <span id="text-content"></span><span class="blinking-cursor">|</span>
-</div>
-  </div>
+    <div id="whoami-container">
+      <span id="whoami-text"></span><span
+        id="whoami-cursor"
+        class="blinking-cursor">|</span
+      >
+    </div>
 
-  <div id="easter-egg" class="hidden absolute top-10 left-1/2 transform -translate-x-1/2 text-gray-500 text-sm font-mono text-center max-w-xs">
-    🤨 Chill out man.
-  </div>
-</main>
+    <div id="memory-panel" class="memory-panel opacity-0 mt-10">
+      <div id="typing-container">
+        <span id="text-content"></span><span
+          id="typing-cursor"
+          class="blinking-cursor">|</span
+        >
+      </div>
+    </div>
 
-<style>
-  .identity-container {
-    font-family: monospace;
-    font-size: 2rem;
-    color: gray;
-    text-align: left;
-    padding: 3rem;
-    line-height: 2.5rem;
-    max-width: 60ch;
-    margin: 20vh auto 0;
-    animation: fadeInContainer 2s ease-in forwards;
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
+    <div id="whoareyou" class="italic text-purple-300 text-2xl">
+      Who are you?
+    </div>
+  </main>
 
-  .special-whoami {
-    color: #8d5cdd;
-    font-style: italic;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
+  <script>
+    let clickCount = 0;
+    let clickTimer = null;
 
-  .blinking-cursor {
-    display: inline-block;
-    font-weight: bold;
-    margin-left: 2px;
-    animation: blink 1.2s steps(2, start) infinite;
-  }
+    const easterMessages = [
+      "Yo, relax.",
+      "Chill out, man.",
+      "Good things take time.",
+      "Can I speak?",
+      "Did you think clicking faster would help?",
+      "Patience is a virtue & you clearly have none.",
+    ];
 
+    document.addEventListener("DOMContentLoaded", () => {
+      const easterEggClick = document.getElementById("easter-egg-click");
 
-  #memory-glitch {
-    position: fixed;
-    inset: 0;
-    background-color: black;
-    background-image: repeating-linear-gradient(
-      0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px
-    ), repeating-linear-gradient(
-      90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px
-    );
-    display: none; 
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 9999;
-    animation: flicker 5s infinite;
-  }
+      document.addEventListener("click", () => {
+        clickCount++;
 
-  #memory-glitch.show-glitch {
-    display: flex;
-  }
-
-  #glitch-text {
-    color: white;
-    font-family: monospace;
-    font-size: 2rem;
-    animation: glitch 0.5s infinite;
-    text-shadow:
-      1px 1px #ff00ff,
-      -1px -1px #00ffff;
-  }
-
-  @keyframes glitch {
-    0% { transform: translate(0); opacity: 1; }
-    20% { transform: translate(-2px, 2px); opacity: 0.8; }
-    40% { transform: translate(2px, -1px); opacity: 0.9; }
-    60% { transform: translate(-1px, 1px); opacity: 0.85; }
-    80% { transform: translate(1px, -2px); opacity: 0.95; }
-    100% { transform: translate(0); opacity: 1; }
-  }
-
-  @keyframes flicker {
-    0%, 100% { background-color: black; }
-    10% { background-color: #0a0a0a; }
-    20% { background-color: black; }
-    30% { background-color: #111; }
-    40%, 60% { background-color: black; }
-    70% { background-color: #1a1a1a; }
-    80% { background-color: black; }
-    90% { background-color: #0d0d0d; }
-  }
-
-  #easter-egg {
-    opacity: 0;
-    transition: opacity 1s ease;
-    pointer-events: none;
-  }
-
-  #easter-egg.show {
-    opacity: 1;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  @keyframes glitchText {
-    0% { transform: translate(0); opacity: 1; }
-    25% { transform: translate(-2px,2px); opacity: 0.8; }
-    50% { transform: translate(2px,-2px); opacity: 1; }
-    75% { transform: translate(-2px,2px); opacity: 0.8; }
-    100% { transform: translate(0); opacity: 1; }
-  }
-
-  @keyframes fadeInContainer {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes fadeInSlow {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .fadeInSlow {
-    animation: fadeInSlow 3s ease-in forwards;
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-
-  .fade-out {
-    animation: fadeOut 2s forwards;
-  }
-
-  html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    overflow-y: scroll;   
-    overflow-x: hidden;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-  body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-</style>
-
-<script>
-  const lines = [
-    "I am Emily.",
-    "I love dogs (especially my dog).",
-    "I love the beach.",
-    "I love being silly.",
-    "I love science.",
-    "I am a researcher.",
-    "A scientist.",
-    "I study memory.",
-    "In humans.",
-    "In machines.",
-    "In myself.",
-    "For fun!",
-    "I'm a writer.",
-    "A dreamer.",
-    "A lover, not a fighter.",
-    "A perfectionist (recovering).",
-    "I am curious.",
-    "I am resilient.",
-    "I don't give up.",
-    "Should I add trendy words now..?",
-    "AI.",
-    "High dimensional vector spaces.",
-    "Neural representations.",
-    "Cognition.",
-    "I'm still figuring it out...",
-    "I'm just a girl.",
-    "I'm just me.",
-    "Nice to meet you!"
-  ];
-
-  const whoami = document.getElementById('whoami');
-  const typingContainer = document.getElementById('typing-container');
-  const textContent = document.getElementById('text-content');
-  const memoryGlitch = document.getElementById('memory-glitch');
-  const easterEgg = document.getElementById('easter-egg');
-
-  const easterMessages = [
-    "👀 Yo, relax.",
-    "🤨 Chill out man.",
-    "⏳ Good things take time.",
-    "✨ Can I speak?",
-    "🛸 Did you think clicking faster would help?"
-  ];
-
-  let lineIndex = 0;
-  let charIndex = 0;
-  let currentText = '';
-  let clickCount = 0;
-  let clickTimer = null;
-
-    function typeWriter() {
-      if (lineIndex < lines.length) {
-        const currentLine = lines[lineIndex];
-        if (charIndex < currentLine.length) {
-          currentText += currentLine.charAt(charIndex);
-          textContent.textContent = currentText;
-          charIndex++;
-          setTimeout(typeWriter, 70);
-        } else {
-          currentText += ' ';
-          textContent.textContent = currentText;
-          lineIndex++;
-          charIndex = 0;
-          let delay = 300;
-          if (lineIndex - 1 === 24 || lineIndex - 1 === 27) {
-            delay = 1000; // longer pause after emotional lines
-          }
-          setTimeout(typeWriter, delay);
+        if (!clickTimer) {
+          clickTimer = setTimeout(() => {
+            clickCount = 0;
+            clickTimer = null;
+          }, 1200);
         }
-      } else {
+
+        if (clickCount === 3) {
+          showEasterEgg(easterEggClick);
+        }
+
+        if (clickCount === 5) {
+          triggerGlitch();
+          clickCount = 0;
+          clearTimeout(clickTimer);
+          clickTimer = null;
+        }
+      });
+    });
+
+    function showEasterEgg(easterEggClick) {
+      if (!easterEggClick) return;
+
+      const msg =
+        easterMessages[Math.floor(Math.random() * easterMessages.length)];
+
+      easterEggClick.textContent = msg;
+      easterEggClick.classList.remove("hidden");
+      easterEggClick.style.opacity = "1";
+
+      setTimeout(() => {
+        easterEggClick.style.opacity = "0";
+
         setTimeout(() => {
-          typingContainer.classList.add('fade-out');
-          setTimeout(() => {
-            resetAll();
-          }, 2000);
-        }, 1000);
+          easterEggClick.classList.add("hidden");
+        }, 800);
+      }, 2500);
+    }
+
+    function triggerGlitch() {
+      const glitchOverlay = document.getElementById("memory-glitch");
+      if (!glitchOverlay) return;
+
+      glitchOverlay.classList.remove("hidden");
+      glitchOverlay.classList.add("show-glitch");
+
+      setTimeout(() => {
+        glitchOverlay.classList.remove("show-glitch");
+        glitchOverlay.classList.add("hidden");
+      }, 1500);
+    }
+  </script>
+
+  <style>
+    main {
+      position: relative;
+    }
+
+    body {
+      background: radial-gradient(ellipse at center, #0c0615 0%, #000 80%);
+      color: #e3d8ff;
+      font-family: "Share Tech Mono", monospace;
+      overflow: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 50%,
+          rgba(110, 165, 255, 0.12),
+          transparent 70%
+        ),
+        radial-gradient(
+          circle at 75% 50%,
+          rgba(225, 140, 255, 0.12),
+          transparent 70%
+        );
+      animation: hemispherePulse 8s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes hemispherePulse {
+      0%,
+      100% {
+        opacity: 0.3;
+        filter: blur(50px);
+      }
+      50% {
+        opacity: 0.7;
+        filter: blur(80px);
       }
     }
 
-    function resetAll() {
-      currentText = '';
-      textContent.textContent = ''; 
-      typingContainer.classList.remove('fade-out');
+    /* restart text */
+    #easter-egg {
+      filter: blur(0.5px);
+      text-shadow: 0 0 8px rgba(176, 132, 249, 0.3);
+      transition:
+        opacity 1s ease,
+        text-shadow 0.6s ease,
+        filter 0.6s ease;
+      letter-spacing: 0.5px;
+    }
+    #easter-egg:hover {
+      filter: blur(0);
+      text-shadow: 0 0 16px rgba(176, 132, 249, 0.8);
+      color: #e4d4ff;
+    }
 
-      whoami.style.opacity = 0;
-      whoami.classList.remove('fade-out');
-      whoami.classList.add('fadeInSlow');
+    /* glitch overlay */
+    #memory-glitch {
+      position: fixed;
+      inset: 0;
+      background-color: black;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #memory-glitch.show-glitch {
+      display: flex;
+    }
+    #glitch-text {
+      color: white;
+      font-family: monospace;
+      font-size: 2rem;
+      animation: glitch 0.5s infinite;
+      text-shadow:
+        2px 2px #ff00ff,
+        -2px -2px #00ffff;
+    }
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+        opacity: 1;
+      }
+      20% {
+        transform: translate(-2px, 2px);
+        opacity: 0.9;
+      }
+      40% {
+        transform: translate(2px, -1px);
+        opacity: 1;
+      }
+      60% {
+        transform: translate(-1px, 1px);
+        opacity: 0.85;
+      }
+      80% {
+        transform: translate(1px, -2px);
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(0);
+        opacity: 1;
+      }
+    }
 
+    #whoami-container {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.3rem;
+      color: #cbb7ff;
+      font-style: italic;
+      text-shadow: 0 0 20px rgba(176, 132, 249, 0.5);
+      transition:
+        opacity 2s ease,
+        filter 2s ease;
+      z-index: 2;
+    }
+
+    .memory-panel {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem;
+      width: 45rem;
+      max-width: 90vw;
+      text-align: left;
+      color: #d1d5db;
+      line-height: 1.9rem;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.08);
+      backdrop-filter: blur(14px) saturate(120%);
+      animation: panelBreath 10s ease-in-out infinite;
+      transition: opacity 1.5s ease;
+    }
+    @keyframes panelBreath {
+      0%,
+      100% {
+        box-shadow: 0 0 25px rgba(176, 132, 249, 0.15);
+      }
+      50% {
+        box-shadow: 0 0 45px rgba(176, 132, 249, 0.3);
+      }
+    }
+    #typing-container {
+      font-size: 1.05rem;
+      color: #d1caff;
+      text-shadow: 0 0 10px rgba(176, 132, 249, 0.35);
+      white-space: pre-wrap;
+      word-break: break-word;
+      animation: textGlow 8s ease-in-out infinite;
+    }
+    @keyframes textGlow {
+      0%,
+      100% {
+        text-shadow: 0 0 8px rgba(176, 132, 249, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 18px rgba(176, 132, 249, 0.7);
+      }
+    }
+
+    .blinking-cursor {
+      display: inline-block;
+      width: 0.6ch;
+      margin-left: 3px;
+      color: #a855f7;
+      text-shadow: 0 0 8px rgba(168, 85, 247, 0.8);
+      animation: blink 1.2s steps(2, start) infinite;
+      transition: opacity 1.5s ease; /* smooth fade */
+    }
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .who-cursor {
+      display: inline-block;
+      width: 0.6ch;
+      margin-left: 3px;
+      color: #a855f7;
+      text-shadow: 0 0 8px rgba(168, 85, 247, 0.8);
+      transition: opacity 1.4s ease; /* allows soft fade at the end */
+    }
+
+    #whoareyou {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-shadow: 0 0 20px rgba(176, 132, 249, 0.25);
+      font-style: italic;
+      color: #d8b9ff;
+      opacity: 0;
+      z-index: 3;
+      filter: blur(3px);
+      transition:
+        opacity 3s ease,
+        filter 3s ease;
+    }
+
+    #static-overlay {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent1px,
+        transparent2px
+      );
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: screen;
+    }
+    #static-overlay.active {
+      animation: staticFlash 1.1s ease-in-out forwards;
+    }
+    @keyframes staticFlash {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+        filter: brightness(1.4) blur(1px);
+      }
+      55% {
+        opacity: 0.8;
+        filter: brightness(1.6) blur(1px);
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <script>
+    const lines = [
+      "I'm M!",
+      "I love dogs (especially my dog).",
+      "I love the beach.",
+      "I love being silly.",
+      "I build and study systems.",
+      "To understand memory.",
+      "In humans.",
+      "In machines.",
+      "In myself.",
+      "For fun!",
+      "I do research.",
+      "And I write too.",
+      "I'm a dreamer.",
+      "A lover, not a fighter.",
+      "But I don't give up.",
+      "Should I say trendy words now?",
+      "AI.",
+      "Cognition.",
+      "High-dimensional spaces.",
+      "Neural representations.",
+      "I'm just kidding.",
+      "I'm just me.",
+      "Nice to meet you!",
+    ];
+
+    const WHOAMI_STR = "Who am I...?";
+    const WHOAREYOU_STR = "Who are you?";
+    const WHOAMI_SPEED = 110,
+      WHOAREYOU_SPEED = 95,
+      PAUSE_AFTER_WHOAMI = 900;
+
+    const whoamiText = document.getElementById("whoami-text");
+    const whoamiCursor = document.getElementById("whoami-cursor");
+    const whoamiContainer = document.getElementById("whoami-container");
+    const memoryPanel = document.getElementById("memory-panel");
+    const textContent = document.getElementById("text-content");
+    const whoareyou = document.getElementById("whoareyou");
+    const restartButton = document.getElementById("easter-egg");
+
+    let whoamiIdx = 0,
+      lineIdx = 0,
+      charIdx = 0,
+      currentText = "";
+
+    let whoAreYouBlinkTimer = null;
+    let whoAmIBlinkTimer = null;
+
+    function startCursorBlink(el, period = 600, timerRefName) {
+      stopCursorBlink(timerRefName);
+      el.style.opacity = "1";
+      const timer = setInterval(() => {
+        el.style.opacity = el.style.opacity === "1" ? "0" : "1";
+      }, period);
+      if (timerRefName === "whoAreYou") whoAreYouBlinkTimer = timer;
+      else whoAmIBlinkTimer = timer;
+    }
+
+    function stopCursorBlink(timerRefName) {
+      if (timerRefName === "whoAreYou" && whoAreYouBlinkTimer) {
+        clearInterval(whoAreYouBlinkTimer);
+        whoAreYouBlinkTimer = null;
+      } else if (timerRefName === "whoAmI" && whoAmIBlinkTimer) {
+        clearInterval(whoAmIBlinkTimer);
+        whoAmIBlinkTimer = null;
+      }
+    }
+
+    /* --- WHO AM I --- */
+    function typeWhoAmI() {
+      restartButton.style.opacity = 0;
+      restartButton.style.pointerEvents = "none";
+
+      whoamiContainer.style.opacity = 1;
+      whoamiContainer.style.filter = "blur(0)";
+      whoamiContainer.style.transition = "none";
+
+      whoamiText.textContent = "";
+      whoamiIdx = 0;
+      whoamiCursor.className = "who-cursor";
+      whoamiCursor.style.visibility = "visible";
+      whoamiCursor.style.opacity = "1";
+      startCursorBlink(whoamiCursor, 1000, "whoAmI");
+
+      memoryPanel.style.display = "none";
+      memoryPanel.style.opacity = 0;
+
+      requestAnimationFrame(() => {
+        whoamiContainer.style.transition = "opacity 2s ease, filter 2s ease";
+        whoamiContainer.style.opacity = 1;
+        whoamiContainer.style.filter = "blur(0)";
+      });
+
+      const typeChar = () => {
+        if (whoamiIdx < WHOAMI_STR.length) {
+          whoamiText.textContent += WHOAMI_STR.charAt(whoamiIdx++);
+          setTimeout(typeChar, WHOAMI_SPEED);
+        } else setTimeout(fadeOutWhoAmICursor, 800);
+      };
+      typeChar();
+    }
+
+    function fadeOutWhoAmICursor() {
       setTimeout(() => {
-        whoami.style.opacity = 1;
+        stopCursorBlink("whoAmI");
+        whoamiCursor.style.transition = "opacity 1.3s ease";
+        whoamiCursor.style.opacity = 0;
+      }, 600); // small linger before fade
+      setTimeout(() => {
+        whoamiCursor.style.visibility = "hidden";
+        whoamiContainer.style.transition = "opacity 3s ease, filter 3s ease";
+        whoamiContainer.style.opacity = 0.25;
+        whoamiContainer.style.filter = "blur(1.5px)";
+        memoryPanel.style.display = "block";
+        requestAnimationFrame(() => (memoryPanel.style.opacity = 1));
+        setTimeout(startTyping, PAUSE_AFTER_WHOAMI);
+      }, 900);
+    }
+
+    /* --- typing inside panel --- */
+    function startTyping() {
+      if (lineIdx < lines.length) {
+        const line = lines[lineIdx];
+        if (charIdx < line.length) {
+          currentText += line.charAt(charIdx++);
+          textContent.textContent = currentText;
+          setTimeout(startTyping, 65);
+        } else {
+          currentText += " ";
+          textContent.textContent = currentText;
+          lineIdx++;
+          charIdx = 0;
+          setTimeout(startTyping, 280);
+        }
+      } else {
         setTimeout(() => {
-          whoami.classList.add('fade-out');
+          memoryPanel.style.opacity = 0;
           setTimeout(() => {
-            whoami.style.opacity = 0;
-            lineIndex = 0;
-            charIndex = 0;
-            typeWriter();
-          }, 2000);
-        }, 3000);
-      }, 500);
+            whoamiContainer.style.transition =
+              "opacity 2s ease, filter 2s ease";
+            whoamiContainer.style.opacity = 0;
+            whoamiContainer.style.filter = "blur(3px)";
+          }, 600);
+          setTimeout(typeWhoAreYou, 1000);
+        }, 800);
+      }
     }
 
-  whoami.style.opacity = 0;
-  setTimeout(() => {
-    whoami.style.opacity = 1;
-    setTimeout(() => {
-      whoami.classList.add('fade-out');
-      setTimeout(() => {
-        whoami.style.opacity = 0;
-        typeWriter();
-      }, 2000);
-    }, 3000);
-  }, 500);
+    function typeWhoAreYou() {
+      whoareyou.style.opacity = 0;
+      whoareyou.style.transition = "opacity 3s ease, filter 3s ease";
+      whoareyou.textContent = "";
 
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('a') || e.target.closest('#typing-container') || e.target.closest('#whoami')) return;
+      requestAnimationFrame(() => {
+        whoareyou.style.opacity = 1;
+        whoareyou.style.filter = "blur(0)";
+      });
 
-    clickCount++;
+      const endCursor = document.createElement("span");
+      endCursor.className = "who-cursor";
+      endCursor.textContent = "|";
+      whoareyou.appendChild(endCursor);
 
-    if (!clickTimer) {
-      clickTimer = setTimeout(() => {
-        clickCount = 0;
-        clickTimer = null;
-      }, 1200);
+      startCursorBlink(endCursor, 800, "whoAreYou");
+
+      let i = 0;
+      function step() {
+        if (i < WHOAREYOU_STR.length) {
+          whoareyou.insertBefore(
+            document.createTextNode(WHOAREYOU_STR[i++]),
+            endCursor,
+          );
+          setTimeout(step, WHOAREYOU_SPEED);
+        } else {
+          setTimeout(() => {
+            stopCursorBlink("whoAreYou");
+            endCursor.style.opacity = "0";
+
+            setTimeout(() => {
+              whoareyou.style.transition = "opacity 4s ease, filter 4s ease";
+              whoareyou.style.opacity = 0;
+              whoareyou.style.filter = "blur(3px)";
+              setTimeout(showRestartText, 1200);
+            }, 600);
+          }, 3200);
+        }
+      }
+      step();
     }
 
-    if (clickCount === 5) {
-      triggerMemoryCorruption();
-      clickCount = 0;
-      clearTimeout(clickTimer);
-      clickTimer = null;
-      return;
+    function showRestartText() {
+      restartButton.style.pointerEvents = "auto";
+      restartButton.style.transition = "opacity 1.5s ease";
+      restartButton.style.opacity = 1;
     }
 
-    if (clickCount === 3) {
-      showEasterEgg();
+    function restartSequence() {
+      restartButton.style.opacity = 0;
+      restartButton.style.pointerEvents = "none";
+      whoareyou.style.opacity = 0;
+      whoareyou.style.filter = "blur(0)";
+      memoryPanel.style.display = "none";
+      textContent.textContent = "";
+      currentText = "";
+      lineIdx = 0;
+      charIdx = 0;
+      setTimeout(typeWhoAmI, 800);
     }
-  });
 
-  function showEasterEgg() {
-    const randomMessage = easterMessages[Math.floor(Math.random() * easterMessages.length)];
-    easterEgg.innerHTML = randomMessage;
-    easterEgg.classList.remove('hidden');
-    easterEgg.classList.add('show');
+    /* click to restart */
+    restartButton.addEventListener("click", restartSequence);
 
-    setTimeout(() => {
-      easterEgg.classList.remove('show');
-      setTimeout(() => {
-        easterEgg.classList.add('hidden');
-      }, 500);
-    }, 2500);
-  }
-
-
-    function triggerMemoryCorruption() {
-      memoryGlitch.classList.add('show-glitch');
-      setTimeout(() => {
-        memoryGlitch.classList.remove('show-glitch');
-      }, 2000);
-    }
-</script>
-
+    /* --- start --- */
+    typeWhoAmI();
+  </script>
 </Layout>
