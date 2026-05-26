@@ -24,12 +24,10 @@ ok.. well this is awkward..
 <Layout>
   <iframe
     id="music"
-    src="https://www.youtube.com/embed/KV2rRr63luI?autoplay=1&mute=0&controls=0&loop=1&playlist=KV2rRr63luI"
+    src="https://www.youtube.com/embed/KV2rRr63luI?enablejsapi=1&autoplay=1&mute=0&controls=0&loop=1&playlist=KV2rRr63luI"
     frameborder="0"
     allow="autoplay; encrypted-media"
-    class="fixed w-0 h-0 opacity-0 pointer-events-none"
-  >
-  </iframe>
+    class="fixed w-0 h-0 opacity-0 pointer-events-none"></iframe>
 
   <div id="particles-js" class="fixed inset-0 -z-10 w-full h-full"></div>
   <main
@@ -85,10 +83,12 @@ ok.. well this is awkward..
       </p>
 
       <!-- Buttons -->
+
       <div class="button-row">
         <a id="no-button" href="#" class="node-button">No</a>
         <a id="yes-button" href="/loading" class="node-button">Yes</a>
       </div>
+      <button id="music-toggle" class="music-button" type="button">⏯</button>
     </div>
 
     <!--Yes button transition-->
@@ -245,6 +245,28 @@ ok.. well this is awkward..
         font-size: 0.8rem;
         color: #f87171;
         margin-top: 0.3rem;
+      }
+
+      .memory-panel {
+        position: relative;
+      }
+
+      .music-button {
+        position: absolute;
+        bottom: 0.8rem;
+        left: 0.8rem;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        padding: 0;
+        color: rgba(212, 200, 255, 0.6);
+        font-size: 0.8rem;
+        transition: all 0.25s ease;
+      }
+
+      .music-button:hover {
+        color: #fff;
+        background: rgba(168, 85, 247, 0.1);
       }
 
       /* node-style buttons */
@@ -404,6 +426,41 @@ ok.. well this is awkward..
       });
     </script>
 
+    <!-- pause/pause  -->
+    <script>
+      let musicPlaying = true;
+
+      function sendMusicCommand(command) {
+        const iframe = document.getElementById("music");
+        if (!iframe || !iframe.contentWindow) return;
+
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: command,
+            args: [],
+          }),
+          "*",
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("music-toggle");
+
+        if (!toggle) return;
+
+        toggle.addEventListener("click", () => {
+          if (musicPlaying) {
+            sendMusicCommand("pauseVideo");
+          } else {
+            sendMusicCommand("playVideo");
+          }
+
+          musicPlaying = !musicPlaying;
+        });
+      });
+    </script>
+
     <!-- No button glitches -->
     <script>
       const corruptedMessages = [
@@ -473,11 +530,11 @@ ok.. well this is awkward..
 
         setTimeout(() => {
           document.getElementById("exit-message").textContent = "GOODBYE";
-        }, 1800);
+        }, 1000);
 
         setTimeout(() => {
           window.location.href = "/void";
-        }, 3300);
+        }, 2000);
       }
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -504,7 +561,10 @@ ok.. well this is awkward..
       document.addEventListener("DOMContentLoaded", () => {
         tsParticles.load("particles-js", {
           particles: {
-            number: { value: 100, density: { enable: true, value_area: 800 } },
+            number: {
+              value: 100,
+              density: { enable: true, value_area: 800 },
+            },
             color: { value: "#ffffff" },
             shape: { type: "circle" },
             opacity: { value: 0.5, random: true },
