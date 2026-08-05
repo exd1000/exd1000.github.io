@@ -1,32 +1,49 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
+
 <Layout>
   <div id="particles-js" class="fixed inset-0 -z-10 w-full h-full"></div>
 
-  <main class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 text-center relative overflow-hidden">
-
+  <main
+    class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 text-center relative overflow-hidden"
+  >
     <div class="contact-panel animate-fade-in-slow">
-      <h1 class="contact-title">Get in Touch</h1>
-      <p class="contact-subtitle">Interested in collaborating, discussing research, or just saying hello?</p>
-      <p class="contact-subtitle-light">Send a signal through the memory stream.</p>
+      <h1 class="contact-title">Curious?</h1>
+      <!-- <p class="contact-subtitle">Say hi.</p> -->
+      <p class="contact-subtitle-light">
+        Send me a message through the memory stream.
+      </p>
 
-      <form id="contactForm" action="https://formspree.io/f/mwpovvbn" method="POST" class="contact-form">
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/mwpovvbn"
+        method="POST"
+        class="contact-form"
+      >
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <textarea name="message" placeholder="Message" rows="4" required
+        ></textarea>
         <button type="submit">Send</button>
       </form>
 
-      <div id="successMessage" class="hidden mt-8 text-purple-300 text-md font-light">
-        ✦ Transmission received. Thanks for reaching out. ✦
+      <div
+        id="successMessage"
+        class="hidden mt-8 text-purple-300 text-md font-light"
+      >
+        ✦ Signal received. Thanks for reaching out. ✦
       </div>
 
-      <p class="contact-footer"> ⚡︎  Memory fragments can find each other across time and space.</p>
+      <p class="contact-footer">
+        ⚡︎ Memory fragments can find each other across time and space ⚡︎
+      </p>
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"
+  ></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       tsParticles.load("particles-js", {
@@ -43,10 +60,10 @@ import Layout from '../layouts/Layout.astro';
   </script>
 
   <script>
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
+    const form = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
 
-    form.addEventListener('submit', async function(event) {
+    form.addEventListener("submit", async function (event) {
       event.preventDefault();
       const formData = new FormData(form);
 
@@ -54,29 +71,27 @@ import Layout from '../layouts/Layout.astro';
         const response = await fetch(form.action, {
           method: form.method,
           body: formData,
-          headers: { 'Accept': 'application/json' }
+          headers: { Accept: "application/json" },
         });
 
         if (response.ok) {
           form.reset();
-          form.classList.add('hidden');
-          successMessage.classList.remove('hidden');
+          form.classList.add("hidden");
+          successMessage.classList.remove("hidden");
         } else {
-          alert('Transmission failed. Please try again.');
+          alert("Transmission failed. Please try again.");
         }
       } catch (error) {
-        alert('Transmission error. Please try again.');
+        alert("Transmission error. Please try again.");
       }
     });
   </script>
 </Layout>
 
-
-
 <style>
   body {
     background: radial-gradient(ellipse at center, #0c0615 0%, #000 80%);
-    font-family: 'Share Tech Mono', monospace;
+    font-family: "Share Tech Mono", monospace;
   }
 
   /* aura behind everything */
@@ -84,14 +99,30 @@ import Layout from '../layouts/Layout.astro';
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at 25% 50%, rgba(110,165,255,0.15), transparent 70%),
-                radial-gradient(circle at 75% 50%, rgba(225,140,255,0.15), transparent 70%);
+    background:
+      radial-gradient(
+        circle at 25% 50%,
+        rgba(110, 165, 255, 0.15),
+        transparent 70%
+      ),
+      radial-gradient(
+        circle at 75% 50%,
+        rgba(225, 140, 255, 0.15),
+        transparent 70%
+      );
     animation: hemispherePulse 8s ease-in-out infinite;
     z-index: -1;
   }
   @keyframes hemispherePulse {
-    0%,100% { opacity: 0.3; filter: blur(50px); }
-    50% { opacity: 0.7; filter: blur(80px); }
+    0%,
+    100% {
+      opacity: 0.3;
+      filter: blur(50px);
+    }
+    50% {
+      opacity: 0.7;
+      filter: blur(80px);
+    }
   }
 
   .contact-panel {
@@ -109,28 +140,32 @@ import Layout from '../layouts/Layout.astro';
 
   /* breathing animation same as index */
   @keyframes panelBreath {
-    0%, 100% {
-      box-shadow: 0 0 20px rgba(176, 132, 249, 0.15),
-                  0 0 40px rgba(176, 132, 249, 0.05);
+    0%,
+    100% {
+      box-shadow:
+        0 0 20px rgba(176, 132, 249, 0.15),
+        0 0 40px rgba(176, 132, 249, 0.05);
     }
     50% {
-      box-shadow: 0 0 45px rgba(176, 132, 249, 0.3),
-                  0 0 90px rgba(176, 132, 249, 0.15);
+      box-shadow:
+        0 0 45px rgba(176, 132, 249, 0.3),
+        0 0 90px rgba(176, 132, 249, 0.15);
     }
   }
 
   /* hover enhances glow */
   .contact-panel:hover {
     background: rgba(0, 0, 0, 0.45);
-    box-shadow: 0 0 55px rgba(176, 132, 249, 0.4),
-                0 0 120px rgba(176, 132, 249, 0.25);
+    box-shadow:
+      0 0 55px rgba(176, 132, 249, 0.4),
+      0 0 120px rgba(176, 132, 249, 0.25);
     transform: scale(1.01);
   }
 
   .contact-title {
     font-size: 2.4rem;
     color: #eae3ff;
-    text-shadow: 0 0 15px rgba(176,132,249,0.4);
+    text-shadow: 0 0 15px rgba(176, 132, 249, 0.4);
     margin-bottom: 0.8rem;
   }
 
@@ -168,25 +203,29 @@ import Layout from '../layouts/Layout.astro';
   .contact-form input:focus,
   .contact-form textarea:focus {
     border-color: #a855f7;
-    box-shadow: 0 0 12px rgba(168,85,247,0.4);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
   }
 
   .contact-form button {
     margin-top: 1rem;
-    background: linear-gradient(135deg, rgba(176,132,249,0.9), rgba(225,140,255,0.9));
+    background: linear-gradient(
+      135deg,
+      rgba(176, 132, 249, 0.9),
+      rgba(225, 140, 255, 0.9)
+    );
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 6px;
     padding: 0.8rem;
     cursor: pointer;
-    text-shadow: 0 0 6px rgba(255,255,255,0.5);
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
   }
 
   .contact-form button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(176,132,249,0.5);
+    box-shadow: 0 0 25px rgba(176, 132, 249, 0.5);
   }
 
   .contact-footer {
@@ -209,63 +248,61 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-
   /* MOBILE ADAPTATION - i hate life */
-@media (max-width: 640px) {
+  @media (max-width: 640px) {
+    /* shrink glowing panel */
+    .contact-panel {
+      padding: 2rem 1.5rem;
+      max-width: 95%;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(176, 132, 249, 0.2);
+    }
 
-  /* shrink glowing panel */
-  .contact-panel {
-    padding: 2rem 1.5rem;
-    max-width: 95%;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(176,132,249,0.2);
-  }
+    .contact-title {
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+    }
 
-  .contact-title {
-    font-size: 1.8rem;
-    line-height: 2.1rem;
-  }
+    .contact-subtitle {
+      font-size: 0.9rem;
+    }
 
-  .contact-subtitle {
-    font-size: 0.9rem;
-  }
+    .contact-subtitle-light {
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
 
-  .contact-subtitle-light {
-    font-size: 0.85rem;
-    margin-bottom: 1.2rem;
-  }
+    /* better spacing */
+    .contact-form {
+      gap: 0.7rem;
+    }
 
-  /* better spacing */
-  .contact-form {
-    gap: 0.7rem;
-  }
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 0.85rem;
+      padding: 0.7rem 0.9rem;
+    }
 
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.85rem;
-    padding: 0.7rem 0.9rem;
-  }
+    .contact-form button {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
 
-  .contact-form button {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
+    .contact-footer {
+      font-size: 0.7rem;
+      margin-top: 1.2rem;
+    }
 
-  .contact-footer {
-    font-size: 0.7rem;
-    margin-top: 1.2rem;
-  }
+    /* loosen up the main container so it's centered nicely */
+    main {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
 
-  /* loosen up the main container so it's centered nicely */
-  main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    /* reduce particle intensity */
+    #particles-js canvas {
+      opacity: 0.5;
+    }
   }
-
-  /* reduce particle intensity */
-  #particles-js canvas {
-    opacity: 0.5;
-  }
-}
 </style>

@@ -28,6 +28,7 @@ Can I have some privacy please?
     <div id="memory-space" class="fixed inset-0 z-20">
       <!-- left brain nodes -->
 
+      <!-- href="/cv" -->
       <a
         href="javascript:cv(0);"
         id="secret-node"
@@ -172,7 +173,7 @@ Can I have some privacy please?
         filter: blur(2px);
       }
 
-      /* Breathing gradient overlay */
+      /* gradient overlay */
       #particles-js::after {
         background: linear-gradient(
           90deg,
@@ -409,7 +410,6 @@ Can I have some privacy please?
     </style>
 
     <!-- password stuff -->
-    <!-- password stuff -->
     <div
       id="password-modal"
       class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm"
@@ -478,7 +478,7 @@ Can I have some privacy please?
             color: { value: "#b084f9" },
             links: {
               color: "#b084f9",
-              distance: 250, // longer connections for that soft-web look
+              distance: 250, // longer connections
               enable: true,
               opacity: 0.25,
               width: 1.1,
@@ -534,9 +534,9 @@ Can I have some privacy please?
         const correctPassword = "luckyyou";
 
         if (input === correctPassword) {
-          history.replaceState(null, "", "/");
-          history.pushState(null, "", "/cv");
-          window.location.href = "/cv";
+          sessionStorage.setItem("cvUnlocked", "true");
+          sessionStorage.setItem("isExternalEntry", "false");
+          window.location.assign("/cv");
         } else {
           closePasswordModal();
           triggerMemoryFailed();
@@ -550,34 +550,6 @@ Can I have some privacy please?
           failed.classList.add("hidden");
         }, 2000);
       }
-
-      // dev tools easter egg
-      (function watchDevTools() {
-        const messages = [
-          "👁 That wasn't very subtle.",
-          "🔒 Accessing inner thoughts? Cute.",
-          "🤫 Nosy much?",
-        ];
-
-        let devtoolsOpen = false;
-
-        setInterval(() => {
-          const widthThreshold = window.outerWidth - window.innerWidth > 160;
-          const heightThreshold = window.outerHeight - window.innerHeight > 160;
-          const isOpen = widthThreshold || heightThreshold;
-
-          if (isOpen && !devtoolsOpen) {
-            devtoolsOpen = true;
-            const randomMessage =
-              messages[Math.floor(Math.random() * messages.length)];
-            alert(randomMessage);
-          }
-
-          if (!isOpen && devtoolsOpen) {
-            devtoolsOpen = false;
-          }
-        }, 1000);
-      })();
 
       // void redirect
       console.log(

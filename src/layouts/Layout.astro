@@ -16,10 +16,10 @@ const isVoid = pathname === '/void';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M.</title>
 
-<!-- Glitchy font aesthetic -->
+    <!-- Glitchy font aesthetic -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-<!-- Glitch + Fiber CSS if not CV -->
+    <!-- Glitch + Fiber CSS if not CV -->
     {!isCV && (
       <style>
         body {
@@ -65,8 +65,53 @@ const isVoid = pathname === '/void';
       <slot />
     </div>
     )}
+
+        <!-- Page transition logic -->
+
+    <script>
+      function restorePageVisibility() {
+        document.body.classList.remove("fade-out");
+      }
+
+      // Normal first load
+      document.addEventListener("DOMContentLoaded", restorePageVisibility);
+
+      // Back/forward cache restoration
+      window.addEventListener("pageshow", restorePageVisibility);
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href]");
+        if (!link) return;
+        if (link.hasAttribute("target")) return;
+        if (event.defaultPrevented) return;
+        const rawHref = link.getAttribute("href");
+
+        if (
+          !rawHref ||
+          rawHref.startsWith("javascript:") ||
+          rawHref.startsWith("#") ||
+          rawHref.startsWith("mailto:") ||
+          rawHref.startsWith("tel:")
+        ) {
+          return;
+        }
+        const destination = new URL(link.href, window.location.href);
+        
+        if (destination.origin !== window.location.origin) {
+          return;
+        }
+        event.preventDefault();
+        document.body.classList.add("fade-out");
+        window.setTimeout(() => {
+          window.location.assign(destination.href);
+        }, 300);
+
+      });
+
+    </script>
   </body>
 </html>
+
+
 
 
 
