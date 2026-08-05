@@ -22,7 +22,7 @@ But you can't say it's not fun though.
 
 -->
 <Layout pageStyle="blank">
-  <div id="protectedContent" class="hidden">
+  <div id="cvContent">
     <main
       class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]"
     >
@@ -40,18 +40,6 @@ But you can't say it's not fun though.
           href="https://scholar.google.com/citations?user=Vc6Racbyh_gC&hl=en&oi=ao"
           target="_blank"
           class="hover:text-indigo-300 transition">Google Scholar</a
-        >
-        <span>·</span>
-        <a
-          href="https://github.com/exd1000"
-          target="_blank"
-          class="hover:text-indigo-300 transition">GitHub</a
-        >
-        <span>·</span>
-        <a
-          href="https://exd1000.substack.com/"
-          target="_blank"
-          class="hover:text-indigo-300 transition">Substack</a
         >
         <span>·</span>
         <a
@@ -102,7 +90,7 @@ But you can't say it's not fun though.
 
                       <ul class="list-[circle] list-outside pl-6 mt-1">
                         <li>
-                          Deep-learning application for brain-tumor
+                          Deep learning application for brain tumor
                           classification and localization from medical images.
                         </li>
                       </ul>
@@ -656,12 +644,12 @@ But you can't say it's not fun though.
               <span class="text-gray-500 opacity-70 italic">
                 Page will close upon
               </span>
-              <button
-                id="exitButton"
+              <a
+                href="https://exd1000.github.io/"
                 class="text-gray-500 cursor-pointer underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-400 transition-all italic"
               >
-                exit
-              </button>
+                exit</a
+              >
             </div>
             <div aria-hidden="true"></div>
           </div>
@@ -670,31 +658,6 @@ But you can't say it's not fun though.
     </main>
   </div>
   <!-- NOT PART OF CV  -->
-  <div
-    id="unlockModal"
-    class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
-  >
-    <div
-      class="bg-[#f8f5f0] text-[#1f2937] p-8 rounded-xl shadow-lg max-w-sm w-full text-center"
-    >
-      <h2 class="text-xl font-bold mb-4">[ACCESS CV NODE]</h2>
-      <input
-        id="passwordInput"
-        type="password"
-        placeholder="Enter authorization key"
-        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 mb-4 text-sm"
-      />
-      <button
-        id="unlockButton"
-        class="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-black transition-all text-sm"
-      >
-        Unlock Memory
-      </button>
-      <div id="unlockError" class="text-red-400 text-xs mt-2 hidden">
-        Uh oh. That's not right.
-      </div>
-    </div>
-  </div>
 
   <style>
     .animate-fade-in-slow {
@@ -815,116 +778,19 @@ But you can't say it's not fun though.
   </style>
 
   <script>
-    let hasGlitched = false;
-
-    function setHistoryTrap() {
-      const current = history.state;
-      if (!current || current.trap !== "cv") {
-        history.replaceState({ trap: "entry" }, "", location.href);
-        history.pushState({ trap: "cv" }, "", location.href);
-      }
-    }
-
-    if (!sessionStorage.getItem("cvUnlocked")) {
-      const isExternal =
-        !document.referrer ||
-        !document.referrer.includes(window.location.origin);
-      sessionStorage.setItem("isExternalEntry", isExternal ? "true" : "false");
-
-      if (isExternal) {
-        window.addEventListener("DOMContentLoaded", () => {
-          triggerCorruption();
-        });
-      }
-    } else {
-      sessionStorage.setItem("isExternalEntry", "false");
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
-      const correctPassword = "luckyyou";
-      const modal = document.getElementById("unlockModal");
-      const passwordInput = document.getElementById("passwordInput");
-      const unlockButton = document.getElementById("unlockButton");
-      const unlockError = document.getElementById("unlockError");
-      const protectedContent = document.getElementById("protectedContent");
-
-      hasGlitched = false;
-
-      if (sessionStorage.getItem("cvUnlocked") === "true") {
-        modal.classList.add("hidden");
-
-        protectedContent.classList.remove("hidden");
-
-        if (!history.state || history.state.trap !== "cv") {
-          setTimeout(() => {
-            setHistoryTrap();
-          }, 50);
-        }
-      } else {
-        modal.classList.remove("hidden");
-      }
-
       const sections = document.querySelectorAll(".fade-section");
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            } else {
-              entry.target.classList.remove("visible");
-            }
+            entry.target.classList.toggle("visible", entry.isIntersecting);
           });
         },
-
         { threshold: 0.1 },
       );
 
       sections.forEach((section) => observer.observe(section));
-
-      unlockButton.addEventListener("click", () => {
-        if (passwordInput.value.trim().toLowerCase() === correctPassword) {
-          sessionStorage.setItem("cvUnlocked", "true");
-          sessionStorage.setItem("isExternalEntry", "false");
-          modal.classList.add("hidden");
-          protectedContent.classList.remove("hidden");
-          setHistoryTrap();
-        } else {
-          unlockError.classList.remove("hidden");
-        }
-      });
-
-      passwordInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          unlockButton.click();
-        }
-      });
-
-      (function setupBackTrap() {
-        history.pushState({ trap: "cv-trap" }, "", location.href);
-
-        window.addEventListener("popstate", (event) => {
-          const state = event.state;
-
-          if (!state || state.trap !== "cv-trap") {
-            triggerCorruption();
-          } else {
-            setTimeout(() => {
-              history.pushState({ trap: "cv-trap" }, "", location.href);
-            }, 50);
-          }
-        });
-      })();
-
-      const exitButton = document.getElementById("exitButton");
-
-      if (exitButton) {
-        exitButton.addEventListener("click", (e) => {
-          e.preventDefault();
-
-          triggerCorruption();
-        });
-      }
     });
 
     window.toggleDetails = function (id) {
@@ -934,76 +800,6 @@ But you can't say it's not fun though.
         element.classList.toggle("hidden");
       }
     };
-
-    function triggerCorruption() {
-      const fromExternal = sessionStorage.getItem("isExternalEntry") === "true";
-      let message;
-
-      if (fromExternal) {
-        message = "⚠️ Unauthorized External Memory Jump Detected";
-      } else {
-        const options = [
-          "Memory Corrupted.",
-          "Access Revoked.",
-          "Node Disconnected.",
-          "Memory Fragment Unrecoverable.",
-          "Unauthorized Neural Reentry.",
-          "Signal Lost.",
-        ];
-        message = options[Math.floor(Math.random() * options.length)];
-      }
-
-      document.body.innerHTML = `
-            <style>
-              body { 
-                background: black; 
-                animation: flicker 1.2s infinite; 
-                margin: 0; 
-                padding: 0; 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                height: 100vh;
-              }
-              @keyframes flicker { 
-                0%, 100% { background: black; } 
-                50% { background: #111; } 
-              }
-              .glitch-text { 
-                color: white; 
-                font-size: 2.5rem; 
-                font-family: monospace; 
-                animation: glitch 0.6s infinite; 
-                text-shadow: 1px 1px #ff00ff, -1px -1px #00ffff;
-                text-align: center;
-              }
-              @keyframes glitch { 
-                0% { transform: translate(0); } 
-                50% { transform: translate(-2px, 2px); } 
-                100% { transform: translate(0); } 
-              }
-            </style>
-            <div class="glitch-text">${message}</div>
-          `;
-
-      setTimeout(() => {
-        window.location.replace("/");
-      }, 1000);
-    }
-
-    window.addEventListener("popstate", () => {
-      const currentState = history.state;
-
-      if (currentState?.trap === "entry") {
-        triggerCorruption();
-      }
-
-      if (sessionStorage.getItem("cvUnlocked") === "true") {
-        setTimeout(() => {
-          setHistoryTrap();
-        }, 50);
-      }
-    });
 
     console.log(
       "%cUhhh... did you need something?",
