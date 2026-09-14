@@ -4,20 +4,20 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <main
-    class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 py-20 text-center"
+    class="flex flex-col items-center justify-start md:justify-center min-h-screen text-white font-mono px-6 py-20 text-center"
   >
     <!-- Main message -->
     <h1
       class="text-gray-300 text-2xl md:text-3xl uppercase tracking-wide mb-2 animate-fade-in"
     >
-      Private during active development
-      <!-- PRIVATE DURING ACTIVE DEVELOPMENT. -->
+      Private during ongoing study
+      <!-- PRIVATE DURING DEVELOPMENT. -->
     </h1>
 
     <p class="text-[0.8rem] tracking-wide text-gray-600 uppercase italic mb-6">
-      Selected figures from ongoing experiments
+      Selected figures
     </p>
-
+    <br /><br />
     <!-- Figures -->
     <div
       class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full items-start"
@@ -57,4 +57,22 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </main>
+
+  <style>
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      overflow-y: auto;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </Layout>

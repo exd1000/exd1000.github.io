@@ -1,46 +1,96 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
+
 <Layout>
-<main class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 text-center">
-  <h1 class="text-4xl md:text-6xl mb-8 animate-fade-in-slow">Research Focus</h1>
-  <p class="max-w-2xl text-lg md:text-xl leading-relaxed animate-fade-in-slow opacity-80">
-    I am fascinated by how memory is <strong class="text-indigo-300">encoded, represented, and traversed</strong> in both human cognition and artificial systems. 
-    I focus on <strong class="text-indigo-300">high-dimensional vector spaces of memory, associative memory modeling, and computational architectures</strong> to investigate how both systems navigate and adapt their memory space. 
-    By applying various frameworks to bridge neuroscience and AI, I aim to uncover new insights into how <strong class="text-indigo-300">memory structures evolve</strong>,
-    and how these processes can inform and advance our understanding of both human cognition and AI.
-  </p>
+  <main
+    class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 py-16 text-center"
+  >
+    <h1 class="text-4xl md:text-6xl mb-8 animate-fade-in-slow">My Interests</h1>
+    <!-- interest -->
 
-  <div class="mt-12 opacity-70 text-sm">
-  </div>
+    <p
+      class="max-w-3xl text-base md:text-lg leading-relaxed animate-fade-in-slow opacity-80"
+    >
+      I am interested in how <strong class="text-indigo-300"
+        >internal representations form, stabilize, and change over time</strong
+      >. More specifically:
+    </p>
 
-</main>
+    <!-- questions -->
+    <div class="max-w-2xl w-full mt-10 animate-fade-in-slow opacity-80">
+      <ol
+        class="italic space-y-1 text-xs md:text-sm leading-relaxed text-indigo-300"
+      >
+        <li>
+          What happens to existing representations when a system incorporates
+          new information?
+        </li>
 
-<style>
-.animate-fade-in-slow {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: floatFade 2.2s ease forwards;
-}
-@keyframes floatFade {
-  to {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
-}
+        <li>
+          What distinguishes transient perturbations from persistent
+          representational change?
+        </li>
 
-    html, body {
-      height: 100%;  
-      overflow-y: scroll;  
+        <li>
+          Under what conditions does representational change become structural
+          reorganization?
+        </li>
+
+        <li>And importantly, how can these processes be formalized?</li>
+      </ol>
+    </div>
+
+    <!-- approaches -->
+    <p
+      class="max-w-3xl mt-12 text-base md:text-lg leading-relaxed animate-fade-in-slow opacity-80"
+    >
+      I approach these questions through <strong class="text-indigo-300"
+        >mathematical modeling and computational experiments</strong
+      >, focusing on dynamical systems, associative memory, and learning
+      dynamics.
+    </p>
+
+    <p
+      class="max-w-3xl mt-8 text-base md:text-lg leading-relaxed animate-fade-in-slow opacity-80"
+    >
+      Memory is a natural setting when studying these processes because it
+      requires systems to preserve, modify, and reconstruct existing
+      representations in response to new information. Broadly, I am interested
+      in whether mathematical principles can help describe <strong
+        class="text-indigo-300">representational change across systems</strong
+      >.
+    </p>
+  </main>
+
+  <style>
+    .animate-fade-in-slow {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: floatFade 2.2s ease forwards;
     }
 
-  body::-webkit-scrollbar {
-    display: none;
-  }
-  body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    @keyframes floatFade {
+      to {
+        opacity: 0.8;
+        transform: translateY(0);
+      }
+    }
 
-</style>
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      overflow-y: auto;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </Layout>
