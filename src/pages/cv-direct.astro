@@ -2,25 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<!-- 
-
-
-                                            _     _                    
-                                           | |   | |                   
-  _   _  ___  _   _    ___ __ _ _   _  __ _| |__ | |_   _ __ ___   ___ 
- | | | |/ _ \| | | |  / __/ _` | | | |/ _` | '_ \| __| | '_ ` _ \ / _ \
- | |_| | (_) | |_| | | (_| (_| | |_| | (_| | | | | |_  | | | | | |  __/
-  \__, |\___/ \__,_|  \___\__,_|\__,_|\__, |_| |_|\__| |_| |_| |_|\___|
-   __/ |                               __/ |                           
-  |___/                               |___/                            
-
-  
-Yes I know you techies can find my password and I have no backend.
-This is literally GitHub Pages. It’s public. Don’t come at me.
-
-But you can't say it's not fun though. 
-
--->
 <Layout pageStyle="blank">
   <div id="cvContent">
     <main
@@ -75,6 +56,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('edu1')"
                 >
                   <strong
@@ -112,6 +94,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('edu2')"
                 >
                   <strong
@@ -138,6 +121,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('edu3')"
                 >
                   <strong
@@ -165,6 +149,7 @@ But you can't say it's not fun though.
             </ul>
           </div>
           <div class="divider"></div>
+
           <!-- Personal Research -->
           <div class="fade-section">
             <h2
@@ -199,6 +184,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('details2')"
                 >
                   <strong
@@ -238,6 +224,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('details1')"
                 >
                   <strong
@@ -276,9 +263,11 @@ But you can't say it's not fun though.
                   </ul>
                 </div>
               </li>
+
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('details3')"
                 >
                   <strong
@@ -321,6 +310,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('details4')"
                 >
                   <strong
@@ -357,6 +347,7 @@ But you can't say it's not fun though.
           </div>
 
           <div class="divider"></div>
+
           <!-- Publications -->
           <div class="fade-section">
             <h2
@@ -409,6 +400,7 @@ But you can't say it's not fun though.
             </ul>
           </div>
           <div class="divider"></div>
+
           <!-- Teaching -->
           <div class="fade-section">
             <h2
@@ -420,6 +412,7 @@ But you can't say it's not fun though.
               <li>
                 <div
                   class="flex justify-between items-center cursor-pointer hover:text-indigo-300 transition-colors duration-200"
+                  style="cursor: pointer;"
                   onclick="toggleDetails('teach1')"
                 >
                   <strong
@@ -501,144 +494,6 @@ But you can't say it's not fun though.
 
           <div class="divider"></div>
 
-          <!-- Scientific Service & Communication -->
-          <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-5"
-            >
-              Scientific Service & Communication
-            </h2>
-
-            <div class="space-y-6">
-              <!-- PDF Hoarders Anonymous -->
-              <details class="service-group">
-                <summary class="service-header">
-                  <span
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                  >
-                    <strong>PDF Hoarders Anonymous</strong>
-                  </span>
-                  <span class="text-gray-500 text-sm">2026 – Present</span>
-                </summary>
-
-                <div class="ml-3 mt-4">
-                  <details class="role-group">
-                    <summary class="role-header">
-                      <strong
-                        class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                      >
-                        Founder and Organizer
-                      </strong>
-
-                      <span class="flex items-center gap-3">
-                        <span class="text-gray-500 text-sm"
-                          >Jul 2026 – Present</span
-                        >
-                      </span>
-                    </summary>
-
-                    <div class="mt-3 ml-5 text-sm text-gray-700">
-                      <ul class="list-disc pl-5">
-                        <li>
-                          Founded and organized a peer-led group for discussing
-                          technical papers in mathematics and computer science.
-                        </li>
-                      </ul>
-                    </div>
-                  </details>
-                </div>
-              </details>
-
-              <!-- NeuroTechX -->
-              <details class="service-group">
-                <summary class="service-header">
-                  <span
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                  >
-                    <strong>NeuroTechX</strong>
-                  </span>
-                  <span class="text-gray-500 text-sm">2021 – 2025</span>
-                </summary>
-
-                <div class="ml-3 mt-4 space-y-5">
-                  <!-- Writing Lead -->
-                  <details class="role-group">
-                    <summary class="role-header">
-                      <strong
-                        class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                      >
-                        Content Lab Management Team, Writing Lead
-                      </strong>
-
-                      <span class="flex items-center gap-3">
-                        <span class="text-gray-500 text-sm">2023 – 2025</span>
-                      </span>
-                    </summary>
-
-                    <div class="mt-3 ml-5 text-sm text-gray-700">
-                      <ul class="list-disc pl-5">
-                        <li>
-                          Oversaw editorial production for scientific content
-                          within a global neurotechnology community of 6K+
-                          members.
-                        </li>
-                      </ul>
-                    </div>
-                  </details>
-
-                  <!-- News Squad -->
-                  <details class="role-group">
-                    <summary class="role-header">
-                      <strong
-                        class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                      >
-                        News Squad Team Member
-                      </strong>
-
-                      <span class="flex items-center gap-3">
-                        <span class="text-gray-500 text-sm">2023 – 2024</span>
-                      </span>
-                    </summary>
-
-                    <div class="mt-3 ml-5 text-sm text-gray-700">
-                      <ul class="list-disc pl-5">
-                        <li>
-                          Curated and distributed monthly neuroscience and
-                          neurotechnology updates to 30+ international chapters.
-                        </li>
-                      </ul>
-                    </div>
-                  </details>
-
-                  <!-- Editor -->
-                  <details class="role-group">
-                    <summary class="role-header">
-                      <strong
-                        class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                      >
-                        Content Lab Editor
-                      </strong>
-
-                      <span class="flex items-center gap-3">
-                        <span class="text-gray-500 text-sm">2021 – 2024</span>
-                      </span>
-                    </summary>
-
-                    <div class="mt-3 ml-5 text-sm text-gray-700">
-                      <ul class="list-disc pl-5">
-                        <li>
-                          Reviewed and edited articles on neuroscience and
-                          neurotechnology for scientific clarity, consistency,
-                          and accessibility.
-                        </li>
-                      </ul>
-                    </div>
-                  </details>
-                </div>
-              </details>
-            </div>
-          </div>
-
           <!-- Footer -->
           <div
             class="mt-12 grid grid-cols-1 md:grid-cols-3 items-end gap-3 text-xs font-sans tracking-normal antialiased"
@@ -647,26 +502,25 @@ But you can't say it's not fun though.
             <div class="text-left text-gray-500 opacity-70 italic">
               Last updated: Aug 2026
             </div>
-            <!-- Exit warning -->
+
+            <!-- Exit -->
             <div class="text-center">
-              <span class="italic text-gray-600 font-bold">Warning: </span>
-              <span class="text-gray-500 opacity-70 italic">
-                Page will close upon&nbsp;
-              </span>
               <a
                 href="https://exd1000.github.io/"
                 class="text-gray-500 cursor-pointer underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-400 transition-all italic"
               >
-                exit</a
+                Back</a
               >
             </div>
+
             <div aria-hidden="true"></div>
           </div>
         </section>
       </div>
     </main>
   </div>
-  <!-- NOT PART OF CV  -->
+
+  <!-- NOT PART OF CV -->
 
   <style>
     .animate-fade-in-slow {
@@ -674,36 +528,43 @@ But you can't say it's not fun though.
       transform: translateY(20px);
       animation: fadeInUp 1s ease forwards;
     }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     .divider {
       border-top: 1px solid #d1d5db;
       margin-top: 2rem;
       margin-bottom: 2rem;
     }
+
     @keyframes fogReveal {
       0% {
         opacity: 0;
         filter: blur(8px);
         transform: translateY(30px);
       }
+
       50% {
         opacity: 0.5;
         filter: blur(4px);
       }
+
       100% {
         opacity: 1;
         filter: blur(0);
         transform: translateY(0);
       }
     }
+
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -713,6 +574,7 @@ But you can't say it's not fun though.
         transform 0.4s ease,
         filter 0.4s ease;
     }
+
     .fade-section.visible {
       animation: fogReveal 0.6s ease forwards;
     }
@@ -734,6 +596,7 @@ But you can't say it's not fun though.
     .scroll-area::-webkit-scrollbar {
       display: none;
     }
+
     .scroll-area {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -768,11 +631,6 @@ But you can't say it's not fun though.
 
     .role-header {
       font-size: 0.875rem;
-    }
-
-    .service-header:hover,
-    .role-header:hover {
-      color: #a5b4fc;
     }
 
     .service-header::-webkit-details-marker,
