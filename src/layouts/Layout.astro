@@ -1,142 +1,27 @@
 ---
 import "../styles/global.css";
-const { pageStyle } = Astro.props;
 
-// detect specific pages
-const isCV = pageStyle === 'cv';
-const isBlank = pageStyle === 'blank'; 
-const pathname = Astro.url.pathname;
-const isStart = pathname === '/start';
-const isVoid = pathname === '/void';
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "E. Dinh",
+  description = "Research, projects, and notes by E. Dinh.",
+} = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M.</title>
-
-    <!-- Glitchy font aesthetic -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-    <!-- Glitch + Fiber CSS if not CV -->
-    {!isCV && (
-      <style>
-        body {
-          background-color: #000;
-          background-image: 
-            repeating-linear-gradient(
-              0deg,
-              rgba(255, 255, 255, 0.015),
-              rgba(255, 255, 255, 0.015) 1px,
-              transparent 1px,
-              transparent 5px
-            ),
-            repeating-linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0.015),
-              rgba(255, 255, 255, 0.015) 1px,
-              transparent 1px,
-              transparent 5px
-            );
-          animation: pulseLines 6s infinite ease-in-out;
-          font-family: 'Share Tech Mono', monospace;
-        }
-
-        @keyframes pulseLines {
-          0%, 100% { background-position: 0 0, 0 0; }
-          50% { background-position: 10px 10px, -10px -10px; }
-        }
-      </style>
-    )}
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
   </head>
 
-  
-  <body class={`transition-opacity duration-300 ${isBlank ? 'bg-[#f8f5f0]' : (isCV ? 'bg-black text-neutral-200 font-sans' : 'bg-black text-white font-mono')}`}>
-    {isBlank ? (
-      // for blank elevator music page
-      <slot />
-    ) : isStart || isVoid ? (   // <-- transparent pages like start or void
-      <div class="bg-transparent p-0 m-0">
-        <slot />
-      </div>
-    ) : (
-    <div class={isCV ? '' : ''}>
-      <slot />
-    </div>
-    )}
-
-        <!-- Page transition logic -->
-
-    <script>
-      function restorePageVisibility() {
-        document.body.classList.remove("fade-out");
-      }
-
-      // Normal first load
-      document.addEventListener("DOMContentLoaded", restorePageVisibility);
-
-      // Back/forward cache restoration
-      window.addEventListener("pageshow", restorePageVisibility);
-      document.addEventListener("click", (event) => {
-        const link = event.target.closest("a[href]");
-        if (!link) return;
-        if (link.hasAttribute("target")) return;
-        if (event.defaultPrevented) return;
-        const rawHref = link.getAttribute("href");
-
-        if (
-          !rawHref ||
-          rawHref.startsWith("javascript:") ||
-          rawHref.startsWith("#") ||
-          rawHref.startsWith("mailto:") ||
-          rawHref.startsWith("tel:")
-        ) {
-          return;
-        }
-        const destination = new URL(link.href, window.location.href);
-        
-        if (destination.origin !== window.location.origin) {
-          return;
-        }
-        event.preventDefault();
-        document.body.classList.add("fade-out");
-        window.setTimeout(() => {
-          window.location.assign(destination.href);
-        }, 300);
-
-      });
-
-    </script>
+  <body>
+    <slot />
   </body>
 </html>
-
-
-
-
-
-    <!-- Fade out animation -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const links = document.querySelectorAll('a[href]');
-        links.forEach(link => {
-          link.addEventListener('click', (e) => {
-            const target = e.currentTarget;
-            if (
-              target.hostname === window.location.hostname &&
-              !target.hasAttribute('target')
-            ) {
-              e.preventDefault();
-              document.body.classList.add('fade-out');
-              setTimeout(() => {
-                window.location = target.href;
-              }, 300);
-            }
-          });
-        });
-      });
-    </script>
-
-
-
-
