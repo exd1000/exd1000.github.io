@@ -2,17 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout pageStyle="blank">
+<Layout path="/edinh/cv.html">
   <div id="cvContent">
     <main
       class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]"
     >
-      <h1
-        class="text-5xl md:text-6xl mb-4 font-bold tracking-wide animate-fade-in-slow"
-      >
-        E. DINH
-      </h1>
-
       <!-- Contact Links -->
       <div
         class="flex flex-wrap justify-center items-center gap-6 text-gray-500 text-sm mb-10 animate-fade-in-slow"
@@ -29,20 +23,10 @@ import Layout from "../layouts/Layout.astro";
           class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition"
           >Email</a
         >
-        <span>·</span>
-        <a
-          href="https://exd1000.github.io/start/"
-          target="_blank"
-          class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition"
-          >Portfolio</a
-        >
       </div>
 
       <!-- Main -->
-      <div
-        class="scroll-area relative w-full max-w-4xl p-6 overflow-y-auto"
-        style="max-height: 80vh;"
-      >
+      <div class="relative w-full max-w-4xl p-6">
         <section class="text-left text-base leading-relaxed space-y-16">
           <!-- Education -->
           <div class="fade-section">
@@ -492,7 +476,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
           </div>
 
-          <div class="divider"></div>
+          <br /><br />
 
           <!-- Footer -->
           <div
@@ -500,177 +484,152 @@ import Layout from "../layouts/Layout.astro";
           >
             <!-- Last update -->
             <div class="text-left text-gray-500 opacity-70 italic">
-              Last updated: Aug 2026
+              <em>Last updated: Aug 2026</em>
             </div>
-
-            <!-- Exit -->
-            <div class="text-center">
-              <a
-                href="https://exd1000.github.io/"
-                class="text-gray-500 cursor-pointer underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-400 transition-all italic"
-              >
-                Back</a
-              >
-            </div>
-
-            <div aria-hidden="true"></div>
           </div>
+
+          <div aria-hidden="true"></div>
         </section>
       </div>
     </main>
   </div>
-
-  <!-- NOT PART OF CV -->
-
-  <style>
-    .animate-fade-in-slow {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .divider {
-      border-top: 1px solid #d1d5db;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    @keyframes fogReveal {
-      0% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translateY(30px);
-      }
-
-      50% {
-        opacity: 0.5;
-        filter: blur(4px);
-      }
-
-      100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-    }
-
-    .fade-section {
-      opacity: 0;
-      transform: translateY(30px);
-      filter: blur(8px);
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease,
-        filter 0.4s ease;
-    }
-
-    .fade-section.visible {
-      animation: fogReveal 0.6s ease forwards;
-    }
-
-    html {
-      height: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      margin: 0;
-      overflow-x: hidden;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .scroll-area::-webkit-scrollbar {
-      display: none;
-    }
-
-    .scroll-area {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    @media (max-height: 600px) {
-      .scroll-area {
-        max-height: none;
-      }
-    }
-
-    .service-group,
-    .role-group {
-      width: 100%;
-    }
-
-    .service-header,
-    .role-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      cursor: pointer;
-      color: #374151;
-      transition: color 0.2s ease;
-    }
-
-    .service-header {
-      font-size: 1rem;
-      padding: 0.25rem 0;
-    }
-
-    .role-header {
-      font-size: 0.875rem;
-    }
-
-    .service-header::-webkit-details-marker,
-    .role-header::-webkit-details-marker {
-      display: none;
-    }
-
-    .service-header,
-    .role-header {
-      list-style: none;
-    }
-  </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll(".fade-section");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            entry.target.classList.toggle("visible", entry.isIntersecting);
-          });
-        },
-        { threshold: 0.1 },
-      );
-
-      sections.forEach((section) => observer.observe(section));
-    });
-
-    window.toggleDetails = function (id) {
-      const element = document.getElementById(id);
-
-      if (element) {
-        element.classList.toggle("hidden");
-      }
-    };
-
-    console.log(
-      "%cUhhh... did you need something?",
-      "color: rgba(157, 126, 219, 0.6); font-size: 13px; font-style: italic;",
-    );
-  </script>
 </Layout>
+
+<!-- NOT PART OF CV -->
+
+<style>
+  .animate-fade-in-slow {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .divider {
+    border-top: 1px solid #d1d5db;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @keyframes fogReveal {
+    0% {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(30px);
+    }
+
+    50% {
+      opacity: 0.5;
+      filter: blur(4px);
+    }
+
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
+  .fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease,
+      filter 0.4s ease;
+  }
+
+  .fade-section.visible {
+    animation: fogReveal 0.6s ease forwards;
+  }
+
+  html {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .service-group,
+  .role-group {
+    width: 100%;
+  }
+
+  .service-header,
+  .role-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    color: #374151;
+    transition: color 0.2s ease;
+  }
+
+  .service-header {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  .role-header {
+    font-size: 0.875rem;
+  }
+
+  .service-header::-webkit-details-marker,
+  .role-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .service-header,
+  .role-header {
+    list-style: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".fade-section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("visible", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+
+  window.toggleDetails = function (id) {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.classList.toggle("hidden");
+    }
+  };
+
+  console.log(
+    "%cUhhh... did you need something?",
+    "color: rgba(157, 126, 219, 0.6); font-size: 13px; font-style: italic;",
+  );
+</script>

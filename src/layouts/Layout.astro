@@ -2,14 +2,16 @@
 import "../styles/global.css";
 
 interface Props {
-  title?: string;
+  path?: string;
   description?: string;
 }
 
 const {
-  title = "E. Dinh",
-  description = "Research, projects, and notes by E. Dinh.",
+  path = "/edinh/",
+  description = "Personal research portfolio and digital archive of E. Dinh",
 } = Astro.props;
+
+const title = `Index of ${path}`;
 ---
 
 <!doctype html>
@@ -20,8 +22,18 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-
   <body>
-    <slot />
+    <main>
+      <h1>{title}</h1>
+      <em>server under construction</em>
+      <hr />
+
+      <slot />
+
+      <hr />
+      <footer>
+        <em>exd1000/2.4.48 (edinh) Server at exd1000.github.io Port 443</em>
+      </footer>
+    </main>
   </body>
 </html>
