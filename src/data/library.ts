@@ -1,47 +1,9 @@
 export const library = {
-  "mathematics": {
-    description: "things I am learning the hard way",
-    children: {
-      "linear-algebra": {
-        description: "vectors, spaces, echelon, linear systems",
-        children: {
-          "linear-systems.pdf": {
-            description: "Gauss's method and linear systems",
-            date: "2026-09-30",
-            href: "/library/files/linear-systems.pdf"
-          },
-
-          "vector-spaces.pdf": {
-            description: "vector spaces, span, and independence",
-            date: "2026-10-04",
-            href: "/library/files/vector-spaces.pdf"
-          }
-        }
-      },
-
-      "vector-calculus": {
-        description: "fields, flux, circulation, and integration",
-        children: {
-          "greens-theorem.pdf": {
-            description: "Green's theorem and orientation",
-            date: "2026-09-29",
-            href: "/library/files/greens-theorem.pdf"
-          }
-        }
-      },
-
-      "dynamical-systems": {
-        description: "fixed points, flows, and bifurcations",
-        children: {}
-      }
-    }
-  },
-
-  "computer-science": {
+    "computer-science": {
     description: "algorithms, models, and machine learning",
     children: {
       "algorithms": {
-        description: "computers do things",
+        description: "computers doing things",
         children: {
           "raycasting.pdf": {
             description: "2D grid traversal and pseudo-3D projection",
@@ -62,5 +24,59 @@ export const library = {
         children: {}
       }
     }
-  }
+  },
+
+  "hobbies": {
+    description: "bc ofc my hobbies also require documentation",
+    children: {
+      "vedic-astrology": {
+        description: "sidereal astrology", 
+        children: {}},
+
+      "western-astrology": {
+        description: "modern astrology", 
+        children: {}}, 
+
+    }
+  }, 
+
+  "mathematics": {
+    description: "applied + pure maths ",
+    children: {
+      "dynamical-systems": {
+        description: "fixed points, flows, and bifurcations",
+        children: {}},
+
+      "linear-algebra": {
+        description: "vectors, spaces, echelon, linear systems",
+        children: {}},
+
+      "statistics": {
+        description: " data science, distributions, and the probability of me giving up" ,
+        children: {
+          "common-distributions-pt1.pdf": {
+            description: "i am not *normal* about things (ha ha ha)",
+            date: "2026-10-05",
+            href: "/library/files/common-distributions-pt1.pdf"
+          }
+        }
+      },
+
+      "vector-calculus": {
+        description: "fields, flux, circulation, and integration",
+        children: {}},
+    }
+  },
+
+
+  "papers": {
+    description: "notes on readings",
+    children: {
+
+
+    }
+  }, 
+
+
+
 };

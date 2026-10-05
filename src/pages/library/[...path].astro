@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { library } from "../../data/library";
+
+type LibraryNode = {
+  description: string;
+  date?: string;
+  href?: string;
+  children?: Record<string, LibraryNode>;
+};
+
+export function getStaticPaths() {
+  function buildPaths(
+    nodes: Record<string, LibraryNode>,
+    parentPath: string[] = [],
+  ): any[] {
+    const paths: any[] = [];
+
+    for (const [name, node] of Object.entries(nodes)) {
+      // Files don't get Astro routes
+      if (node.href) continue;
+
+      const currentPath = [...parentPath, name];
+
+      paths.push({
+        params: {
+          path: currentPath.join("/"),
+        },
+        props: {
+          node,
+          segments: currentPath,
+        },
+      });
+
+      // recursively generates child directories
+      if (node.children) {
+        paths.push(...buildPaths(node.children, currentPath));
+      }
+    }
+
+    return paths;
+  }
+
+  return buildPaths(library);
+}
+
+const { node, segments } = Astro.props;
+
+const displayPath = `/edinh/library/${segments.join("/")}/`;
+
+const entries = Object.entries(node.children ?? {});
+---
+
+<Layout path={displayPath}>
+  <a href="../">../</a>
+
+  {
+    entries.map(([name, entry]: [string, LibraryNode]) => {
+      const isFile = Boolean(entry.href);
+
+      const href = isFile ? entry.href! : `${name}/`;
+
+      const displayName = isFile ? name : `${name}/`;
+
+      return (
+        <div>
+          <a href={href}>{displayName}</a> {entry.date ?? ""}{" "}
+          {entry.description}
+        </div>
+      );
+    })
+  }
+</Layout>
