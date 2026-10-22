@@ -1,61 +1,59 @@
 export const library = {
     "computer-science": {
-    description: "algorithms, models, and machine learning",
+    description: "sudo rm -rf /edinh",
     children: {
       "algorithms": {
-        description: "computers doing things",
+        description: "top secret recipes",
         children: {
           "raycasting.pdf": {
             description: "2D grid traversal and pseudo-3D projection",
-            date: "2026-09-30",
+            date: "TBA",
             href: "/library/files/raycasting.pdf"
           },
 
           "dda.pdf": {
             description: "digital differential analyzer",
-            date: "2026-10-02",
+            date: "TBA",
             href: "/library/files/dda.pdf"
           }
         }
       },
 
       "machine-learning": {
-        description: "learning algorithms and representation",
+        description: "oh you mean stats?",
         children: {}
       }
     }
   },
 
   "hobbies": {
-    description: "bc ofc my hobbies also require documentation",
+    description: "me at my best (professional womansplainer)",
     children: {
-      "vedic-astrology": {
-        description: "sidereal astrology", 
-        children: {}},
-
-      "western-astrology": {
-        description: "modern astrology", 
-        children: {}}, 
-
-    }
+      "astrology-blog": {
+        description: "[-3HP][-3HP][-3HP]", 
+        href: "https://www.tumblr.com/astrogorl/tagged/astrogorl"},
+      "technical-ish-blog": {
+        description: "the children they yearn for math", 
+        href:"https://dimensionaldrift.substack.com/", 
+    }}
   }, 
 
   "mathematics": {
-    description: "applied + pure maths ",
+    description: "i'm at my lim",
     children: {
       "dynamical-systems": {
-        description: "fixed points, flows, and bifurcations",
+        description: "it's not a phase mom it's an attractor",
         children: {}},
 
       "linear-algebra": {
-        description: "vectors, spaces, echelon, linear systems",
+        description: "how to be linearly independent",
         children: {}},
 
       "statistics": {
-        description: " data science, distributions, and the probability of me giving up" ,
+        description: "p(me giving up) = ??" ,
         children: {
           "common-distributions-pt1.pdf": {
-            description: "i am not *normal* about things (ha ha ha)",
+            description: "i am not normal about things",
             date: "2026-10-05",
             href: "/library/files/common-distributions-pt1.pdf"
           }
@@ -63,14 +61,14 @@ export const library = {
       },
 
       "vector-calculus": {
-        description: "fields, flux, circulation, and integration",
+        description: "what the flux",
         children: {}},
     }
   },
 
 
   "papers": {
-    description: "notes on readings",
+    description: "notes on how they made me feel",
     children: {
 
 

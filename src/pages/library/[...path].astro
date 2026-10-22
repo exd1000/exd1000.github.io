@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { library } from "../../data/library";
+import DirectoryListing from "../../components/DirectoryListing.astro";
 
 type LibraryNode = {
   description: string;
@@ -48,26 +49,20 @@ const { node, segments } = Astro.props;
 
 const displayPath = `/edinh/library/${segments.join("/")}/`;
 
-const entries = Object.entries(node.children ?? {});
+const entries = Object.entries(node.children ?? {}).map(([name, child]) => {
+  const isDirectory = child.children !== undefined;
+
+  return {
+    name: isDirectory ? `${name}/` : name,
+    href:
+      child.href ??
+      (isDirectory ? `/library/${[...segments, name].join("/")}/` : undefined),
+    date: child.date ?? "",
+    description: child.description ?? "",
+  };
+});
 ---
 
 <Layout path={displayPath}>
-  <a href="../">../</a>
-
-  {
-    entries.map(([name, entry]: [string, LibraryNode]) => {
-      const isFile = Boolean(entry.href);
-
-      const href = isFile ? entry.href! : `${name}/`;
-
-      const displayName = isFile ? name : `${name}/`;
-
-      return (
-        <div>
-          <a href={href}>{displayName}</a> {entry.date ?? ""}{" "}
-          {entry.description}
-        </div>
-      );
-    })
-  }
+  <DirectoryListing entries={entries} />
 </Layout>

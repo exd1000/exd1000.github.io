@@ -1,15 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import DirectoryListing from "../components/DirectoryListing.astro";
+
+const entries = [
+  {
+    name: "cv.html",
+    href: "/cv-direct",
+    date: "2026-08-01",
+    description: "backstory 1 (actual)",
+  },
+
+  {
+    name: "library/",
+    href: "/library/",
+    description: "the intellectual archive",
+  },
+  {
+    name: "README.md",
+    href: "/readme",
+    date: "2026-10-21",
+    description: "just some doc",
+  },
+  {
+    name: "research.html",
+    href: "/research",
+    description: "elevator pitch (practiced)",
+  },
+
+  {
+    name: "why.html",
+    href: "/why",
+    description: "backstory 2 (romantic)",
+  },
+];
 ---
 
 <Layout path="/edinh/">
-  <nav>
-    <a href="/library">library/</a>
-    <br />
-    <a href="/research">research.html</a>
-    <br />
-    <a href="/why">why.html</a>
-    <br />
-    <a href="/cv-direct">cv.html</a>
-  </nav>
+  <DirectoryListing entries={entries} showParent={false} />
 </Layout>

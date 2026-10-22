@@ -1,18 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import DirectoryListing from "../components/DirectoryListing.astro";
+import { library } from "../data/library";
+
+const entries = [
+  ...Object.entries(library).map(([name, node]) => ({
+    name: `${name}/`,
+    href: `/library/${name}/`,
+    description: node.description,
+    date: "",
+  })),
+
+  {
+    name: "vector-space-explorer*",
+    href: "/vector-space",
+    description: "view archive geometrically",
+    date: "",
+  },
+];
 ---
 
 <Layout path="/edinh/library/">
-  <nav>
-    <a href="/">../</a><br />
-    <a href="/library/computer-science/">computer-science/</a>
-    <br />
-    <a href="/library/hobbies/">hobbies/</a>
-    <br />
-    <a href="/library/mathematics/">mathematics/</a>
-    <br />
-    <a href="/library/papers/">papers/</a>
-    <br />
-    <a href="/vector-space/">vector-space-explorer*</a>
-  </nav>
+  <DirectoryListing entries={entries} />
 </Layout>

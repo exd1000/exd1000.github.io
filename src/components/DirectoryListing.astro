@@ -1,0 +1,94 @@
+---
+type Entry = {
+  name: string;
+  href?: string;
+  date?: string;
+  description?: string;
+};
+
+interface Props {
+  entries: Entry[];
+  showParent?: boolean;
+}
+
+const { entries, showParent = true } = Astro.props;
+---
+
+<div class="directory">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {
+        showParent && (
+          <tr>
+            <td>
+              <a href="../">../</a>
+            </td>
+            <td />
+            <td />
+          </tr>
+        )
+      }
+
+      {
+        entries.map((entry) => (
+          <tr>
+            <td>
+              {entry.href ? <a href={entry.href}>{entry.name}</a> : entry.name}
+            </td>
+            <td>{entry.date ?? ""}</td>
+            <td>{entry.description ?? ""}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .directory {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: 600px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-family: inherit;
+  }
+
+  th {
+    text-align: left;
+    border-bottom: 1px solid #999;
+    padding: 0.3rem 1rem 0.4rem 0;
+  }
+
+  td {
+    padding: 0.2rem 1rem 0.2rem 0;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+
+  th:nth-child(1) {
+    width: 32%;
+  }
+  th:nth-child(2) {
+    width: 16%;
+  }
+  th:nth-child(3) {
+    width: 52%;
+  }
+
+  td:nth-child(2) {
+    white-space: nowrap;
+  }
+</style>
