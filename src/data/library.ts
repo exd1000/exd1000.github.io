@@ -50,7 +50,7 @@ export const library = {
         children: {}},
 
       "statistics": {
-        description: "p(me giving up) = ??" ,
+        description: "p(me giving up) = 0.8743" ,
         children: {
           "common-distributions-pt1.pdf": {
             description: "i am not normal about things",
