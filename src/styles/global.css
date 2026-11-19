@@ -5,9 +5,9 @@
 }
 
 html {
-  font-family: monospace;
-}
+  font-family: times;
 
 body {
   margin: 0;
+  padding: 10px;
 }

@@ -6,66 +6,37 @@ import Layout from "../layouts/Layout.astro";
   <nav>
     <a href="/">../</a><br />
   </nav>
-  <main
-    class="flex flex-col items-center justify-center min-h-screen text-white font-mono px-6 py-16 text-center"
-  >
-    <h1 class="text-4xl md:text-6xl mb-8 animate-fade-in-slow">My Why</h1>
 
-    <p
-      class="max-w-3xl text-base md:text-lg leading-relaxed animate-fade-in-slow opacity-80"
-    >
-      Memory is the most <strong class="text-indigo-300"
-        >idiosyncratic, humanistic</strong
-      > aspect in us. It is the story that we keep telling ourselves about who we
+  <div>
+    <h2>My Why</h2>
+
+    <p>
+      Memory is the most idiosyncratic, humanistic aspect in us. It is <strong>The Story</strong> that we keep telling ourselves about who we
       are, why we do things the way we do, and how it shapes the person we’re becoming.
-      It’s <strong class="text-indigo-300">hauntingly beautiful</strong> and sometimes&nbsp;
-      <strong class="text-indigo-300">painfully poetic</strong>, but most
-      importantly, it’s <strong class="text-indigo-300"
-        >innately prevalent</strong
-      > in our everyday life. To me, memory is what gives life <strong
-        class="text-indigo-300"><em>"meaning"</em></strong
-      >. How can something so abstract, so difficult to conceptualize, be so
+      It’s hauntingly beautiful and sometimes painfully poetic, but most
+      importantly, it’s <strong>innately prevalent</strong> in our everyday life. 
+      <br><br>To me, memory is what gives life <strong
+       >Meaning</strong>. How can something so abstract, so difficult to conceptualize, be so
       ingrained in our identity? Clearly, we don’t know much about ourselves as
       we let on.
     </p>
 
-    <p
-      class="max-w-3xl mt-8 text-base md:text-lg leading-relaxed animate-fade-in-slow opacity-80"
-    >
-      What continues to fascinate me is the question of what makes us <strong
-        class="text-indigo-300"><em>truly us</em></strong
-      >. Not just through intellectual frameworks, but also through humanistic
-      perspectives because <strong class="text-indigo-300"
-        ><em>both are connected and part of the same system</em></strong
-      >.
+    <p>
+      What continues to fascinate me is the question of what makes us <strong>truly us</strong>. 
+      <br><br>Not just through intellectualized frameworks, but also through human
+      perspectives because <strong>both are connected and part of the same system</strong>. Or as I like to say, we are both the system observer and the system being observed.
     </p>
+    <br>
+    <p>--</p>
+    <p>
+      <em>As Jill Bolte Taylor once said, <strong>
+        "Most of us think of ourselves as thinking creatures that feel, but
+          we are actually feeling creatures that think."</strong></em>
+    </p>
+    </div>
 
-    <p
-      class="max-w-3xl mt-10 text-sm md:text-base leading-relaxed animate-fade-in-slow opacity-75"
-    >
-      As Jill Bolte Taylor said, <strong class="text-indigo-300"
-        ><em
-          >"Most of us think of ourselves as thinking creatures that feel, but
-          we are actually feeling creatures that think."</em
-        ></strong
-      >
-    </p>
-  </main>
 
   <style>
-    .animate-fade-in-slow {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: floatFade 2.2s ease forwards;
-    }
-
-    @keyframes floatFade {
-      to {
-        opacity: 0.8;
-        transform: translateY(0);
-      }
-    }
-
     html,
     body {
       min-height: 100%;
@@ -73,6 +44,7 @@ import Layout from "../layouts/Layout.astro";
       overflow-y: auto;
     }
 
+/* 
     body::-webkit-scrollbar {
       display: none;
     }
@@ -80,6 +52,10 @@ import Layout from "../layouts/Layout.astro";
     body {
       -ms-overflow-style: none;
       scrollbar-width: none;
-    }
+    } */
+
+
   </style>
+
+
 </Layout>
