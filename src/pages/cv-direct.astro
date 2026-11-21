@@ -4,13 +4,12 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout path="/edinh/cv.html">
   <nav>
-    <a href="/">../</a><br />
+    <a href="/">../</a>
+    <br />
   </nav>
-  <br>
+  <br />
   <div id="cvContent">
-    <main
-      class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]"
-    >
+    <main class="flex flex-col items-center min-h-screen text-[#1f2937] font-sans px-6 text-center bg-[#f8f5f0]">
       <!-- Contact Links -->
       <div
         class="flex
@@ -27,21 +26,24 @@ import Layout from "../layouts/Layout.astro";
           href="https://scholar.google.com/citations?user=Vc6Racbyh_gC&hl=en&oi=ao"
           target="_blank"
           class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition"
-          >Google Scholar</a
         >
-                <span>·</span>
+          Google Scholar
+        </a>
+        <span> · </span>
         <a
           href="https://github.com/exd1000/EXD-Net"
           target="_blank"
           class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition"
-          >GitHub</a
         >
-        <span>·</span>
+          GitHub
+        </a>
+        <span> · </span>
         <a
           href="mailto:etdinhh@gmail.com"
           class="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-indigo-300 transition"
-          >Email</a
         >
+          Email
+        </a>
       </div>
 
       <!-- Main -->
@@ -49,9 +51,7 @@ import Layout from "../layouts/Layout.astro";
         <section class="text-left text-base leading-relaxed space-y-16">
           <!-- Education -->
           <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
-            >
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">
               Education
             </h2>
             <ul class="space-y-6">
@@ -62,9 +62,7 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('edu1')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
                     M.S., Applied Artificial Intelligence
                   </strong>
 
@@ -81,7 +79,6 @@ import Layout from "../layouts/Layout.astro";
 
                     <li>
                       Capstone: Brain Tumor Classification & Detection GUI
-
                       <ul class="list-[circle] list-outside pl-6 mt-1">
                         <li>
                           Deep learning application for brain tumor
@@ -100,9 +97,7 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('edu2')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
                     B.S., Biological Sciences
                   </strong>
 
@@ -127,9 +122,7 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('edu3')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
                     International Summer School, Physics
                   </strong>
 
@@ -155,32 +148,32 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Personal Research -->
           <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
-            >
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">
               Currently
             </h2>
             <p class="text-sm text-gray-700">
               I am working on <strong>EXD-Net</strong>, an independent
               computational project examining how stored representations respond
-              to perturbations in attractor-based memory systems.<br /><br />
-              The current implementation uses Hopfield networks to evaluate pattern
-              convergence, energy trajectories, and retrieval stability under increasing
-              input corruption. Ongoing work explores how destabilization, reweighting,
-              and representational drift may extend the model from pattern recovery
-              to memory updating and adaptive learning. <br /><br />
-              The broader question motivating this project is how internal representations
-              form and change in systems while preserving sufficient structure to
-              support continuity across time.
+              to perturbations in attractor-based memory systems.
+              <br />
+              <br />
+              The current implementation uses Hopfield networks to evaluate
+              pattern convergence, energy trajectories, and retrieval stability
+              under increasing input corruption. Ongoing work explores how
+              destabilization, reweighting, and representational drift may
+              extend the model from pattern recovery to memory updating and
+              adaptive learning. <br />
+              <br />
+              The broader question motivating this project is how internal
+              representations form and change in systems while preserving
+              sufficient structure to support continuity across time.
             </p>
           </div>
           <div class="divider"></div>
 
           <!-- Research Exp -->
           <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
-            >
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">
               Research Experience
             </h2>
             <ul class="space-y-6">
@@ -190,10 +183,9 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('details2')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                    >Volunteer Research Assistant</strong
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
+                    Volunteer Research Assistant
+                  </strong>
                   <span class="text-gray-500 text-sm">Jan 2023 – Oct 2025</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -230,15 +222,13 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('details1')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4 self-center"
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4 self-center">
                     AI/Language Model Research Collaborator
                   </strong>
                   <div class="text-right leading-tight">
                     <span class="text-gray-500 text-sm">
-                      Oct 2024 – Apr 2025</span
-                    >
+                      Oct 2024 – Apr 2025
+                    </span>
                   </div>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -273,10 +263,9 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('details3')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                    >Clinical Data Specialist, Medical Affairs</strong
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
+                    Clinical Data Specialist, Medical Affairs
+                  </strong>
                   <span class="text-gray-500 text-sm">Jun 2022 – Jun 2025</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -316,10 +305,9 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('details4')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                    >Medical Laboratory Associate</strong
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
+                    Medical Laboratory Associate
+                  </strong>
                   <span class="text-gray-500 text-sm">Jul 2021 – Apr 2022</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -353,15 +341,11 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Publications -->
           <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
-            >
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">
               Publications & Conference Presentations
             </h2>
 
-            <ul
-              class="list-disc list-inside text-sm text-gray-700 space-y-4 ml-4"
-            >
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-4 ml-4">
               <li>
                 Noh S., Zhou D., Cooper K., Guo J., <strong>Dinh E.</strong>, &
                 Bornstein A. (2026). Sparsity and memory constraints interact
@@ -370,35 +354,41 @@ import Layout from "../layouts/Layout.astro";
                 <a
                   href="https://doi.org/10.1016/j.neuropsychologia.2026.109396"
                   target="_blank"
-                  class="hover:text-indigo-300 transition"><em>DOI</em></a
-                >.
+                  class="hover:text-indigo-300 transition"
+                >
+                  <em>DOI</em>
+                </a>
+                .
               </li>
               <li>
                 Zhou D., Noh S., Cooper K., Guo J., <strong>Dinh E.</strong>, &
                 Bornstein A. (2025). Sparse distributed memory constraints drive
                 representational change as a function of temporal learning
                 sequence.
-                <em
-                  >Proceedings of the Annual Meeting of the Cognitive Science
-                  Society, 47.</em
-                >
+                <em>
+                  Proceedings of the Annual Meeting of the Cognitive Science
+                  Society, 47.
+                </em>
                 <a
                   href="https://escholarship.org/uc/item/0vw4h7f5"
                   target="_blank"
-                  class="hover:text-indigo-300 transition"><em>Paper</em></a
-                >.
+                  class="hover:text-indigo-300 transition"
+                >
+                  <em>Paper</em>
+                </a>
+                .
               </li>
 
               <li>
                 <strong>Dinh E.</strong>, Zhou D., Guo J., Noh S., Cooper K., &
                 Bornstein A.
-                <em
-                  >Autoencoder models of human graph learning reveal that sparse
+                <em>
+                  Autoencoder models of human graph learning reveal that sparse
                   and dense representations differentially support planning and
-                  recall.</em
-                >
-                [Poster presentation]. Society of Neuroscience Annual Conference,
-                Chicago, IL. October 5–9, 2024.
+                  recall.
+                </em>
+                [Poster presentation]. Society of Neuroscience Annual
+                Conference, Chicago, IL. October 5–9, 2024.
               </li>
             </ul>
           </div>
@@ -406,9 +396,7 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Teaching -->
           <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
-            >
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">
               Teaching & Mentorship
             </h2>
             <ul class="space-y-6">
@@ -418,10 +406,9 @@ import Layout from "../layouts/Layout.astro";
                   style="cursor: pointer;"
                   onclick="toggleDetails('teach1')"
                 >
-                  <strong
-                    class="underline decoration-dotted decoration-gray-400 underline-offset-4"
-                    >Data Science Instructor</strong
-                  >
+                  <strong class="underline decoration-dotted decoration-gray-400 underline-offset-4">
+                    Data Science Instructor
+                  </strong>
                   <span class="text-gray-500 text-sm">2024 – 2025</span>
                 </div>
                 <div class="text-gray-600 text-sm mt-1 italic">
@@ -450,57 +437,54 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Skills -->
           <div class="fade-section">
-            <h2
-              class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4"
-            >
+            <h2 class="text-lg md:text-xl font-bold tracking-wider uppercase text-gray-700 mb-4">
               Technical Skills
             </h2>
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-700"
-            >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-700">
               <div>
-                <strong class="block text-gray-600 mb-1"
-                  >Programming & Software Tools</strong
-                >Python, Git
+                <strong class="block text-gray-600 mb-1">
+                  Programming & Software Tools
+                </strong>
+                Python, Git
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1"
-                  >Scientific Computing & Machine Learning</strong
-                >
-                PyTorch, TensorFlow/Keras, scikit-learn, pandas, NumPy, SymPy, Matplotlib
+                <strong class="block text-gray-600 mb-1">
+                  Scientific Computing & Machine Learning
+                </strong>
+                PyTorch, TensorFlow/Keras, scikit-learn, pandas, NumPy, SymPy,
+                Matplotlib
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1"
-                  >Modeling & Analysis</strong
-                >
-                Autoencoders, Hopfield networks, associative memory models, graph-structured
-                learning tasks, latent representation analysis, attractor network
-                simulations
+                <strong class="block text-gray-600 mb-1">
+                  Modeling & Analysis
+                </strong>
+                Autoencoders, Hopfield networks, associative memory models,
+                graph-structured learning tasks, latent representation analysis,
+                attractor network simulations
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1"
-                  >Research Communication</strong
-                >
-                Technical writing, literature synthesis, scientific editing, interdisciplinary
-                collaboration, teaching and mentorship
+                <strong class="block text-gray-600 mb-1">
+                  Research Communication
+                </strong>
+                Technical writing, literature synthesis, scientific editing,
+                interdisciplinary collaboration, teaching and mentorship
               </div>
               <div>
-                <strong class="block text-gray-600 mb-1"
-                  >Clinical & Laboratory</strong
-                >
-                Clinical data analysis, GCP documentation, regulatory writing, FDA
-                submission support, CTMS/LIMS platforms, mammalian cell culture, aseptic
-                technique, ELISA/ELISpot
+                <strong class="block text-gray-600 mb-1">
+                  Clinical & Laboratory
+                </strong>
+                Clinical data analysis, GCP documentation, regulatory writing,
+                FDA submission support, CTMS/LIMS platforms, mammalian cell
+                culture, aseptic technique, ELISA/ELISpot
               </div>
             </div>
           </div>
 
-          <br /><br />
+          <br />
+          <br />
 
           <!-- Footer -->
-          <div
-            class="mt-12 grid grid-cols-1 md:grid-cols-3 items-end gap-3 text-xs font-sans tracking-normal antialiased"
-          >
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 items-end gap-3 text-xs font-sans tracking-normal antialiased">
             <!-- Last update -->
             <div class="text-left text-gray-500 opacity-70 italic">
               <em>Last updated: Aug 2026</em>
